@@ -22,7 +22,7 @@ blueman-applet &
 xwallpaper --zoom $HOME/.config/wallpaper.jpg &
 uncluuter &
 xcompmgr &
-# screen.sh &
+.config/polybar/launch.sh &
 
 exec i3
 
