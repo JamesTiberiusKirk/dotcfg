@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'tpope/vim-vinegar'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'vim-scripts/vim-auto-save'
 
 call vundle#end()
@@ -20,8 +21,8 @@ syntax on
 set number relativenumber
 
 set smartindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 "set spell!
 
@@ -30,4 +31,4 @@ inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
 inoremap (<cr> (<cr>)<c-o><s-o>
 
-let g:auto_save = 1
+"let g:auto_save = 1

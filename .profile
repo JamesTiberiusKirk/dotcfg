@@ -3,6 +3,7 @@ export EDITOR="vim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export TERM="alacritty"
 
+export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
