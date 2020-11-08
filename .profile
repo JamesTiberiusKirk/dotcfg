@@ -7,5 +7,5 @@ export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-alias config='/usr/bin/git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
+alias cfg='/usr/bin/git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
 alias ll="ls -al"
