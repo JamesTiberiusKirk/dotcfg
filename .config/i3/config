@@ -204,6 +204,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # Lxrandr
 bindsym $mod+ctrl+p exec lxrandr
 
+# Monitor reset
+bindsym $mod+shift+ctrl+p exec ~/.scripts/internal_monitor.sh
+
 # Flameshot
 bindsym $mod+shift+p exec flameshot gui
 
@@ -253,7 +256,6 @@ assign [class="Brave-browser"] $ws1
 
 # Workspace 3
 assign [class="TelegramDesktop"] $ws3
-
 
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
