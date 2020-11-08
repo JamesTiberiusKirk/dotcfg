@@ -211,7 +211,7 @@ bindsym $mod+shift+ctrl+p exec ~/.scripts/internal_monitor.sh
 bindsym $mod+shift+p exec flameshot gui
 
 # Suspend
-bindsym $mod+shift+z exec ~/.scripts/suspend.sh
+bindsym $mod+shift+z exec ~/.scripts/system/suspend.sh
 
 # Lock
 bindsym $mod+shift+x exec i3lock
