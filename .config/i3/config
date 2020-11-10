@@ -156,10 +156,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 5 ppt
+        bindsym j resize grow height 10 px or 5 ppt
+        bindsym k resize shrink height 10 px or 5 ppt
+        bindsym l resize grow width 10 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -205,7 +205,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+ctrl+p exec lxrandr
 
 # Monitor reset
-bindsym $mod+shift+ctrl+p exec ~/.scripts/internal_monitor.sh
+bindsym $mod+shift+ctrl+p exec ~/.scripts/xrandr/internal_monitor.sh
 
 # Flameshot
 bindsym $mod+shift+p exec flameshot gui
@@ -259,3 +259,6 @@ assign [class="TelegramDesktop"] $ws3
 
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
+
+
+gaps inner 8
