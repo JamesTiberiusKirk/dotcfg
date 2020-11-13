@@ -219,6 +219,9 @@ bindsym $mod+shift+x exec i3lock
 # Blueman
 bindsym $mod+shift+b exec blueman-manager
 
+# Hibernate
+bindsym $mod+ctrl+z exec ~/.scripts/system/hibernate.sh
+
 # redshift modes
 bindsym $mod+ctrl+r mode "$mode_redshift"
 set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K (6)000
