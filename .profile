@@ -9,3 +9,9 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 
 alias cfg='/usr/bin/git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
 alias ll="ls -al"
+alias gaa="git add --all"
+alias ga="git add "
+alias gc="git commit -m"
+alias gp="git push"
+alias gpl="git pull"
+alias gs="git status"
