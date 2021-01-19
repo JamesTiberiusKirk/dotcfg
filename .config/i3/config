@@ -202,7 +202,11 @@ bindsym XF86AudioPrev exec playerctl previous
 
 
 # Lxrandr
-bindsym $mod+ctrl+p exec lxrandr
+# bindsym $mod+ctrl+p exec lxrandr
+
+# External monitor script
+bindsym $mod+ctrl+p exec ~/.scripts/xrandr/4k_monitor.sh
+
 
 # Monitor reset
 bindsym $mod+shift+ctrl+p exec ~/.scripts/xrandr/internal_monitor.sh
@@ -258,7 +262,7 @@ assign [class="Brave-browser"] $ws1
 # Workspace 2
 
 # Workspace 3
-assign [class="TelegramDesktop"] $ws3
+assign [class="TelegramDesktop"] $ws0
 
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
