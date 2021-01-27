@@ -254,15 +254,19 @@ for_window [class="^.*"] border pixel 2
 for_window [title="Microsoft Teams Notification"] floating enable
 
 
+# Moving Workspaces between screens
+bindsym $mod+p move workspace to output right
+
+
 # Assigning windows to workspaces
 
 # Workspace 1
-assign [class="Brave-browser"] $ws1
+# assign [class="Brave-browser"] $ws1
 
 # Workspace 2
 
 # Workspace 3
-assign [class="TelegramDesktop"] $ws0
+assign [class="TelegramDesktop"] $ws10
 
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
