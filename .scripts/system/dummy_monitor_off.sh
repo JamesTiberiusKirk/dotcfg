@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xrandr --output VIRTUAL1 --off
