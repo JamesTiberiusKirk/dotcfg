@@ -24,6 +24,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set scrolloff=8
 "set spell!
 
 
@@ -32,3 +33,7 @@ inoremap [<cr> [<cr>]<c-o><s-o>
 inoremap (<cr> (<cr>)<c-o><s-o>
 
 "let g:auto_save = 1
+
+
+autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
+
