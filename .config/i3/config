@@ -192,8 +192,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # # Touchpad controls
-bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
-#
+# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
 # # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -201,18 +201,20 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
-# Lxrandr
-# bindsym $mod+ctrl+p exec lxrandr
-
+## Monitor scripts ##
 # External monitor script
 bindsym $mod+ctrl+p exec ~/.scripts/xrandr/4k_monitor.sh
 
-
-# Monitor reset
+# Monitor reset (just the internal)
 bindsym $mod+shift+ctrl+p exec ~/.scripts/xrandr/internal_monitor.sh
 
+# Internal + 4k external
+bindsym $mod+shift+p exec ~/.scripts/xrandr/internal+external.sh
+
+########
+
 # Flameshot
-bindsym $mod+shift+p exec flameshot gui
+bindsym $mod+shift+s exec flameshot gui
 
 # Suspend
 bindsym $mod+shift+z exec ~/.scripts/system/suspend.sh
