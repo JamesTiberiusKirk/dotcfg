@@ -22,7 +22,7 @@ batteryCharging = #a3be8c
 alert = #bd2c40
 
 [bar/mybar]
-;monitor = ${env:MONITOR:DisplayPort-0}
+monitor = ${env:MONITOR:}
 
 bottom = false
 
