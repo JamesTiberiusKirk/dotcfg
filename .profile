@@ -9,8 +9,12 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 
 alias ll="ls -al"
 
-# For the config bare repo
-alias cfg='/usr/bin/git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
+# Git bare repo for the dotconfigs
+alias cfg='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
+alias cfgau='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader add -u'
+alias cfga='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader add'
+alias cfgc='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader commit -m'
+alias cfgp='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader push'
 
 # Git aliases
 alias gaa="git add --all"

@@ -19,7 +19,8 @@ xmodmap "$usermodmap"
 dunst &
 # redshift-gtk &
 blueman-applet &
-xwallpaper --zoom $HOME/.config/wallpaper.jpg &
+#xwallpaper --zoom $HOME/.config/wallpaper.jpg &
+~/.scripts/wallpapers.sh
 uncluuter &
 xcompmgr &
 #.config/polybar/launch.sh &
