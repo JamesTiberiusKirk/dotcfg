@@ -15,15 +15,12 @@ xrdb -merge "$userresources"
 xmodmap "$usermodmap"
 
 # start some nice programs
-
 dunst &
-# redshift-gtk &
 blueman-applet &
-#xwallpaper --zoom $HOME/.config/wallpaper.jpg &
 ~/.scripts/wallpapers.sh
 uncluuter &
-xcompmgr &
-#.config/polybar/launch.sh &
+#xcompmgr &
+picom &
 
 exec i3
 
