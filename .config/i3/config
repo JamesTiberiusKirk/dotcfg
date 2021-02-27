@@ -24,7 +24,7 @@ font pango:monospace 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.scripts/system/lock.sh --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -213,6 +213,8 @@ bindsym $mod+shift+ctrl+p exec ~/.scripts/xrandr/internal_monitor.sh
 bindsym $mod+shift+p exec ~/.scripts/xrandr/internal+external.sh
 
 ########
+# Change wallpeper
+bindsym $mod+shift+ctrl+w exec ~/.scripts/wallpapers.sh
 
 # Flameshot
 bindsym $mod+shift+s exec flameshot gui
@@ -221,7 +223,7 @@ bindsym $mod+shift+s exec flameshot gui
 bindsym $mod+shift+z exec ~/.scripts/system/suspend.sh
 
 # Lock
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec ~/.scripts/system/lock.sh
 
 # Blueman
 bindsym $mod+shift+b exec blueman-manager
@@ -274,8 +276,7 @@ assign [class="TelegramDesktop"] $ws10
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
-
 # Gapps setup
-gaps inner 8
+gaps inner 5
 bindsym $mod+shift+ctrl+f gaps inner current set 0
-bindsym $mod+shift+ctrl+g gaps inner current set 8
+bindsym $mod+shift+ctrl+g gaps inner current set 5

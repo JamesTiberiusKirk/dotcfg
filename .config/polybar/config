@@ -50,7 +50,7 @@ module-margin-right = 1
 font-0 = Hack:pixelsize=9;1
 font-1 = Noto Color Emoji:scale=10:style=Regular;2
 
-modules-left = i3 bspwm 
+modules-left = i3 
 modules-center = mpd capslock
 modules-right = filesystem backlight-acpi pulseaudio xkeyboard memory cpu wlan eth battery date powermenu
 
@@ -58,8 +58,8 @@ modules-right = filesystem backlight-acpi pulseaudio xkeyboard memory cpu wlan e
 tray-position = right
 tray-padding = 2 
 
-wm-restack = bspwm
-;wm-restack = i3
+;wm-restack = bspwm
+wm-restack = i3
 
 ;override-redirect = true
 

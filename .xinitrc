@@ -21,6 +21,7 @@ blueman-applet &
 uncluuter &
 #xcompmgr &
 picom &
+flameshot &
 
 exec i3
 

@@ -18,6 +18,7 @@ export ZSH="/home/darthvader/.oh-my-zsh"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_THEME="avit"
 
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -50,7 +51,7 @@ ZSH_THEME="avit"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -115,4 +116,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source ~/.profile
 source ~/.env
 
-
+# Vi mode
+bindkey -v
+export KEYTIMEOUT=1

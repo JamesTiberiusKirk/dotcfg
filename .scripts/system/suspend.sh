@@ -1,3 +1,3 @@
 #!/bin/sh
 
-i3lock && systemctl suspend
+~/.scripts/system/lock.sh && systemctl suspend
