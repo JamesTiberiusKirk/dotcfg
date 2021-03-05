@@ -3,7 +3,6 @@
     "window.menuBarVisibility": "toggle",
     "editor.lineNumbers": "relative",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "window.zoomLevel": -1,
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "files.exclude": {
