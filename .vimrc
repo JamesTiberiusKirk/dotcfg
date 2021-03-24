@@ -37,6 +37,13 @@ Plug 'morhetz/gruvbox'
 " Tabs
 Plug 'ap/vim-buftabline'
 
+" Dart & Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+
+" These are for dart autocompletion
+"Plug 'natebosch/vim-lsc'
+"Plug 'natebosch/vim-lsc-dart'
 
 call plug#end()
 
@@ -55,8 +62,8 @@ set scrolloff=8
 set splitbelow splitright
 set spell!
 
-"set background=dark
-"colorscheme gruvbox
+set background=dark
+colorscheme gruvbox
 
 "noremap <ALT-h> <C-w>h
 "noremap <ALT-j> <C-w>j
@@ -70,7 +77,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 
 " fsf settings
-let g:fzf_preview_window = ['right:50%', 'ctrl-x']
+" let g:fzf_preview_window = ['right:50%', 'ctrl-x']
 
 " NERD Comments settings
 let g:NERDSpaceDelims = 1
@@ -84,9 +91,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTree | wincmd p
 
-" Navigating buffers 
+" Navigating buffers (Tabs)
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-M> :bprev<CR>
+nnoremap <C-W> :bd<CR>
 
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
@@ -101,4 +109,23 @@ autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redra
 " JS-beautify binding
 " nnoremap <leader>ff :%!js-beautify -P -j -q -B -f -<CR>
 nnoremap <leader>ff :%! prettydiff beautify source:<CR>
+
+
+" Dart & Flutter
+let g:lsc_auto_map = v:true
+nnoremap <leader>fa :FlutterRun<cr>
+nnoremap <leader>fq :FlutterQuit<cr>
+nnoremap <leader>fr :FlutterHotReload<cr>
+nnoremap <leader>fR :FlutterHotRestart<cr>
+nnoremap <leader>fD :FlutterVisualDebug<cr>
+
+" CoC
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" FZF
+nnoremap <silent> <C-p> :Files<CR>
+
 

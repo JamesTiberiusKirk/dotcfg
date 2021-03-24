@@ -219,7 +219,7 @@ bindsym $mod+shift+ctrl+w exec ~/.scripts/wallpapers.sh
 # Flameshot
 bindsym $mod+shift+s exec flameshot gui
 
-# Suspend
+# Suspend (sleep)
 bindsym $mod+shift+z exec ~/.scripts/system/suspend.sh
 
 # Lock
@@ -272,6 +272,7 @@ bindsym $mod+p move workspace to output right
 
 # Workspace 3
 assign [class="TelegramDesktop"] $ws10
+assign [class="Discord"] $ws10
 
 # Start Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
@@ -280,3 +281,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 gaps inner 5
 bindsym $mod+shift+ctrl+f gaps inner current set 0
 bindsym $mod+shift+ctrl+g gaps inner current set 5
+
+
+
+
+
+

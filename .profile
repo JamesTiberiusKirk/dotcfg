@@ -5,10 +5,18 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export TERM=""
 export WALL_PATH=~/Pictures/wallpapers
 
+# Paths and bins
+export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$PATH:$HOME/apps/appimages/"
+export PATH="$PATH:$HOME/apps/android-studio/bin/"
+
+# Aliases
 
 alias ll="ls -al"
 

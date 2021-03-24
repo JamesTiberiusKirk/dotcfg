@@ -22,15 +22,23 @@ batteryCharging = #a3be8c
 alert = #bd2c40
 
 [bar/mybar]
+
+padding-left = 0
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 1
+
+fixed-center = true
+
 monitor = ${env:MONITOR:}
 
 bottom = false
 
 enable-ipc = true
 width = 100%
+;width = 99%
 height = 24
-
-fixed-center = false
+;height = 30
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -41,19 +49,14 @@ line-color = #f00
 border-bottom-size = 2
 border-color = #000000
 
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 0
-module-margin-right = 1
-
 font-0 = Hack:pixelsize=9;1
+;font-0 = Hack:pixelsize=16;1
 font-1 = Noto Color Emoji:scale=10:style=Regular;2
+font-2 = Font Awesome 5 Free:pixelsize=12;2
 
-modules-left = i3 
-modules-center = mpd capslock
-modules-right = filesystem backlight-acpi pulseaudio xkeyboard memory cpu wlan eth battery date powermenu
-
+modules-left = i3 xwindow capslock 
+;modules-center =
+modules-right = filesystem backlight-acpi pulseaudio memory cpu battery date powermenu
 
 tray-position = right
 tray-padding = 2 
@@ -83,7 +86,8 @@ monitor = ${env:MONITOR:DVI-D-0}
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = "🪟 %title:0:40:...% "
+
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -220,7 +224,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp58s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -260,14 +264,19 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %d-%m :"
-time = " %H:%M"
+date = "%d-%m"
+time = "%H:%M"
 
-format-prefix = ⏲
+date_alt = "%d-%m"
+time_alt = "%H:%M"
+
+;format-prefix = ⏲
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
-label = %time%
+label = " 📅 %date% | ⏲ %time% "
+
+click-left = #date.toggle
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -369,27 +378,34 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = PM
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
+menu-0-0-exec = #powermenu.open.1
 menu-0-1 = power off
-menu-0-1-exec = menu-open-2
+menu-0-1-exec = #powermenu.open.2
+menu-0-2 = hibernate
+menu-0-2-exec = #powermenu.open.3
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+menu-1-0 = reboot
+menu-1-0-exec = reboot
+menu-1-1 = cancel
+menu-1-1-exec = #powermenu.open.1
 
 menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
+menu-2-0-exec = poweroff
 menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-2-1-exec = #powermenu.open.1
+
+menu-3-0 = hibernate
+menu-3-0-exec = /home/darthvader/.scripts/system/hibernate.sh
+menu-3-1 = cancel
+menu-3-1-exec = #powermenu.open.1
 
 [settings]
 screenchange-reload = true
@@ -404,3 +420,6 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
+
+
+
