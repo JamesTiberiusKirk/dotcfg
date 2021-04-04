@@ -55,15 +55,15 @@ syntax on
 
 set number relativenumber
 set smartindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set scrolloff=8
 set splitbelow splitright
 set spell!
 
-set background=dark
-colorscheme gruvbox
+"set background=dark
+"colorscheme gruvbox
 
 "noremap <ALT-h> <C-w>h
 "noremap <ALT-j> <C-w>j
@@ -75,6 +75,7 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+noremap <C-s> <C-w><CR>
 
 " fsf settings
 " let g:fzf_preview_window = ['right:50%', 'ctrl-x']
@@ -92,8 +93,8 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTree | wincmd p
 
 " Navigating buffers (Tabs)
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-M> :bprev<CR>
+nnoremap <C-M> :bnext<CR>
+nnoremap <C-N> :bprev<CR>
 nnoremap <C-W> :bd<CR>
 
 inoremap {<cr> {<cr>}<c-o><s-o>
@@ -108,7 +109,7 @@ autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redra
 
 " JS-beautify binding
 " nnoremap <leader>ff :%!js-beautify -P -j -q -B -f -<CR>
-nnoremap <leader>ff :%! prettydiff beautify source:<CR>
+"nnoremap <leader>ff :%! prettydiff beautify source:<CR>
 
 
 " Dart & Flutter
@@ -126,6 +127,5 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " FZF
-nnoremap <silent> <C-p> :Files<CR>
-
+nnoremap <silent> <C-p> :GFiles<CR>
 

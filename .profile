@@ -17,7 +17,7 @@ export PATH="$PATH:$HOME/apps/appimages/"
 export PATH="$PATH:$HOME/apps/android-studio/bin/"
 
 # Aliases
-
+alias cls="clear"
 alias ll="ls -al"
 
 # Git bare repo for the dotconfigs

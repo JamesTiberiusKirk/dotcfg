@@ -10,15 +10,18 @@ rofi.color-urgent: argb:00273238, #ff1844, argb:3a273238, #394249, #ff1844
 rofi.hide-scrollbar:    true!---------------------------------
 ! Xft settings
 ! --------------------------------
-!Xft.dpi:        90
+Xft.dpi:        90
 !Xft.dpi:	    144
-Xft.dpi:	    192
+!Xft.dpi:	    192
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
 Xft.autohint:   false
 Xft.lcdfilter:  lcddefault!---------------------------------
+! I3 configs
+
+
 ! URXVT Terminal config
 ! --------------------------------
 URxvt.depth:                            32
