@@ -3,7 +3,8 @@ export EDITOR="vim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export TERM="alacritty"
 # export TERM=""
-export WALL_PATH=~/Pictures/wallpapers
+# export WALL_PATH=~/Pictures/wallpapers
+export WALL_PATH=~/Pictures/vapourwaveWalls
 
 # Paths and bins
 export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
