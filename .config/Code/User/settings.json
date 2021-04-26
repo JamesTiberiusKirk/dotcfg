@@ -16,5 +16,6 @@
             "level": "off"
         }
     },
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim"
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "window.zoomLevel": -1
 }

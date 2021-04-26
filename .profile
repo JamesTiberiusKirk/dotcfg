@@ -2,9 +2,10 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="vim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export TERM="alacritty"
-# export TERM=""
 # export WALL_PATH=~/Pictures/wallpapers
 export WALL_PATH=~/Pictures/vapourwaveWalls
+export SCREEN1W="$WALL_PATH/wp4118649-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
+# export LOCKSCREEN_WALL="$WALL_PATH/wp7758145-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
 
 # Paths and bins
 export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
@@ -43,7 +44,7 @@ alias pj="function _(){echo '/home/darthvader/Projects/$1 ';}; _"
 
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
-alias tin="tree -f -I /"node_modules/""
+alias tin="tree -I 'node_modules'"
 
 # For xdg-open
 alias open="xdg-open"

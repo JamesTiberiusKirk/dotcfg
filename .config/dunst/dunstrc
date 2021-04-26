@@ -1,13 +1,13 @@
 [global]
 monitor = 0
 follow = keyboard
-geometry = "300x5-0+30"
+geometry = "550x5-10+65"
 indicate_hidden = yes
 shrink = yes
 transparency = 20
 notification_height = 0
 separator_height = 2
-padding = 0
+padding = 2
 horizontal_padding = 0
 frame_width = 1
 frame_color = "#282828"
@@ -37,7 +37,7 @@ markup = full
 #   %n  progress value if set without any extra characters
 #   %%  Literal %
 # Markup is allowed
-format = "<b>%s</b>\n%b"
+format = "<b>%a</b>\n<b>%s</b>\n%b"
 
 alignment = left
 show_age_threshold = 60
@@ -79,21 +79,40 @@ close_all = ctrl+shift+space
 history = ctrl+grave
 context = ctrl+shift+period
 
+# [urgency_low]
+# background = "#282828"
+# foreground = "#a3c3e2"
+# frame_color = "#a3c3e2"
+# timeout = 5
+# 
+# [urgency_normal]
+# background = "#282828"
+# foreground = "#a3c3e2"
+# frame_color = "#a3c3e2"
+# timeout = 5
+# 
+# [urgency_critical]
+# background = "#cc2421"
+# foreground = "#a3c3e2"
+# frame_color = "#fabd2f"
+# timeout = 0
+
 [urgency_low]
-background = "#282828"
-foreground = "#a3c3e2"
-frame_color = "#a3c3e2"
-timeout = 5
+background = "#330033"
+foreground = "#fcfcfc"
+# frame_color = "#a3c3e2"
+timeout = 7
 
 [urgency_normal]
-background = "#282828"
-foreground = "#a3c3e2"
-frame_color = "#a3c3e2"
-timeout = 5
+#background = "#282828"
+background = "#330033"
+foreground = "#fcfcfc"
+# frame_color = "#a3c3e2"
+timeout = 7
 
 [urgency_critical]
-background = "#cc2421"
-foreground = "#a3c3e2"
-frame_color = "#fabd2f"
-timeout = 0
+#background = "#cc2421"
+foreground = "#fcfcfc"
+# frame_color = "#fabd2f"
+timeout = 7
 

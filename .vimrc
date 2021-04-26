@@ -105,7 +105,8 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 " let g:auto_save = 1
 
 " Auto compile latex
-autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
+" autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
+" autocmd BufWritePost *.tex silent! execute "!pdflatex -interaction=nonstopmode % >/dev/null 2>&1" | redraw!
 
 " JS-beautify binding
 " nnoremap <leader>ff :%!js-beautify -P -j -q -B -f -<CR>
