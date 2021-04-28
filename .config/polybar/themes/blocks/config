@@ -18,12 +18,8 @@
 
 [colors]
 
-; background = ${xrdb:color0:#222}
-; color1 = ${xrdb:color2}
 color1 = #8fbcbb
-; color2 = ${xrdb:color4}
 color2 = #d8dee9
-; color3 = ${xrdb:color6}
 color3 = #e5e9f0
 
 background = #330033
@@ -44,16 +40,13 @@ alert = #ff0066
 
 [bar/base]
 font-0 = Hack:pixelsize=12;1
-font-1 = Noto Color Emoji:scale=10:style=Regular;2
-font-2 = Font Awesome 5 Free:pixelsize=12;2
-font-3=IPAGothic:style=Regular:size=11:antialias=true;3
-; font-0=SF Mono:size=11:antialias=true;3
-; font-1=FontAwesome5Free:style=Regular:size=9:antialias=true;3
-; font-2=FontAwesome5Free:style=Solid:size=9:antialias=true;3
+font-1 = DejaVu Math TeX Gyre:pixelsize=12;2
+font-2=IPAGothic:style=Regular:size=11:antialias=true;3
+font-3=FontAwesome5Free:style=Solid:size=9:antialias=true;3
 
-height = 45
+height = 40
+; height = 52
 radius = 14
-;Works very well with a ;radius like this! Put it on every bar.
 
 wm-restack = i3
 
@@ -69,7 +62,7 @@ width = 25%
 foreground = ${colors.foreground}
 
 offset-x = 20
-modules-left = i3-original xwindow
+modules-left = i3 xwindow
 modules-right = capslock
 
 scroll-up = i3wm-wsnext
@@ -85,20 +78,28 @@ offset-x = 38%
 modules-left = previous media-play-pause next
 modules-center = media 
 modules-right = pulseaudio
-padding-right = 2
-; Mpd
-; modules-left = mpd
+
+
+[bar/sys]
+inherit = bar/base
+; width = 17.5%
+width = 13.5%
+padding-right = 0
+; offset-x = 81.9%
+offset-x = 68%
+; tray-padding = 2 
+padding-left= 2
+modules-left = battery xbacklight cpu memory filesystem
 
 [bar/tray]
 inherit = bar/base
-width = 17.5%
+width = 15%
 padding-right = 0
-offset-x = 81.9%
+offset-x = 84.5%
 tray-position = center
-tray-padding = 2 
-padding-left= 2
-modules-left = battery xbacklight
-modules-right = time power
+tray-padding = 2
+modules-right = powermenu
+modules-left = time
 
 ;                      _       _           
 ;  _ __ ___   ___   __| |_   _| | ___  ___ 
@@ -106,19 +107,6 @@ modules-right = time power
 ; | | | | | | (_) | (_| | |_| | |  __/\__ \
 ; |_| |_| |_|\___/ \__,_|\__,_|_|\___||___/
                                          
-[module/wsnumber]
-type = custom/script
-exec = ~/.config/polybar/get_workspace
-tail = true
-interval = 0
-format = "<label>  "
-format-padding = 0
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-scroll-up = i3 workspace next
-scroll-down = i3 workspace prev
-
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:50:...%
@@ -127,39 +115,6 @@ label-background = ${colors.background}
 label-padding = 2
 
 [module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-format-padding = 1
-format-background = ${colors.foreground}
-format-foreground = ${colors.background}
-index-sort = true
-wrapping-scroll = false
-
-enable-click = true
-reverse-scroll = false
-
-label-focused = 
-label-focused-font = 3
-label-focused-foreground = ${colors.background}
-label-focused-padding = 1
-
-label-unfocused = 
-label-unfocused-font = 2
-label-unfocused-padding = 1
-label-unfocused-foreground = ${colors.background}
-
-label-urgent = 
-label-urgent-font = 1
-label-urgent-padding = 1
-label-urgent-foreground = ${colors.background}
-
-; ws-icon-0 = 1;
-; ws-icon-1 = 2;
-; ws-icon-2 = 3;
-; ws-icon-9 = 10;
-; ws-icon-default = 
-
-[module/i3-original]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
@@ -265,57 +220,10 @@ ramp-volume-0 = ""
 ramp-volume-1 = ""
 ramp-volume-2 = ""
 
-
 label-muted = "    "   
 label-muted-background = ${colors.background}
 label-muted-foreground = ${colors.foreground}
 label-muted-padding = 2
-
-;Spotify modules
-
-[module/previous]
-type = custom/script
-format-font = 3
-format-padding = 2
-format-background = ${colors.foreground-alt}
-format-foreground = ${colors.background}
-exec = echo "  "
-exec-if = "pgrep spotify"
-click-left = "playerctl previous"
-
-
-[module/next]
-type = custom/script
-format-font = 3
-format-padding = 2
-format-background = ${colors.foreground-alt}
-format-foreground = ${colors.background}
-exec = echo "  "
-exec-if = "pgrep spotify"
-click-left = "playerctl next"
-
-[module/media-play-pause]
-type = custom/ipc
-hook-0 = echo ❚❚
-; hook-0 = echo ⏸
-hook-1 = echo ▶
-initial = 1
-click-left = playerctl --player=spotify play-pause 
-format-font = 3
-format-background = ${colors.foreground-alt}
-format-foreground = ${colors.background}
-format-padding = 1
-tail = true
-exec-if = "pgrep spotify"
-
-[module/media]
-type = custom/script
-tail = true
-format-prefix = "Spotify | "
-format = <label>
-; exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
-exec = ~/.config/polybar/scripts/get_spotify_status.sh
-exec-if = "pgrep spotify"
 
 [module/battery]
 type = internal/battery
@@ -335,7 +243,6 @@ format-full-prefix = "FULL "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-;; Capslock module, from xkeyboard internal module.
 [module/capslock]
 type = internal/xkeyboard
 
@@ -351,6 +258,161 @@ type = internal/xbacklight
 format = <label>
 ;format = <label> <ramp>
 label = " ☼%percentage%%"
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = "  DISK %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%"
+label-unmounted = "  DISK %mountpoint% not mounted"
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " CPU "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "  MEM "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp58s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = tun0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-open = "  "
+label-close = "| x"
+label-separator = |
+
+menu-0-0 = "r"
+menu-0-0-exec = #powermenu.open.1
+menu-0-1 = "pf"
+menu-0-1-exec = #powermenu.open.2
+menu-0-2 = "h  "
+menu-0-2-exec = #powermenu.open.3
+
+menu-1-0 = "r  "
+menu-1-0-exec = reboot
+
+menu-2-0 = "pf  "
+menu-2-0-exec = poweroff
+
+menu-3-0 = "h  "
+menu-3-0-exec = /home/darthvader/.scripts/system/hibernate.sh
+
+; [module/media-prev]
+; type = custom/script
+; exec = echo "⏮️"
+; format = <label>
+; click-left = playerctl --player=spotify previous 
+; exec-if = "pgrep spotify"
+
+; [module/media-play-pause]
+; type = custom/ipc
+; hook-0 = echo "⏸️"
+; hook-1 = echo "▶️"
+; initial = 1
+; click-left = playerctl --player=spotify play-pause 
+; exec-if = "pgrep spotify"
+
+; [module/media-next]
+; type = custom/script
+; exec = echo "⏭️"
+; format = <label>
+; click-left = playerctl --player=spotify next 
+; exec-if = "pgrep spotify"
+
+;Spotify modules
+
+[module/previous]
+type = custom/script
+format-font = 3
+format-padding = 2
+format-background = ${colors.foreground-alt}
+format-foreground = ${colors.background}
+exec = echo "  "
+exec-if = "pgrep spotify"
+click-left = "playerctl previous"
+
+[module/next]
+type = custom/script
+format-font = 3
+format-padding = 2
+format-background = ${colors.foreground-alt}
+format-foreground = ${colors.background}
+exec = echo "  "
+exec-if = "pgrep spotify"
+click-left = "playerctl next"
+
+[module/media-play-pause]
+type = custom/ipc
+hook-0 = echo ⏸
+hook-1 = echo ▶
+initial = 1
+click-left = playerctl --player=spotify play-pause 
+format-font = 3
+format-background = ${colors.foreground-alt}
+format-foreground = ${colors.background}
+format-padding = 1
+tail = true
+exec-if = "pgrep spotify"
+
+[module/media]
+type = custom/script
+tail = true
+format-prefix = "Spotify | "
+format = <label>
+exec = ~/.config/polybar/scripts/get_spotify_status.sh
+exec-if = "pgrep spotify"
+
 
 [settings]
 screenchange-reload = true
