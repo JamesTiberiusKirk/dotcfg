@@ -83,10 +83,10 @@ modules-right = pulseaudio
 [bar/sys]
 inherit = bar/base
 ; width = 17.5%
-width = 10.5%
+width = 13.5%
 padding-right = 0
 ; offset-x = 81.9%
-offset-x = 73%
+offset-x = 70%
 ; tray-padding = 2 
 ; padding-left= 2
 modules-center = battery xbacklight cpu memory filesystem
