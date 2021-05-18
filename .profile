@@ -13,10 +13,13 @@ export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 export PATH="$JAVA_HOME/bin:$PATH"
 export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
+#export PATH="$PATH:$HOME/apps/monero-gui-v0.17.2.2/extras"
+export PATH="$PATH:$HOME/apps/monero-gui-v0.17.2.2"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="$PATH:$HOME/apps/appimages/"
 export PATH="$PATH:$HOME/apps/android-studio/bin/"
+export PATH="$PATH:$HOME/go/bin"
 
 # Aliases
 alias cls="clear"

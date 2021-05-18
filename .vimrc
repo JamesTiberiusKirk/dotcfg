@@ -45,6 +45,8 @@ Plug 'thosakwe/vim-flutter'
 "Plug 'natebosch/vim-lsc'
 "Plug 'natebosch/vim-lsc-dart'
 
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
 call plug#end()
 
 filetype plugin indent on
