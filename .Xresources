@@ -1,7 +1,7 @@
 
 ! DPI settings
-!Xft.dpi:        90
-Xft.dpi:	    144
+Xft.dpi:        90
+!Xft.dpi:	    144
 !Xft.dpi:	    192
 
 ! URxvt Appearance
@@ -56,6 +56,5 @@ Xft.autohint: 0
 Xft.antialias: 1
 Xft.hinting: true
 Xft.hintstyle: hintslight
-!Xft.dpi: 96
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
