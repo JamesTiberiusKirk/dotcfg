@@ -10,7 +10,7 @@ call plug#begin('~/.vim/plugged')
 " plug 'tpope/vim-fugitive'
 
 " Code completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Code commenter
 Plug 'preservim/nerdcommenter'
