@@ -1,3 +1,15 @@
+;==========================================================
+;;
+;;
+;;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;;
+;;==========================================================
+
 [colors]
 background = #2e3440
 background-alt = #81a1c1
@@ -24,16 +36,14 @@ height = 24
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-height = 40
-; height = 52
-; radius = 14
-radius = 0
+line-size = 3
+line-color = #f00
 
 border-bottom-size = 2
 border-color = #000000
 
 font-0 = Hack:pixelsize=9;1
-;font-0 = Hack:pixelsize=16;1
+;font-0 = DejaVu:pixelsize=16;1
 font-1 = Noto Color Emoji:scale=10:style=Regular;2
 font-2 = Font Awesome 5 Free:pixelsize=12;2
 
@@ -59,7 +69,7 @@ height = 36
 font-0 = Hack:pixelsize=16;1
 font-1 = Noto Color Emoji:scale=6:style=Regular;2
 
-[bar/mainbar]
+[mainbar]
 inherit = bar/mybar
 monitor = ${env:MONITOR:DisplayPort-0}
 
@@ -128,8 +138,7 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
-; label-separator = |
-
+; label-separator 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -180,7 +189,6 @@ label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
-
 format = <label>
 ;format = <label> <ramp>
 label = 💡%percentage%%
@@ -188,7 +196,7 @@ label = 💡%percentage%%
 [module/backlight-acpi]
 inherit = module/xbacklight
 type = internal/backlight
-card = intel_backlight
+card = nv_backlight
 
 [module/cpu]
 type = internal/cpu
@@ -208,13 +216,11 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp58s0
+interface = wlp4s0
 interval = 3.0
-
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
-
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -232,7 +238,6 @@ ramp-signal-foreground = ${colors.foreground-alt}
 type = internal/network
 interface = tun0
 interval = 3.0
-
 format-connected-underline = #55aa55
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
