@@ -14,12 +14,16 @@ xmodmap "$usermodmap"
 # start some nice programs
 dunst &
 blueman-applet &
-~/.scripts/wallpapers.sh
+xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png
+#~/.scripts/wallpapers.sh
+#~/.scripts/system/touchpad.sh &
 uncluuter &
 flameshot &
 setxkbmap gb &
-puicom -f &
-nitrogen --restore
+picom &
+# nitrogen --restore
 
-exec dwm
+
+#exec dwm
+exec i3
 

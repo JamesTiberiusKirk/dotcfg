@@ -1,7 +1,5 @@
 #!/bin/sh
 
-xrandr --output DP1 --off --output eDP1 --auto
-xinput --map-to-output "ELAN Touchscreen" eDP1
+xrandr --output DP-2 --auto --output HDMI-0 --off --output DP-0 --off --output DP-1 --off
 
-~/.config/polybar/launch.sh
-~/.scripts/wallpapers.sh
+~/.config/polybar/launch.sh > /dev/null

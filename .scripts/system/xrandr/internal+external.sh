@@ -1,12 +1,20 @@
 #!/bin/sh
 
-# xrandr --output DP1 --auto --output eDP1 --auto --below DP1
-# xrandr --output DP1 --auto --brightness 0.9 --output eDP1 --mode 3200x1800 --right-of DP1
-xrandr --output DP1 --auto --output eDP1 --auto --right-of DP1
-# xrandr --output DP1 --auto --brightness 0.9 --output eDP1 --mode 1920x1080 --right-of DP1
+xrandr --output DP-2
+PREV_DIS=DP-2
 
-xinput --map-to-output "ELAN Touchscreen" eDP1
+echo "Available displays"
+xrandr -q | grep " connected" | cut -d " " -f1 | while read DIS;
+do 
+  #[[ -z $PREV_DIS ]] && xrandr --output $DIS --auto ;
+  [[ $DIS == "DP-2" ]] && continue;
+  [[ ! -z $PREV_DIS ]] && xrandr --output $DIS --auto --right-of $PREV_DIS;
+  echo "2:$PREV_DIS";
+  echo "1:$DIS";
+  PREV_DIS=$DIS;
+done 
 
 ~/.config/polybar/launch.sh
-~/.scripts/wallpapers.sh
+#~/.scripts/wallpapers.sh
+xwallpaper --zoom ./Pictures/wp1895637-vaporwave-wallpapers.png
 

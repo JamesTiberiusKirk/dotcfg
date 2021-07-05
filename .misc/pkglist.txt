@@ -363,7 +363,6 @@ xorg-xprop
 xorg-xwininfo
 xsel
 xz
-yay
 yelp
 youtube-dl
 zathura

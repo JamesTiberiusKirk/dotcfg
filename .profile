@@ -51,3 +51,9 @@ alias tin="tree -I 'node_modules'"
 
 # For xdg-open
 alias open="xdg-open"
+
+
+# Themes
+GTK_THEME=Adapta-Nokto
+
+

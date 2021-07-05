@@ -3,11 +3,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+#font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -37,15 +37,15 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec lxterminal
+bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # Start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#AA0000' -sf '#EEEEEE' -fn 'monospace-10' -p '>'"
+bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#AA0000' -sf '#EEEEEE' -fn 'dejavu-10' -p '>'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -177,8 +177,10 @@ bindsym $mod+r mode "resize"
 
 
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl s 10+ # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 10- # decrease screen brightness
 
 # # Touchpad controls
 # bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -265,15 +267,15 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Gapps setup
 gaps inner 5
-gaps top 40
-gaps left 7
-gaps right 7
-gaps bottom 7
+gaps top 5
+gaps left 5
+gaps right 5
+gaps bottom 5
 bindsym $mod+shift+ctrl+f gaps inner current set 0
 bindsym $mod+shift+ctrl+g gaps inner current set 5
 
 # round corners
-border_radius 15
+#border_radius 15
 
 # Colours
 # class                 border  bground text    indicator child_border
@@ -282,8 +284,5 @@ client.focused_inactive #333333 #222222 #FFFFFF #222222   #222222
 client.unfocused        #333333 #222222 #888888 #222222   #22222
 client.urgent           #222222 #FF0000 #FFFFFF #FF0000   #FF0000
 client.placeholder      #222222 #0C0C0C #FFFFFF #000000   #0C0C0C
-
-
 client.background       #FFFFFF
-
 
