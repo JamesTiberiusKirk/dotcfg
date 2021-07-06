@@ -5,7 +5,7 @@
         "command": "typescript.restartTsServer"
     },
     {
-        "key": "alt+j",
+        "key": "ctrl+alt+j",
         "command": "scrollLineDown",
         "when": "textInputFocus"
     },
@@ -15,7 +15,7 @@
         "when": "textInputFocus"
     },
     {
-        "key": "alt+k",
+        "key": "ctrl+alt+k",
         "command": "scrollLineUp",
         "when": "textInputFocus"
     },
@@ -33,5 +33,22 @@
         "key": "shift+alt+j",
         "command": "editor.action.moveLinesDownAction",
         "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusBelowGroup",
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusAboveGroup",
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusLeftGroup",
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusRightGroup",
     }
+
 ]
