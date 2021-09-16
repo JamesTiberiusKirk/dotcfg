@@ -1,3 +1,11 @@
+# MAC stuff
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=~/Applications:$PATH
+#export PATH=~/go/bin:$PATH
+export GOPATH=~/go
+
+
+# Linux stuff
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export EDITOR="vim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -6,8 +14,9 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export WALL_PATH=~/Pictures/vapourwaveWalls
 export SCREEN1W="$WALL_PATH/wp4118649-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
 # export LOCKSCREEN_WALL="$WALL_PATH/wp7758145-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
+export PATH="$PATH:$HOME/apps/appimages/"
 
-# Paths and bins
+# General
 export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
@@ -17,20 +26,20 @@ export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
 export PATH="$PATH:$HOME/apps/monero-gui-v0.17.2.2"
 export PATH="$PATH:$HOME/.local/bin/"
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PATH="$PATH:$HOME/apps/appimages/"
 export PATH="$PATH:$HOME/apps/android-studio/bin/"
-export PATH="$PATH:$HOME/go/bin"
+# export PATH="$PATH:$HOME/go/bin"
 
 # Aliases
 alias cls="clear"
 alias ll="ls -al"
 
 # Git bare repo for the dotconfigs
-alias cfg='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader'
-alias cfgau='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader add -u'
-alias cfga='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader add'
-alias cfgc='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader commit -m'
-alias cfgp='git --git-dir=/home/darthvader/.cfg/ --work-tree=/home/darthvader push'
+alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias cfgau='git --git-dir=$HOME/.cfg/ --work-tree=$HOME add -u'
+alias cfga='git --git-dir=$HOME/.cfg/ --work-tree=$HOME add'
+alias cfgc='git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m'
+alias cfgp='git --git-dir=$HOME/.cfg/ --work-tree=$HOME push'
+alias cfgs='git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
 
 # Git aliases
 alias gaa="git add --all"
@@ -42,9 +51,6 @@ alias gs="git status"
 alias gss="git submodule status"
 alias gsa="git submodule add"
 
-# For quick CDs in the projects folder
-alias pj="function _(){echo '/home/darthvader/Projects/$1 ';}; _"
-
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
 alias tin="tree -I 'node_modules'"
@@ -52,8 +58,9 @@ alias tin="tree -I 'node_modules'"
 # For xdg-open
 alias open="xdg-open"
 
-
 # Themes
 GTK_THEME=Adapta-Nokto
 
+# swapping vi for nvim
+alias vi="nvim"
 
