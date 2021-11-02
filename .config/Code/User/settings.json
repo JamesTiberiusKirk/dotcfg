@@ -17,9 +17,9 @@
         }
     },
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "window.zoomLevel": 1,
     "cSpell.userWords": [
         "ffmpeg",
         "webm"
-    ]
+    ],
+    "window.zoomLevel": -1
 }
