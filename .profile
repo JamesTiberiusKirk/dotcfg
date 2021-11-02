@@ -1,13 +1,13 @@
 # MAC stuff
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=~/Applications:$PATH
-#export PATH=~/go/bin:$PATH
+export PATH=~/go/bin:$PATH
 export GOPATH=~/go
 
 
 # Linux stuff
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export EDITOR="vim"
+export EDITOR="nvim"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # export TERM="alacritty"
 # export WALL_PATH=~/Pictures/wallpapers
@@ -50,13 +50,14 @@ alias gpl="git pull"
 alias gs="git status"
 alias gss="git submodule status"
 alias gsa="git submodule add"
+alias gd="git diff"
 
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
 alias tin="tree -I 'node_modules'"
 
 # For xdg-open
-alias open="xdg-open"
+# alias open="xdg-open"
 
 # Themes
 GTK_THEME=Adapta-Nokto
