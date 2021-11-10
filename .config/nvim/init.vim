@@ -6,8 +6,8 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
-" Git
-" plug 'tpope/vim-fugitive'
+" Window resize mode
+Plug 'https://github.com/simeji/winresizer'
 
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -37,22 +37,15 @@ Plug 'morhetz/gruvbox'
 " Tabs
 Plug 'ap/vim-buftabline'
 
-" Dart & Flutter
-" Plug 'dart-lang/dart-vim-plugin'
-" Plug 'thosakwe/vim-flutter'
-" These are for dart autocompletion
-" Plug 'natebosch/vim-lsc'
-" Plug 'natebosch/vim-lsc-dart'
-
 " Vim-go plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
-filetype plugin indent on
 
 """""""""""""""""""""""""
 
+filetype plugin indent on
 syntax on
 
 set number relativenumber
@@ -68,22 +61,17 @@ set title
 set background=dark
 colorscheme gruvbox
 
-"noremap <ALT-h> <C-w>h
-"noremap <ALT-j> <C-w>j
-"noremap <ALT-k> <C-w>k
-"noremap <ALT-l> <C-w>l
-
 " Pane navigation
-" noremap <Space>h <C-w>h
-" noremap <Space>j <C-w>j
-" noremap <Space>k <C-w>k
-" noremap <Space>l <C-w>l
+noremap <Space>h <C-w>h
+noremap <Space>j <C-w>j
+noremap <Space>k <C-w>k
+noremap <Space>l <C-w>l
 " noremap <Space>s <C-w><CR>
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-s> <C-w><CR>
+" noremap <D-h> <C-w>h
+" noremap <D-j> <C-w>j
+" noremap <D-k> <C-w>k
+" noremap <D-l> <C-w>l
+
 
 " NERD Comments settings
 let g:NERDSpaceDelims = 1

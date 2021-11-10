@@ -12,7 +12,7 @@ fi
 
 
 # Linux stuff
-if [[ $(uname) = "Darwin" ]];
+if [[ $(uname) = "Linux" ]];
 then
   export QT_QPA_PLATFORMTHEME="qt5ct"
   export EDITOR="nvim"
@@ -38,8 +38,8 @@ then
   # Themes
   GTK_THEME=Adapta-Nokto
 
-# For xdg-open
-alias open="xdg-open"
+  # For xdg-open
+  alias open="xdg-open"
 fi
 
 # Aliases
