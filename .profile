@@ -17,16 +17,16 @@ then
   export QT_QPA_PLATFORMTHEME="qt5ct"
   export EDITOR="nvim"
   export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-  # export TERM="alacritty"
+  export TERM="alacritty"
   # export WALL_PATH=~/Pictures/wallpapers
   export WALL_PATH=~/Pictures/vapourwaveWalls
   export SCREEN1W="$WALL_PATH/wp4118649-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
   # export LOCKSCREEN_WALL="$WALL_PATH/wp7758145-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
-  export PATH="$PATH:$HOME/apps/appimages/"
+  # export PATH="$PATH:$HOME/apps/appimages/"
 
   # General
-  export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
-  export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+  # export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
+  # export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
   export PATH="$JAVA_HOME/bin:$PATH"
   export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
