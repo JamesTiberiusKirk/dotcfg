@@ -5,13 +5,14 @@
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysmodmap=/etc/X11/xinit/.Xmodmap
-DEFAULT_SESSION=dwm
+DEFAULT_SESSION=i3
 
 xmodmap $sysmodmap
 xrdb -merge "$userresources"
 xmodmap "$usermodmap"
 
 # start some nice programs
+~/.scripts/system/nvidia-screen-tearing-fix.sh
 dunst &
 blueman-applet &
 xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png

@@ -59,7 +59,7 @@ font-1 = Noto Color Emoji:scale=6:style=Regular;2
 
 [mainbar]
 inherit = bar/mybar
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR:DP-1}
 
 [bar/secbar]
 inherit = bar/mybar

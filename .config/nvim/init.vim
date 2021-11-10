@@ -6,6 +6,10 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+
+" Vim window resizer
+Plug 'https://github.com/simeji/winresizer'
+
 " Git
 " plug 'tpope/vim-fugitive'
 
@@ -41,11 +45,12 @@ Plug 'ap/vim-buftabline'
 " Plug 'dart-lang/dart-vim-plugin'
 " Plug 'thosakwe/vim-flutter'
 " These are for dart autocompletion
-" Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc'
 " Plug 'natebosch/vim-lsc-dart'
 
 " Vim-go plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
 
 call plug#end()
 
