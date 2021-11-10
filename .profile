@@ -38,8 +38,8 @@ then
   # Themes
   GTK_THEME=Adapta-Nokto
 
-# For xdg-open
-alias open="xdg-open"
+  # For xdg-open
+  alias open="xdg-open"
 fi
 
 # Aliases
