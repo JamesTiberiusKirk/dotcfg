@@ -37,7 +37,7 @@ font-2 = Font Awesome 5 Free:pixelsize=12;2
 
 modules-left = i3 xwindow capslock 
 modules-center = media media-prev media-play-pause media-next
-modules-right = filesystem backlight-acpi pulseaudio memory cpu battery date powermenu
+modules-right = filesystem backlight pulseaudio memory cpu battery date powermenu
 
 tray-position = right
 tray-padding = 2 
@@ -181,7 +181,7 @@ label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
-format = <label>
+format =<label>
 ;format = <label> <ramp>
 label = 💡%percentage%%
 
@@ -189,6 +189,15 @@ label = 💡%percentage%%
 inherit = module/xbacklight
 type = internal/backlight
 card = acpi_video0
+; card = nv_backlight
+label = 💡%percentage%%
+
+[module/backlight]
+type = internal/backlight
+card = nvidia_0
+format =<label>
+label = 💡%percentage%%
+
 
 [module/cpu]
 type = internal/cpu

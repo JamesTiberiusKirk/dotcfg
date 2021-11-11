@@ -104,6 +104,8 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 
 
 " CoC
+" Rename doesnt work atm for GO 
+nmap <Space>r <Plug>(coc-rename) 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
