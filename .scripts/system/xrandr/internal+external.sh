@@ -11,6 +11,7 @@
 #  PREV_DIS=$DIS;
 #done 
 
+xrandr --output DP-2 --auto --output DP-0.1 --auto --right-of DP-2
 ~/.config/polybar/launch.sh
 #~/.scripts/wallpapers.sh
 xwallpaper --zoom ./Pictures/wp1895637-vaporwave-wallpapers.png

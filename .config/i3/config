@@ -240,7 +240,7 @@ for_window [title="(?i)grxwin"] [class="(?i)grxwin"] floating enable
 for_window [title="scrcpy"] [class="scrcpy"] floating enable
 
 # Removing titlebars
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 3
 
 # Trying to fix microsoft teams notification
 for_window [title="Microsoft Teams Notification"] floating enable

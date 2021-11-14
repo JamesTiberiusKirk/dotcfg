@@ -84,6 +84,9 @@ nnoremap <C-M> :bnext<CR>
 nnoremap <C-N> :bprev<CR>
 nnoremap <C-W><C-W> :bd<CR>
 
+" Closing buffer without closing window
+nmap <Space>d :b#<bar>bd#<CR>
+
 " Make Space then Esc clear search highlights
 nnoremap <silent> <Space><Esc> <Esc>:nohlsearch<CR><Esc>
 
