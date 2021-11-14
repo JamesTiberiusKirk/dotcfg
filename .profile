@@ -65,6 +65,12 @@ alias gss="git submodule status"
 alias gsa="git submodule add"
 alias gd="git diff"
 
+gas() {
+  FILES=$(git ls-files --modified --others | grep "$2" ) 
+  echo $FILES
+  git add $FILES
+}
+
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
 alias tin="tree -I 'node_modules'"
