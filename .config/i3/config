@@ -187,7 +187,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10- # decrease screen brightn
 
 ## Monitor scripts ##
 # External monitor script
-bindsym $mod+ctrl+p exec ~/.scripts/system/xrandr/internal+external.sh
+# bindsym $mod+ctrl+p exec ~/.scripts/system/xrandr/internal+external.sh
 
 # Monitor reset (just the internal)
 bindsym $mod+shift+ctrl+p exec ~/.scripts/system/xrandr/internal_monitor.sh
