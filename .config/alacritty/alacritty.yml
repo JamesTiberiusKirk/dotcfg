@@ -1,0 +1,29 @@
+
+
+font:
+  normal:
+    family: terminus
+    style: Regular
+
+  bold:
+    family: terminus
+    style: Bold
+
+  italic:
+    family: terminus
+    style: Italic
+
+  bold_italic:
+    family: terminus
+    style: Bold Italic
+
+  size: 11
+
+
+key_bindings:
+  - { key: V,           mods: Control|Shift,                    action: Paste            }
+  - { key: C,           mods: Control|Shift,                    action: Copy             }
+  - { key: Return,      mods: Control|Shift,                    action: SpawnNewInstance }
+  - { key: 0,           mods: Control|Shift,                    action: ResetFontSize    }
+  - { key: Equals,      mods: Control|Shift,                    action: IncreaseFontSize }
+  - { key: Minus,       mods: Control|Shift,                    action: DecreaseFontSize }
