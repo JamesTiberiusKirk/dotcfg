@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Just Black",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
     "window.menuBarVisibility": "toggle",
     "editor.lineNumbers": "relative",
     "typescript.updateImportsOnFileMove.enabled": "always",

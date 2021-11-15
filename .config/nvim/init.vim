@@ -82,7 +82,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " Navigating buffers (Tabs)
 nnoremap <C-M> :bnext<CR>
 nnoremap <C-N> :bprev<CR>
-nnoremap <C-W><C-W> :bd<CR>
+" nnoremap <C-W><C-W> :bd<CR>
 
 " Closing buffer without closing window
 nmap <Space>d :b#<bar>bd#<CR>
