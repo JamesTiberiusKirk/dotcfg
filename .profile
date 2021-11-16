@@ -66,9 +66,11 @@ alias gsa="git submodule add"
 alias gd="git diff"
 
 gas() {
-  FILES=$(git ls-files --modified --others | grep "$2" ) 
+  [ -z $1 ] && echo "Need parameter" && return 1
+  echo "Query: "$1
+  FILES=$(git ls-files --modified --others | grep "$1" ) 
   echo $FILES
-  git add $FILES
+  echo $FILES | xargs git add 
 }
 
 # Tree alias to ignore node_modules

@@ -48,6 +48,13 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
+" Making the active window more obvious
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set colorcolumn=80
+    autocmd WinLeave * set colorcolumn=0
+augroup END
+
 set number relativenumber
 set smartindent
 set tabstop=2
@@ -124,3 +131,11 @@ nnoremap <silent> <C-p> :GFiles<CR>
 " This is for managing go imports on autosave
 let g:go_fmt_command = "goimports"
 "au filetype go inoremap <buffer> . .<C-x><C-o>
+
+
+
+
+
+
+
+

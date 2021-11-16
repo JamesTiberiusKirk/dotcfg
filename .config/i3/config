@@ -267,7 +267,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Gapps setup
 gaps inner 5
-gaps top 8
+gaps top 7
 gaps left 5
 gaps right 5
 gaps bottom 5
