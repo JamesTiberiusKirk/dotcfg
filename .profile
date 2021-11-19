@@ -65,6 +65,7 @@ alias gss="git submodule status"
 alias gsa="git submodule add"
 alias gd="git diff"
 
+# Stage all git files that can be grepped by a query
 gas() {
   [ -z $1 ] && echo "Need parameter" && return 1
   echo "Query: "$1
@@ -72,6 +73,12 @@ gas() {
   echo $FILES
   echo $FILES | xargs git add 
 }
+
+# Open all modified git files in vim
+alias gvi="git ls-files --modified | xargs nvim"
+
+
+
 
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
