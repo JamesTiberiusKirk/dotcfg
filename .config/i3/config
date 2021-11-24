@@ -248,7 +248,7 @@ for_window [title="Microsoft Teams Notification"] floating enable
 
 # Moving Workspaces between screens
 bindsym $mod+p move workspace to output right
-# bindsym $mod+p move workspace to output down
+bindsym $mod+Shift+p move workspace to output down
 
 
 # Assigning windows to workspaces
