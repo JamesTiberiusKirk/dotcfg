@@ -12,16 +12,16 @@ xrdb -merge "$userresources"
 xmodmap "$usermodmap"
 
 # start some nice programs
-~/.scripts/system/nvidia-screen-tearing-fix.sh
+~/.scripts/system/nvidia-screen-tearing-fix.sh &
 dunst &
 blueman-applet &
-xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png
+xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
 #~/.scripts/wallpapers.sh
 #~/.scripts/system/touchpad.sh &
 uncluuter &
 flameshot &
 setxkbmap gb &
-picom &
+# picom &
 # nitrogen --restore
 
 
