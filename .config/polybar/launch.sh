@@ -7,9 +7,14 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 
-polybar -rq mainbar &
-polybar -rq secbar &
-polybar -rq thirdbar &
+if [ $HOST="dellstar" ]; then 
+  polybar -rq monitor --config=~/.config/polybar/config.ini
+else
+  polybar -rq mainbar &
+  polybar -rq secbar &
+  polybar -rq thirdbar &
+fi
+
 
 # xrandr -q | grep " connected" | grep " connected" | cut -d ' ' -f1 | while read DIS;
 # polybar --list-monitors | cut -d ':' -f1 | while read DIS;

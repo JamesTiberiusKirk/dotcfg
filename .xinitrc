@@ -9,6 +9,7 @@ DEFAULT_SESSION=i3
 
 xmodmap $sysmodmap
 xrdb -merge "$userresources"
+[ $HOST="dellstar" ] && xrdb -merge "$HOME/.Xresources.dellstar"
 xmodmap "$usermodmap"
 
 # start some nice programs
@@ -18,7 +19,7 @@ blueman-applet &
 xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
 #~/.scripts/wallpapers.sh
 #~/.scripts/system/touchpad.sh &
-uncluuter &
+#uncluuter &
 flameshot &
 setxkbmap gb &
 # picom &
