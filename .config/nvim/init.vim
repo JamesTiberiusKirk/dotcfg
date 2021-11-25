@@ -6,6 +6,16 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+" Dependency of telescope and todo-comments
+Plug 'nvim-lua/plenary.nvim'
+
+" Comments parser
+Plug 'folke/todo-comments.nvim'
+
+" Telescope fuzzy finder
+Plug 'nvim-telescope/telescope.nvim'
+
+
 " Window resize mode
 Plug 'https://github.com/simeji/winresizer'
 
@@ -45,6 +55,8 @@ call plug#end()
 
 """""""""""""""""""""""""
 
+
+
 filetype plugin indent on
 syntax on
 
@@ -68,21 +80,23 @@ set title
 set background=dark
 colorscheme gruvbox
 
+let mapleader=" "
+
 " Pane navigation
-noremap <Space>h <C-w>h
-noremap <Space>j <C-w>j
-noremap <Space>k <C-w>k
-noremap <Space>l <C-w>l
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
 
 " NERD Comments settings
-let g:NERDSpaceDelims = 1
-nmap <C-c> <leader>c<Space>
-vmap <C-c> <leader>c<Space>
+let g:NERDleaderDelims = 1
+nmap <C-c> <leader>c<leader>
+vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <Space>t :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 " autocmd VimEnter * NERDTree | wincmd p
 
@@ -92,10 +106,10 @@ nnoremap <C-N> :bprev<CR>
 " nnoremap <C-W><C-W> :bd<CR>
 
 " Closing buffer without closing window
-nmap <Space>d :b#<bar>bd#<CR>
+nmap <leader>d :b#<bar>bd#<CR>
 
-" Make Space then Esc clear search highlights
-nnoremap <silent> <Space><Esc> <Esc>:nohlsearch<CR><Esc>
+" Make leader then Esc clear search highlights
+nnoremap <silent> <leader><Esc> <Esc>:nohlsearch<CR><Esc>
 
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
@@ -115,7 +129,7 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 
 " CoC
 " Rename doesnt work atm for GO 
-nmap <Space>r <Plug>(coc-rename) 
+nmap <leader>r <Plug>(coc-rename) 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -124,7 +138,7 @@ let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 
 " FZF
-nnoremap <silent> <C-p> :GFiles<CR>
+" nnoremap <silent> <C-p> :GFiles<CR>
 " nnoremap <silent> <C-^p>:Files <CR>
 
 " Go Stuff
@@ -133,7 +147,19 @@ let g:go_fmt_command = "goimports"
 "au filetype go inoremap <buffer> . .<C-x><C-o>
 
 
+" Todo-comments config
+lua << EOF
+  require("todo-comments").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+nnoremap <silent> <leader>tt :TodoTelescope<CR>
+" autocmd VimEnter * TodoTelescope 
 
+" Telescope config
+nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 
 
 
