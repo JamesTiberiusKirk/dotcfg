@@ -35,8 +35,8 @@ Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 
 " Finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
 
 " File finder
 Plug 'vifm/vifm.vim'
@@ -52,10 +52,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 call plug#end()
 
-
 """""""""""""""""""""""""
-
-
 
 filetype plugin indent on
 syntax on
@@ -128,7 +125,7 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 
 
 " CoC
-" Rename doesnt work atm for GO 
+" Rename/reformat doesn't work atm for GO 
 nmap <leader>r <Plug>(coc-rename) 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -155,13 +152,41 @@ lua << EOF
     -- refer to the configuration section below
   }
 EOF
+
 nnoremap <silent> <leader>tt :TodoTelescope<CR>
-" autocmd VimEnter * TodoTelescope 
+" Run TodoTelescope if tab is empty
+augroup LaunchShowContext | au!
+    autocmd BufEnter *
+        \ if TabIsEmpty()
+            \ | execute 'autocmd VimEnter * TodoTelescope'
+        \ | endif
+augroup end
 
 " Telescope config
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 
+"""""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 
+" Function to determine if the current window is empty
+" Stolen from https://stackoverflow.com/questions/5025558/check-if-current-tab-is-empty-in-vim#5026456
+function! TabIsEmpty()
+    " Remember which window we're in at the moment
+    let initial_win_num = winnr()
 
+    let win_count = 0
+    " Add the length of the file name on to count:
+    " this will be 0 if there is no file name
+    windo let win_count += len(expand('%'))
 
+    " Go back to the initial window
+    exe initial_win_num . "wincmd w"
+
+    " Check count
+    if win_count == 0
+        " Tab page is empty
+        return 1
+    else
+        return 0
+    endif
+endfunction
 
