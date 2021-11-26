@@ -16,7 +16,7 @@ xmodmap "$usermodmap"
 [ $HOST!="dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
 dunst &
 blueman-applet &
-xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
+#xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
 ~/.scripts/wallpapers.sh &
 #~/.scripts/system/touchpad.sh &
 unclutter &

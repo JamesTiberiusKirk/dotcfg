@@ -1,8 +1,8 @@
 #!/bin/sh
 
-screen1w=$(ls $WALL_PATH/ |sort -R |tail -$N | head -n 1 )
-screen2w=$(ls $WALL_PATH/ |sort -R |tail -$N | head -n 1 )
 
-export SCREEN1W=$(echo $screen1w)
-xwallpaper --output DP1 --zoom $WALL_PATH/$screen1w  --output eDP-1 --zoom $WALL_PATH/$screen2w
-
+xrandr -q | grep " connected" | grep " connected" | cut -d ' ' -f1 | while read DIS;
+do
+  RAND_WALL=$(ls $WALL_PATH/ |sort -R |tail -$N | head -n 1 )
+  xwallpaper --output $DIS --zoom $WALL_PATH/$RAND_WALL
+done
