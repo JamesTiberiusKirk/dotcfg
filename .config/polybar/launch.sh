@@ -7,8 +7,9 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 
-if [ $HOST="dellstar" ]; then 
-  polybar -rq monitor --config=~/.config/polybar/config.ini
+if [[ $HOST = "dellstar" ]];
+then 
+  polybar -rq xps --config=~/.config/polybar/config.ini
 else
   polybar -rq mainbar &
   polybar -rq secbar &

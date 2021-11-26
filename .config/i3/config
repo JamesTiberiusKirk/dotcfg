@@ -197,7 +197,7 @@ bindsym $mod+shift+ctrl+p exec ~/.scripts/system/xrandr/internal_monitor.sh
 
 ########
 # Change wallpapers
-bindsym $mod+shift+ctrl+w exec ~/.scripts/wallpapers.sh
+bindsym $mod+shift+ctrl+w exec ~/.scripts/system/wallpapers.sh
 
 # Flameshot
 bindsym $mod+shift+s exec flameshot gui
