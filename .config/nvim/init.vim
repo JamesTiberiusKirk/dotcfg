@@ -153,7 +153,7 @@ lua << EOF
   }
 EOF
 
-nnoremap <silent> <leader>tt :TodoTelescope<CR>
+nnoremap <silent> <leader>td :TodoTelescope<CR>
 " Run TodoTelescope if tab is empty
 augroup LaunchShowContext | au!
     autocmd BufEnter *
