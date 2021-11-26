@@ -2,6 +2,7 @@
 # Universal stuff
 export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
+export GOPRIVATE=github.com/xiatechs
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
