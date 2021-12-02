@@ -1,4 +1,3 @@
-
 syntax on
 filetype off
 
@@ -69,10 +68,11 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set scrolloff=12
+"set scrolloff=12
 set splitbelow splitright
 set spell!
 set title
+set mouse=a
 
 set background=dark
 colorscheme gruvbox
@@ -146,11 +146,7 @@ let g:go_fmt_command = "goimports"
 
 " Todo-comments config
 lua << EOF
-  require("todo-comments").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+  require("todo-comments").setup {}
 EOF
 
 nnoremap <silent> td :TodoTelescope<CR>
