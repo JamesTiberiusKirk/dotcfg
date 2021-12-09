@@ -2,6 +2,8 @@
 # Universal stuff
 export PATH="$HOME/go/bin:$PATH"
 export GOPATH="$HOME/go"
+export GOPRIVATE="github.com/xiatechs"
+export EDITOR="nvim"
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
@@ -15,7 +17,6 @@ fi
 if [[ $(uname) = "Linux" ]];
 then
   export QT_QPA_PLATFORMTHEME="qt5ct"
-  export EDITOR="nvim"
   export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
   export TERM="alacritty"
   # export WALL_PATH=~/Pictures/wallpapers

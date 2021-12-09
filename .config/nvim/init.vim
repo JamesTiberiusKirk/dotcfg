@@ -64,6 +64,7 @@ augroup BgHighlight
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
+set mouse=a
 set number relativenumber
 set smartindent
 set tabstop=2
@@ -134,23 +135,15 @@ nmap <silent> gr <Plug>(coc-references)
 let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 
-" FZF
-" nnoremap <silent> <C-p> :GFiles<CR>
-" nnoremap <silent> <C-^p>:Files <CR>
 
 " Go Stuff
-" This is for managing go imports on autosave
 let g:go_fmt_command = "goimports"
 "au filetype go inoremap <buffer> . .<C-x><C-o>
 
 
 " Todo-comments config
 lua << EOF
-  require("todo-comments").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+  require("todo-comments").setup {}
 EOF
 
 nnoremap <silent> <leader>tt :TodoTelescope<CR>
