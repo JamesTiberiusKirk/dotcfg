@@ -1,4 +1,3 @@
-
 syntax on
 filetype off
 
@@ -70,10 +69,11 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set scrolloff=12
+"set scrolloff=12
 set splitbelow splitright
 set spell!
 set title
+set mouse=a
 
 set background=dark
 colorscheme gruvbox
@@ -146,8 +146,8 @@ lua << EOF
   require("todo-comments").setup {}
 EOF
 
-nnoremap <silent> <leader>tt :TodoTelescope<CR>
-" Run TodoTelescope if tab is empty
+nnoremap <silent> td :TodoTelescope<CR>
+" Run TodoTelescope at startup if tab is empty
 augroup LaunchShowContext | au!
     autocmd BufEnter *
         \ if TabIsEmpty()

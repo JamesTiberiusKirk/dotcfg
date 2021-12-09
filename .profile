@@ -65,6 +65,9 @@ alias gs="git status"
 alias gss="git submodule status"
 alias gsa="git submodule add"
 alias gd="git diff"
+alias gf="git fetch"
+# Open all modified git files in vim
+alias gvi="git ls-files --modified | xargs nvim"
 
 # Stage all git files that can be grepped by a query
 gas() {
@@ -75,8 +78,15 @@ gas() {
   echo $FILES | xargs git add 
 }
 
-# Open all modified git files in vim
-alias gvi="git ls-files --modified | xargs nvim"
+# For creating a new branch and automatically switching to it
+gnb() {
+  [ -z $1 ] && echo "Need name of branch" && return 1
+  echo "Creating new git branch and switching to it " $1
+  git branch $1
+  git checkout $1
+}
+
+
 
 
 

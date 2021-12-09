@@ -45,7 +45,8 @@ bindsym $mod+Shift+q kill
 
 # Start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#AA0000' -sf '#EEEEEE' -fn 'dejavu-10' -p '>'"
+#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#AA0000' -sf '#EEEEEE' -fn 'dejavu-10' -p '>'"
+bindsym $mod+d exec "rofi -show run"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -197,7 +198,7 @@ bindsym $mod+shift+ctrl+p exec ~/.scripts/system/xrandr/internal_monitor.sh
 
 ########
 # Change wallpapers
-bindsym $mod+shift+ctrl+w exec ~/.scripts/wallpapers.sh
+bindsym $mod+shift+ctrl+w exec ~/.scripts/system/wallpapers.sh
 
 # Flameshot
 bindsym $mod+shift+s exec flameshot gui
