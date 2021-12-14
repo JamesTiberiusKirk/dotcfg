@@ -5,6 +5,9 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+" Terraform
+Plug 'hashivim/vim-terraform'
+
 " Dependency of telescope and todo-comments
 Plug 'nvim-lua/plenary.nvim'
 
@@ -157,6 +160,8 @@ augroup end
 
 " Telescope config
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grep()<cr>
+
 
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 
