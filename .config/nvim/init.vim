@@ -17,7 +17,6 @@ Plug 'folke/todo-comments.nvim'
 " Telescope fuzzy finder
 Plug 'nvim-telescope/telescope.nvim'
 
-
 " Window resize mode
 Plug 'https://github.com/simeji/winresizer'
 
