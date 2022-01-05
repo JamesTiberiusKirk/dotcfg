@@ -31,6 +31,18 @@ Plug 'dense-analysis/ale'
 
 " NERDTree
 Plug 'preservim/nerdtree'
+" NERDTree plugins
+Plug 'PhilRunninger/nerdtree-visual-selection'
+"Plug 'PhilRunninger/nerdtree-buffer-ops'
+"Plug 'scrooloose/nerdtree-project-plugin' "the nerdtree state save
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'PhilRunninger/nerdtree-visual-selection'
+
+
+" Git
+Plug 'airblade/vim-gitgutter'
 
 " Statusbar
 Plug 'itchyny/lightline.vim'
@@ -54,6 +66,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 call plug#end()
 
 """""""""""""""""""""""""
+set statusline+=%m
 
 filetype plugin indent on
 syntax on
@@ -95,9 +108,19 @@ vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <leader>t :NERDTreeToggle<CR>
+"nnoremap <C-n> :NERDTree<CR>
+"nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowLineNumbers=1
+"autocmd FileType nerdtree setlocal relativenumber
+let NERDTreeShowHidden=1
+
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Mirror the NERDTree before showing it. This makes it the same on all tabs.
+nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
+
 " autocmd VimEnter * NERDTree | wincmd p
 
 " Navigating buffers (Tabs)
@@ -161,6 +184,12 @@ augroup end
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grep()<cr>
 
+" Git vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 
