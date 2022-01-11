@@ -89,7 +89,6 @@ set splitbelow splitright
 set spell!
 set title
 set mouse=a
-
 set background=dark
 colorscheme gruvbox
 
@@ -100,6 +99,11 @@ noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
+
+" For navigating buffers
+nnoremap <Leader>b :buffers<CR>:buffer<Space>
+
+" Pugin configs
 
 " NERD Comments settings
 let g:NERDleaderDelims = 1
