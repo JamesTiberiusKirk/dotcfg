@@ -5,6 +5,11 @@ filetype off
 
 call plug#begin('~/.config/nvim/plugged')
 
+
+" Powerline theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Terraform
 Plug 'hashivim/vim-terraform'
 
@@ -58,7 +63,7 @@ Plug 'vifm/vifm.vim'
 Plug 'morhetz/gruvbox'
 
 " Tabs
-Plug 'ap/vim-buftabline'
+"Plug 'ap/vim-buftabline'
 
 " Vim-go plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -194,6 +199,13 @@ let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
+
+" vim-airline - vim powerline theme
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'default'
+
+
 
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 

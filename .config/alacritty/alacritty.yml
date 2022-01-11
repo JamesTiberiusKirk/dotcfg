@@ -1,24 +1,7 @@
 
-
 font:
   normal:
-    family: terminus
-    style: Regular
-
-  bold:
-    family: terminus
-    style: Bold
-
-  italic:
-    family: terminus
-    style: Italic
-
-  bold_italic:
-    family: terminus
-    style: Bold Italic
-
-  size: 11
-
+    family: "MesloLGS NF"
 
 key_bindings:
   - { key: V,           mods: Control|Shift,                    action: Paste            }
