@@ -63,7 +63,7 @@ Plug 'vifm/vifm.vim'
 Plug 'morhetz/gruvbox'
 
 " Tabs
-"Plug 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 
 " Vim-go plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
