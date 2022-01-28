@@ -21,5 +21,6 @@
         "ffmpeg",
         "webm"
     ],
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "window.zoomLevel": 1
 }

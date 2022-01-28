@@ -45,6 +45,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'PhilRunninger/nerdtree-visual-selection'
 
+" Buffer as tab list
+Plug 'ap/vim-buftabline'
 
 " Git
 Plug 'airblade/vim-gitgutter'
