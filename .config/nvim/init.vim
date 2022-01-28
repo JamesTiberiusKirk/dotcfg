@@ -65,7 +65,7 @@ Plug 'vifm/vifm.vim'
 Plug 'morhetz/gruvbox'
 
 " Tabs
-"Plug 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
 
 " Vim-go plugin
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -119,25 +119,16 @@ vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
 nnoremap <leader>n :NERDTreeFocus<CR>
-"nnoremap <C-n> :NERDTree<CR>
-"nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowLineNumbers=1
-"autocmd FileType nerdtree setlocal relativenumber
 let NERDTreeShowHidden=1
-
-" Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" Mirror the NERDTree before showing it. This makes it the same on all tabs.
 nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
-
-" autocmd VimEnter * NERDTree | wincmd p
+nnoremap <leader>ll :NERDTreeFind<CR>
 
 " Navigating buffers (Tabs)
 nnoremap <C-M> :bnext<CR>
 nnoremap <C-N> :bprev<CR>
-" nnoremap <C-W><C-W> :bd<CR>
 
 " Closing buffer without closing window
 nmap <leader>d :b#<bar>bd#<CR>
@@ -152,15 +143,6 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 " Autosave
 " let g:auto_save = 1
 
-" Auto compile latex
-" autocmd BufWritePost *.tex silent! execute "!pdflatex % >/dev/null 2>&1" | redraw!
-" autocmd BufWritePost *.tex silent! execute "!pdflatex -interaction=nonstopmode % >/dev/null 2>&1" | redraw!
-
-" JS-beautify binding
-" nnoremap <leader>ff :%!js-beautify -P -j -q -B -f -<CR>
-" nnoremap <leader>ff :%! prettydiff beautify source:<CR>
-
-
 " CoC
 " Rename/reformat doesn't work atm for GO 
 nmap <leader>r <Plug>(coc-rename) 
@@ -174,8 +156,6 @@ let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
-"au filetype go inoremap <buffer> . .<C-x><C-o>
-
 
 " Todo-comments config
 lua << EOF
