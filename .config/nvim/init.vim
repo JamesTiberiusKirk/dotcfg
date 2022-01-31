@@ -99,6 +99,8 @@ set mouse=a
 set background=dark
 colorscheme gruvbox
 
+set clipboard+=unnamedplus
+
 let mapleader=" "
 
 " Pane navigation
