@@ -22,9 +22,9 @@ blueman-applet &
 unclutter &
 flameshot &
 setxkbmap gb &
+setxkbmap -layout gb &
 # picom &
 # nitrogen --restore
-
 
 #exec dwm
 exec i3
