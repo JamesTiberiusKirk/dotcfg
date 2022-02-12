@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-xrandr -q | grep " connected" | grep " connected" | grep -v " left" | cut -d ' ' -f1 | while read DIS;
+xrandr -q | grep " connected" | cut -d ' ' -f1 | while read DIS;
 do
   RAND_WALL=$(ls $WALL_PATH/  | grep -v "_only" | sort -R |tail -$N | head -n 1 )
   echo "$RAND_WALL on $DIS"
