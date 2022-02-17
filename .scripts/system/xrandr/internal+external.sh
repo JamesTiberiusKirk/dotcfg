@@ -11,7 +11,5 @@
 #  PREV_DIS=$DIS;
 #done 
 
-xrandr --output DP-2 --auto --output DP-0.1 --auto --right-of DP-2
-~/.scripts/wallpapers.sh
-~/.config/polybar/launch.sh > /dev/null
+xrandr --output DP-2 --auto --output DP-0.1 --auto --right-of DP-2; sleep 1s; ~/.scripts/system/wallpapers.sh; sleep 0.5s; ~/.config/polybar/launch.sh >> /dev/null
 
