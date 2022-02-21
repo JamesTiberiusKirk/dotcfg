@@ -158,6 +158,7 @@ let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
+let g:go_build_tags = "integration testcontainers"
 
 " Todo-comments config
 lua << EOF
