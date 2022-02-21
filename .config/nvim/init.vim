@@ -54,10 +54,6 @@ Plug 'airblade/vim-gitgutter'
 " Statusbar
 Plug 'itchyny/lightline.vim'
 
-" Finder
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
-
 " File finder
 Plug 'vifm/vifm.vim'
 
@@ -191,6 +187,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
 
+nnoremap <silent> <leader># :call OpenTermInFileFolder()<CR>
+
+
 
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 
@@ -217,3 +216,17 @@ function! TabIsEmpty()
     endif
 endfunction
 
+" Function to open up a fresh terminal in the working folder of the currently opened file
+function! OpenTermInFileFolder()
+
+  if TabIsEmpty() == 1
+    echo "No open file"
+    return 0
+  endif
+
+  let dir = expand('%:p:h')
+  let shell_str="$TERM --working-directory " . dir . " &"
+
+  echo(system(shell_str))
+   
+endfunction
