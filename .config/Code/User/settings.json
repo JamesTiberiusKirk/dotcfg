@@ -22,7 +22,6 @@
         "webm"
     ],
     "editor.wordWrap": "on",
-    "window.zoomLevel": 1,
     "go.coverOnSave": true,
     "go.coverageDecorator": {
         "type": "gutter",
@@ -31,5 +30,6 @@
         "coveredGutterStyle": "blockgreen",
         "uncoveredGutterStyle": "blockred"
     },
-    "go.coverOnSingleTest": true
+    "go.coverOnSingleTest": true, 
+    "go.buildFlags": ["integration","testcontainers"]
 }
