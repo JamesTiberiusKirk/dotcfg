@@ -14,6 +14,7 @@ fi
 
 
 # Linux stuff
+# TODO: make a special section machines without xorg (aka server)
 if [[ $(uname) = "Linux" ]];
 then
   export QT_QPA_PLATFORMTHEME="qt5ct"
@@ -22,13 +23,8 @@ then
   # export WALL_PATH=~/Pictures/wallpapers
   export WALL_PATH=~/Pictures/vapourwaveWalls
   export SCREEN1W="$WALL_PATH/wp4118649-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
-  # export LOCKSCREEN_WALL="$WALL_PATH/wp7758145-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
-  # export PATH="$PATH:$HOME/apps/appimages/"
 
   # General
-  # export JAVA_HOME="/usr/lib/jvm/java-15-openjdk/"
-  # export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
-
   export PATH="$JAVA_HOME/bin:$PATH"
   export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
   export PATH="$PATH:$HOME/apps/monero-gui-v0.17.2.2"
@@ -86,10 +82,11 @@ gnb() {
   git checkout $1
 }
 
-
-
-
-
+# For pushing upstream to a fresh branch 
+gpnu() {
+  echo "Pushing to new branch upstream"
+  git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+}
 
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
