@@ -13,6 +13,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Terraform
 Plug 'hashivim/vim-terraform'
 
+Plug 'vim-syntastic/syntastic'
+Plug 'juliosueiras/vim-terraform-completion'
+
 " Dependency of telescope and todo-comments
 Plug 'nvim-lua/plenary.nvim'
 
@@ -77,7 +80,7 @@ syntax on
 " Making the active window more obvious
 augroup BgHighlight
     autocmd!
-    autocmd WinEnter * set colorcolumn=80
+    autocmd WinEnter * set colorcolumn=120
     autocmd WinLeave * set colorcolumn=0
 augroup END
 
@@ -120,6 +123,7 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=60
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 nnoremap <leader>ll :NERDTreeFind<CR>
@@ -143,7 +147,7 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 
 " CoC
 " Rename/reformat doesn't work atm for GO 
-nmap <leader>r <Plug>(coc-rename) 
+"nmap <leader>r <Plug>(coc-rename) 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -189,6 +193,36 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 nnoremap <silent> <leader># :call OpenTermInFileFolder()<CR>
 
+
+
+" Terraform
+" Syntastic Config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" (Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+" /Terraform
 
 
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""

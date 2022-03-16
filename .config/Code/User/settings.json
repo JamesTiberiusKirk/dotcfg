@@ -31,5 +31,9 @@
         "uncoveredGutterStyle": "blockred"
     },
     "go.coverOnSingleTest": true, 
-    "go.buildFlags": ["integration","testcontainers"]
+    "go.buildFlags": [
+        "integration",
+        "testcontainers"
+    ],
+    "vetur.validation.template": false
 }
