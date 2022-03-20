@@ -9,11 +9,11 @@ DEFAULT_SESSION=i3
 
 xmodmap $sysmodmap
 xrdb -merge "$userresources"
-[ $HOST = "dellstar" ] && xrdb -merge "$HOME/.Xresources.dellstar"
+[ $(hostname) = "dellstar" ] && xrdb -merge "$HOME/.Xresources.dellstar"
 xmodmap "$usermodmap"
 
 # start some nice programs
-[ $HOST != "dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
+[ $(hostname) != "dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
 dunst &
 blueman-applet &
 #xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
