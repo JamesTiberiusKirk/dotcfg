@@ -7,10 +7,14 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 
-if [[ $HOST = "dellstar" ]];
+if [[ $(hostname) == "dellstar" ]];
 then 
+  echo "Running polybar for XPS"
   polybar -rq xps --config=~/.config/polybar/config.ini
+  #polybar -rq xps --config=~/.config/polybar/config.ini
+  #polybar -rq xps --config=config.ini
 else
+  echo "Running polybar"
   polybar -rq mainbar &
   polybar -rq secbar &
   polybar -rq thirdbar &
