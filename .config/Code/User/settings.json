@@ -19,6 +19,7 @@
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "cSpell.userWords": [
         "ffmpeg",
+        "ionicons",
         "webm"
     ],
     "editor.wordWrap": "on",
@@ -32,8 +33,17 @@
     },
     "go.coverOnSingleTest": true, 
     "go.buildFlags": [
-        "integration",
-        "testcontainers"
+        // "integration",
+        // "testcontainers"
     ],
-    "vetur.validation.template": false
+    "vetur.validation.template": false,
+    "eslint.alwaysShowStatus": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": [
+        "javascript",
+        "typescript"
+    ],
+    "vetur.validation.script": false,
 }
