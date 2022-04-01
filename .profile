@@ -19,15 +19,12 @@ fi
 
 
 # Linux stuff
-# TODO: make a special section machines without xorg (aka server)
 if [[ $(uname) = "Linux" ]];
 then
 
-  if [[ $(pidof xorg) ]];
+  # if x server is running
+  if [[ $DISPLAY ]];
   then 
-    echo xorg running
-    # if x server is running
-
     export TERM="alacritty"
 
     # export WALL_PATH=~/Pictures/wallpapers
