@@ -1,9 +1,14 @@
 
 # Universal stuff
 export PATH="$HOME/go/bin:$PATH"
-export GOPATH="$HOME/go"
-export GOPRIVATE="github.com/xiatechs"
 export EDITOR="nvim"
+
+export GO111MODULE=on
+export GOPRIVATE="github.com/xiatechs"
+export GOPATH="$HOME/go"
+export PATH=$PATH:$GOPATH/bin
+export GOROOT=/usr/lib/go
+export PATH=$PATH:$GOROOT/bin
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
@@ -17,26 +22,35 @@ fi
 # TODO: make a special section machines without xorg (aka server)
 if [[ $(uname) = "Linux" ]];
 then
-  export QT_QPA_PLATFORMTHEME="qt5ct"
-  export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-  export TERM="alacritty"
-  # export WALL_PATH=~/Pictures/wallpapers
-  export WALL_PATH=~/Pictures/vapourwaveWalls
-  export SCREEN1W="$WALL_PATH/wp4118649-vapor-wave-desktop-4k-wallpapers.jpg" # starting wall
+
+  if [[ $(pidof xorg) ]];
+  then 
+    echo xorg running
+    # if x server is running
+
+    export TERM="alacritty"
+
+    # export WALL_PATH=~/Pictures/wallpapers
+    export WALL_PATH=~/Pictures/vapourwaveWalls
+
+    # Themes
+    GTK_THEME=Adapta-Nokto
+    export QT_QPA_PLATFORMTHEME="qt5ct"
+    export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+    # For xdg-open
+    alias open="xdg-open"
+
+    #export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
+    #export PATH="$PATH:$HOME/apps/android-studio/bin/"
+    export PATH="$PATH:$HOME/apps/monero-gui"
+  fi
+
 
   # General
   export PATH="$JAVA_HOME/bin:$PATH"
-  export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
-  export PATH="$PATH:$HOME/apps/monero-gui-v0.17.2.2"
   export PATH="$PATH:$HOME/.local/bin/"
   export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-  export PATH="$PATH:$HOME/apps/android-studio/bin/"
-
-  # Themes
-  GTK_THEME=Adapta-Nokto
-
-  # For xdg-open
-  alias open="xdg-open"
 fi
 
 # Aliases
