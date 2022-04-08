@@ -23,8 +23,8 @@ if [[ $(uname) = "Linux" ]];
 then
 
   # if x server is running
-  if [[ $DISPLAY ]];
-  then 
+  #if [[ $DISPLAY ]];
+  #then 
     export TERM="alacritty"
 
     # export WALL_PATH=~/Pictures/wallpapers
@@ -41,7 +41,7 @@ then
     #export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
     #export PATH="$PATH:$HOME/apps/android-studio/bin/"
     export PATH="$PATH:$HOME/apps/monero-gui"
-  fi
+  #fi
 
 
   # General
@@ -53,6 +53,16 @@ fi
 # Aliases
 alias cls="clear"
 alias ll="ls -al"
+
+# GO
+gocov() {
+  go test -coverprofile=.cover.out $@ &&
+  go tool cover -html=.cover.out -o coverage.html &&
+  xdg-open coverage.html &&
+  sleep 1 &&
+  rm .cover.out coverage.html;
+}
+
 
 # Git bare repo for the dotconfigs
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

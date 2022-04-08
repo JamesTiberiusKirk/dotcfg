@@ -1,10 +1,13 @@
 act
 bauh-staging
 brave-bin
+downgrader-git
 envypn-font
 envypn-powerline-git
 jp
 lf-git
+mongodb-compass
+mongodb-shell-bin
 nerd-fonts-noto
 picom-ibhagwan-git
 plantumlqeditor-git

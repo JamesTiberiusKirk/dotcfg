@@ -1,6 +1,12 @@
 #!/bin/sh
 
 
+#source ~/.profile
+#echo $DISPLAY
+echo WALL_PATH: $WALL_PATH
+
+[[ -z ${WALL_PATH} ]] && echo "WALL_PATH not set" && exit 1
+
 xrandr -q | grep " connected" | cut -d ' ' -f1 | while read DIS;
 do
   RAND_WALL=$(ls $WALL_PATH/  | grep -v "_only" | sort -R |tail -$N | head -n 1 )

@@ -12,7 +12,7 @@ plugins=(git)
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $ZSH/oh-my-zsh.sh
-source ~/.profile
+source $HOME/.profile
 # source ~/.env
 
 # Vi mode

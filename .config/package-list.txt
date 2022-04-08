@@ -21,6 +21,7 @@ discord
 docker
 docker-compose
 dotnet-sdk
+downgrader-git
 dunst
 efibootmgr
 envypn-font
@@ -64,6 +65,8 @@ lxterminal
 m4
 make
 man-db
+mongodb-compass
+mongodb-shell-bin
 mpv
 neovim
 nerd-fonts-noto
@@ -103,7 +106,6 @@ smartmontools
 smbclient
 speedtest-cli
 spotify
-steam
 streamlink-git
 sudo
 telegram-desktop
@@ -153,4 +155,5 @@ xwallpaper
 yay
 youtube-dl
 zathura
+zip
 zsh

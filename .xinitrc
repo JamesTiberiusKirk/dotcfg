@@ -2,6 +2,7 @@
 #
 # ~/.xinitrc
 
+#source $HOME/.profile
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysmodmap=/etc/X11/xinit/.Xmodmap
