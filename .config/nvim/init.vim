@@ -158,6 +158,7 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 " CoC
 " Rename/reformat doesn't work atm for GO 
 "nmap <leader>r <Plug>(coc-rename) 
+nmap <silent> <leader>g :call <SID>show_documentation()<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -314,4 +315,12 @@ function! OpenTermInFileFolder()
 
   echo(system(shell_str))
    
+endfunction
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
