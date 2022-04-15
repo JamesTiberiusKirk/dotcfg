@@ -7,7 +7,6 @@ export GO111MODULE=on
 export GOPRIVATE="github.com/xiatechs"
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
-export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOROOT/bin
 
 # Mac stuff
@@ -21,6 +20,7 @@ fi
 # Linux stuff
 if [[ $(uname) = "Linux" ]];
 then
+  export GOROOT=/usr/lib/go
 
   # if x server is running
   #if [[ $DISPLAY ]];
