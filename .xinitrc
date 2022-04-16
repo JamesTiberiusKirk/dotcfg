@@ -24,7 +24,7 @@ unclutter &
 flameshot &
 setxkbmap gb &
 setxkbmap -layout gb &
-# picom &
+picom &
 # nitrogen --restore
 
 #exec dwm

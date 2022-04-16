@@ -178,12 +178,12 @@ EOF
 
 nnoremap <silent> td :TodoTelescope<CR>
 " Run TodoTelescope at startup if tab is empty
-augroup LaunchShowContext | au!
-    autocmd BufEnter *
-        \ if TabIsEmpty()
-            \ | execute 'autocmd VimEnter * TodoTelescope'
-        \ | endif
-augroup end
+"augroup LaunchShowContext | au!
+    "autocmd BufEnter *
+        "\ if TabIsEmpty()
+            "\ | execute 'autocmd VimEnter * TodoTelescope'
+        "\ | endif
+"augroup end
 
 " Telescope config
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>

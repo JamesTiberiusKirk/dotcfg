@@ -53,6 +53,7 @@ fi
 # Aliases
 alias cls="clear"
 alias ll="ls -al"
+alias lf="lfub"
 
 # GO
 gocov() {
