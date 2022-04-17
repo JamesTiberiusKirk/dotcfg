@@ -2,78 +2,78 @@ syntax on
 filetype off
 
 " .vimrc.plug
-
 call plug#begin('~/.config/nvim/plugged')
-
-" Git Blamer
-Plug 'APZelos/blamer.nvim'
-
-" Discord presence
-Plug 'andweeb/presence.nvim'
-
-" Powerline theme
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Terraform
-Plug 'hashivim/vim-terraform'
-
-Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
-
-" Dependency of telescope and todo-comments
-Plug 'nvim-lua/plenary.nvim'
-
-" Comments parser
-Plug 'folke/todo-comments.nvim'
-
-" Telescope fuzzy finder
-Plug 'nvim-telescope/telescope.nvim'
-
-" Window resize mode
-Plug 'https://github.com/simeji/winresizer'
-
-" Code completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Code commenter
-Plug 'preservim/nerdcommenter'
-
-" Syntax highlighting
-Plug 'dense-analysis/ale'
-
-" NERDTree
-Plug 'preservim/nerdtree'
-" NERDTree plugins
-Plug 'PhilRunninger/nerdtree-visual-selection'
-"Plug 'PhilRunninger/nerdtree-buffer-ops'
-"Plug 'scrooloose/nerdtree-project-plugin' "the nerdtree state save
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'PhilRunninger/nerdtree-visual-selection'
-
-" Buffer as tab list
-Plug 'ap/vim-buftabline'
-
-" Git
-Plug 'airblade/vim-gitgutter'
-
-" Statusbar
-Plug 'itchyny/lightline.vim'
-
-" File finder
-Plug 'vifm/vifm.vim'
-
-" Theme
-Plug 'morhetz/gruvbox'
-
-" Tabs
-Plug 'ap/vim-buftabline'
-
-" Vim-go plugin
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
+  
+  " Git Blamer
+  Plug 'APZelos/blamer.nvim'
+  
+  " Discord presence
+  Plug 'andweeb/presence.nvim'
+  
+  " Powerline theme
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  
+  " Terraform
+  Plug 'hashivim/vim-terraform'
+  
+  Plug 'vim-syntastic/syntastic'
+  Plug 'juliosueiras/vim-terraform-completion'
+  
+  " Dependency of telescope and todo-comments
+  Plug 'nvim-lua/plenary.nvim'
+  
+  " Comments parser
+  Plug 'folke/todo-comments.nvim'
+  
+  " Telescope fuzzy finder
+  Plug 'nvim-telescope/telescope.nvim'
+  
+  " Window resize mode
+  Plug 'https://github.com/simeji/winresizer'
+  
+  " Code completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/jsonc.vim'
+  
+  " Code commenter
+  Plug 'preservim/nerdcommenter'
+  
+  " Syntax highlighting
+  Plug 'dense-analysis/ale'
+  
+  " NERDTree
+  Plug 'preservim/nerdtree'
+  " NERDTree plugins
+  Plug 'PhilRunninger/nerdtree-visual-selection'
+  "Plug 'PhilRunninger/nerdtree-buffer-ops'
+  "Plug 'scrooloose/nerdtree-project-plugin' "the nerdtree state save
+  "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'PhilRunninger/nerdtree-visual-selection'
+  
+  " Buffer as tab list
+  Plug 'ap/vim-buftabline'
+  
+  " Git
+  Plug 'airblade/vim-gitgutter'
+  
+  " Statusbar
+  Plug 'itchyny/lightline.vim'
+  
+  " File finder
+  Plug 'vifm/vifm.vim'
+  
+  " Theme
+  Plug 'morhetz/gruvbox'
+  
+  " Tabs
+  Plug 'ap/vim-buftabline'
+  
+  " Vim-go plugin
+  Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+  
 call plug#end()
 
 """""""""""""""""""""""""
@@ -201,10 +201,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
-
 nnoremap <silent> <leader># :call OpenTermInFileFolder()<CR>
-
-
 
 " Terraform
 " Syntastic Config

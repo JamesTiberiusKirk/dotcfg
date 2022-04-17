@@ -46,4 +46,5 @@
         "typescript"
     ],
     "vetur.validation.script": false,
+    "editor.minimap.enabled": false,
 }
