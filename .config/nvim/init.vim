@@ -21,10 +21,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'juliosueiras/vim-terraform-completion'
   
   " Dependency of telescope and todo-comments
-  Plug 'nvim-lua/plenary.nvim'
+  "Plug 'nvim-lua/plenary.nvim'
   
   " Comments parser
-  Plug 'folke/todo-comments.nvim'
+  "Plug 'folke/todo-comments.nvim'
   
   " Telescope fuzzy finder
   Plug 'nvim-telescope/telescope.nvim'
@@ -107,7 +107,7 @@ set clipboard+=unnamedplus
 
 let mapleader=" "
 
-" Window maximize 
+" Widow maximize 
 nnoremap <C-W>O :call MaximizeToggle()<CR>
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
@@ -129,8 +129,8 @@ nmap <C-c> <leader>c<leader>
 vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+"nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=60
@@ -139,8 +139,8 @@ nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 nnoremap <leader>ll :NERDTreeFind<CR>
 
 " Navigating buffers (Tabs)
-nnoremap <C-M> :bnext<CR>
-nnoremap <C-N> :bprev<CR>
+map <leader>m :bnext<CR>
+map <leader>n :bprev<CR>
 
 " Closing buffer without closing window
 nmap <leader>d :b#<bar>bd#<CR>
@@ -172,9 +172,9 @@ let g:go_fmt_command = "goimports"
 let g:go_build_tags = "integration,testcontainers"
 
 " Todo-comments config
-lua << EOF
-  require("todo-comments").setup {}
-EOF
+"lua << EOF
+  "require("todo-comments").setup {}
+"EOF
 
 nnoremap <silent> td :TodoTelescope<CR>
 " Run TodoTelescope at startup if tab is empty
