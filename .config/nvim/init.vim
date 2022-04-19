@@ -26,7 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
   " Comments parser
   "Plug 'folke/todo-comments.nvim'
   
-  " Telescope fuzzy finder
+  " Telescope fuzzy finder and dependency
+  Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   
   " Window resize mode
@@ -46,9 +47,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'preservim/nerdtree'
   " NERDTree plugins
   Plug 'PhilRunninger/nerdtree-visual-selection'
-  "Plug 'PhilRunninger/nerdtree-buffer-ops'
-  "Plug 'scrooloose/nerdtree-project-plugin' "the nerdtree state save
-  "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'ryanoasis/vim-devicons'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'PhilRunninger/nerdtree-visual-selection'
@@ -176,7 +174,7 @@ let g:go_build_tags = "integration,testcontainers"
   "require("todo-comments").setup {}
 "EOF
 
-nnoremap <silent> td :TodoTelescope<CR>
+"nnoremap <silent> td :TodoTelescope<CR>
 " Run TodoTelescope at startup if tab is empty
 "augroup LaunchShowContext | au!
     "autocmd BufEnter *
