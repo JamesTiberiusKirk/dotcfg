@@ -1,0 +1,21 @@
+{
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {}
+    }
+  },
+  "go.goplsOptions": {
+    "buildFlags": ["-tags=integration"],
+    "env": {
+      "GOFLAGS": "-tags=integration"
+    }
+  }, 
+  "go.goplsEnv": {
+    "GOFLAGS": "-tags=integration"
+  }
+}
