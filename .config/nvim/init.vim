@@ -21,10 +21,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'juliosueiras/vim-terraform-completion'
   
   " Dependency of telescope and todo-comments
-  "Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-lua/plenary.nvim'
   
   " Comments parser
-  "Plug 'folke/todo-comments.nvim'
+  Plug 'folke/todo-comments.nvim'
   
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
@@ -131,7 +131,7 @@ vmap <C-c> <leader>c<leader>
 "nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=60
+let g:NERDTreeWinSize=40
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 nnoremap <leader>ll :NERDTreeFind<CR>
@@ -157,23 +157,24 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 " Rename/reformat doesn't work atm for GO 
 "nmap <leader>r <Plug>(coc-rename) 
 nmap <silent> <leader>g :call <SID>show_documentation()<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :call CocAction("jumpDefinition")<CR>
+"nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 let g:coc_user_config = {}
-let g:coc_user_config['coc.preferences.jumpCommand'] = ':SplitIfNotOpen4COC'
+let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
 
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
-let g:go_build_tags = "integration testcontainers"
-"let g:go_build_tags = "integration"
+"let g:go_build_tags = "integration testcontainers"
+let g:go_build_tags = "integration"
 
 " Todo-comments config
-"lua << EOF
-  "require("todo-comments").setup {}
-"EOF
+lua << EOF
+  require("todo-comments").setup {}
+EOF
 
 "nnoremap <silent> td :TodoTelescope<CR>
 " Run TodoTelescope at startup if tab is empty

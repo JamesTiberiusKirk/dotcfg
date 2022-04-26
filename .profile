@@ -14,6 +14,8 @@ if [[ $(uname) = "Darwin" ]];
 then
   export PATH=/opt/homebrew/bin:$PATH
   export PATH=~/Applications:$PATH
+  export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+  export GEM_HOME="$HOME/.gem"
 fi 
 
 
@@ -79,7 +81,7 @@ alias ga="git add "
 alias gc="git commit -m"
 alias gp="git push"
 alias gpl="git pull"
-alias gs="git status"
+alias gs="git status -sb"
 alias gss="git submodule status"
 alias gsa="git submodule add"
 alias gd="git diff"
