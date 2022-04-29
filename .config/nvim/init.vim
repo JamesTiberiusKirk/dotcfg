@@ -46,10 +46,9 @@ call plug#begin('~/.config/nvim/plugged')
   " NERDTree
   Plug 'preservim/nerdtree'
   " NERDTree plugins
-  Plug 'PhilRunninger/nerdtree-visual-selection'
+  "Plug 'PhilRunninger/nerdtree-visual-selection'
   Plug 'ryanoasis/vim-devicons'
   Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'PhilRunninger/nerdtree-visual-selection'
   
   " Buffer as tab list
   Plug 'ap/vim-buftabline'
@@ -81,11 +80,11 @@ filetype plugin indent on
 syntax on
 
 " Making the active window more obvious
-augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set colorcolumn=120
-    autocmd WinLeave * set colorcolumn=0
-augroup END
+"augroup BgHighlight
+    "autocmd!
+    "autocmd WinEnter * set colorcolumn=120
+    "autocmd WinLeave * set colorcolumn=0
+"augroup END
 
 set mouse=a
 set number relativenumber
@@ -93,13 +92,21 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-"set scrolloff=12
+set scrolloff=8
 set splitbelow splitright
 set spell!
 set title
 set mouse=a
 set background=dark
 colorscheme gruvbox
+set colorcolumn=120
+
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
 
 set clipboard+=unnamedplus
 
@@ -168,7 +175,6 @@ let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
-"let g:go_build_tags = "integration testcontainers"
 let g:go_build_tags = "integration"
 
 " Todo-comments config
