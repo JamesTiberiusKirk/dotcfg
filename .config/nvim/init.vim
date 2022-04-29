@@ -49,6 +49,7 @@ call plug#begin('~/.config/nvim/plugged')
   "Plug 'PhilRunninger/nerdtree-visual-selection'
   Plug 'ryanoasis/vim-devicons'
   Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'PhilRunninger/nerdtree-visual-selection'
   
   " Buffer as tab list
   Plug 'ap/vim-buftabline'
@@ -122,6 +123,9 @@ noremap <leader>h <C-w>h
 noremap <leader>j <C-w>j
 noremap <leader>k <C-w>k
 noremap <leader>l <C-w>l
+
+" Save binding bc its annoying to type :w with my keyboard
+map <leader>s :w<CR>
 
 " For navigating buffers
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
