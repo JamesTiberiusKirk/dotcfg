@@ -44,12 +44,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dense-analysis/ale'
   
   " NERDTree
-  Plug 'preservim/nerdtree'
+  "Plug 'preservim/nerdtree'
   " NERDTree plugins
   "Plug 'PhilRunninger/nerdtree-visual-selection'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  "Plug 'PhilRunninger/nerdtree-visual-selection'
+  "Plug 'ryanoasis/vim-devicons'
+  "Plug 'Xuyuanp/nerdtree-git-plugin'
   
   " Buffer as tab list
   Plug 'ap/vim-buftabline'
@@ -140,12 +139,12 @@ vmap <C-c> <leader>c<leader>
 " NERD Tree Settings
 "nnoremap <leader>n :NERDTreeFocus<CR>
 "nnoremap <C-f> :NERDTreeFind<CR>
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=40
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
-nnoremap <leader>ll :NERDTreeFind<CR>
+"let NERDTreeShowLineNumbers=1
+"let NERDTreeShowHidden=1
+"let g:NERDTreeWinSize=40
+"autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+"nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
+"nnoremap <leader>ll :NERDTreeFind<CR>
 
 " Navigating buffers (Tabs)
 map <leader>m :bnext<CR>
