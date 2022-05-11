@@ -44,11 +44,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dense-analysis/ale'
   
   " NERDTree
-  "Plug 'preservim/nerdtree'
+  Plug 'preservim/nerdtree'
   " NERDTree plugins
-  "Plug 'PhilRunninger/nerdtree-visual-selection'
-  "Plug 'ryanoasis/vim-devicons'
-  "Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'PhilRunninger/nerdtree-visual-selection'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   
   " Buffer as tab list
   Plug 'ap/vim-buftabline'
@@ -101,7 +101,6 @@ set background=dark
 colorscheme gruvbox
 set colorcolumn=120
 
-
 augroup CursorLine
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
@@ -126,8 +125,6 @@ noremap <leader>l <C-w>l
 " Save binding bc its annoying to type :w with my keyboard
 map <leader>s :w<CR>
 
-" For navigating buffers
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
 
 " Pugin configs
 
@@ -137,18 +134,24 @@ nmap <C-c> <leader>c<leader>
 vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
-"nnoremap <leader>n :NERDTreeFocus<CR>
-"nnoremap <C-f> :NERDTreeFind<CR>
-"let NERDTreeShowLineNumbers=1
-"let NERDTreeShowHidden=1
-"let g:NERDTreeWinSize=40
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let g:NERDTreeWinSize=40
 "autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-"nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
-"nnoremap <leader>ll :NERDTreeFind<CR>
+nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
+nnoremap <leader>ll :NERDTreeFind<CR>
 
-" Navigating buffers (Tabs)
+" Navigating buffers
 map <leader>m :bnext<CR>
 map <leader>n :bprev<CR>
+
+" Navigating tabs (vimtabs)
+map <leader>v :tabnext<CR>
+
+" For navigating buffers (buffer selection)
+nnoremap <leader>b :buffers<CR>:buffer<Space>
 
 " Closing buffer without closing window
 nmap <leader>d :b#<bar>bd#<CR>
@@ -165,7 +168,7 @@ inoremap (<cr> (<cr>)<c-o><s-o>
 
 " CoC
 " Rename/reformat doesn't work atm for GO 
-"nmap <leader>r <Plug>(coc-rename) 
+nmap <leader>r <Plug>(coc-rename) 
 nmap <silent> <leader>g :call <SID>show_documentation()<CR>
 "nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gd :call CocAction("jumpDefinition")<CR>
