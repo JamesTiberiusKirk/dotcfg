@@ -79,13 +79,6 @@ set statusline+=%m
 filetype plugin indent on
 syntax on
 
-" Making the active window more obvious
-"augroup BgHighlight
-    "autocmd!
-    "autocmd WinEnter * set colorcolumn=120
-    "autocmd WinLeave * set colorcolumn=0
-"augroup END
-
 set mouse=a
 set number relativenumber
 set smartindent
@@ -100,6 +93,13 @@ set mouse=a
 set background=dark
 colorscheme gruvbox
 set colorcolumn=120
+
+inoremap {<cr> {<cr>}<c-o><s-o>
+inoremap [<cr> [<cr>]<c-o><s-o>
+inoremap (<cr> (<cr>)<c-o><s-o>
+
+" Autosave
+" let g:auto_save = 1
 
 augroup CursorLine
   au!
@@ -159,25 +159,17 @@ nmap <leader>d :b#<bar>bd#<CR>
 " Make leader then Esc clear search highlights
 nnoremap <silent> <leader><Esc> <Esc>:nohlsearch<CR><Esc>
 
-inoremap {<cr> {<cr>}<c-o><s-o>
-inoremap [<cr> [<cr>]<c-o><s-o>
-inoremap (<cr> (<cr>)<c-o><s-o>
-
-" Autosave
-" let g:auto_save = 1
-
 " CoC
-" Rename/reformat doesn't work atm for GO 
-nmap <leader>r <Plug>(coc-rename) 
-nmap <silent> <leader>g :call <SID>show_documentation()<CR>
-"nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gd :call CocAction("jumpDefinition")<CR>
-"nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
-
+nmap <leader>r <Plug>(coc-rename) 
+nmap <silent> <leader>g :call <SID>show_documentation()<CR>
+nmap <silent> gd :call CocAction("jumpDefinition")<CR>
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gc :GoCoverage<CR>
+nmap <silent> gcc :GoCoverageClear<CR>
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
