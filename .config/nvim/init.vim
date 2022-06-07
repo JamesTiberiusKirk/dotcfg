@@ -70,6 +70,13 @@ call plug#begin('~/.config/nvim/plugged')
   
   " Vim-go plugin
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
+  " Treesitter 
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':GOUpdate'}
+
+  " Tmux vim navigator
+  Plug 'christoomey/vim-tmux-navigator'
+
   
 call plug#end()
 
@@ -262,6 +269,31 @@ let g:presence_line_number_text    = "Line %s out of %s"
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
 
+" tmux navigator stuff
+let g:tmux_navigator_no_mappings = 1
+"nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
+"nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
+"nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
+"nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
+"nnoremap <silent> <c-w>; :TmuxNavigatePrevious<cr>
+"
+
+
+" Nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = go,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+    },
+  }
+EOF
+
+
 """""""""""""' Functions """""""""""""""""""""""""""""""""""""""""""""""
 
 function! MaximizeToggle()
@@ -304,6 +336,7 @@ function! TabIsEmpty()
 endfunction
 
 " Function to open up a fresh terminal in the working folder of the currently opened file
+" TODO: if in tumux, open new tmux window or pane
 function! OpenTermInFileFolder()
 
   if TabIsEmpty() == 1
