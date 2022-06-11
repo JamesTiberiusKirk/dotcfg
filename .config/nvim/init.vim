@@ -20,15 +20,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-syntastic/syntastic'
   Plug 'juliosueiras/vim-terraform-completion'
   
-  " Dependency of telescope and todo-comments
-  Plug 'nvim-lua/plenary.nvim'
-  
   " Comments parser
   Plug 'folke/todo-comments.nvim'
   
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  "Plug 'nvim-telescope/telescope-github.nvim'
   
   " Window resize mode
   Plug 'https://github.com/simeji/winresizer'
@@ -197,6 +195,8 @@ EOF
 "augroup end
 
 " Telescope config
+"require('telescope').load_extension('gh')
+nnoremap <leader>o <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grep()<cr>
 
@@ -279,18 +279,23 @@ let g:tmux_navigator_no_mappings = 1
 "
 
 
-" Nvim-treesitter
+" Setup Treesitter and friends
+"
+" NOTE: originally used `ensure_installed = "all"` but an experimental PHP
+" parser was causing NPM lockfile errors.
+"
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "bash", "c", "cmake", "css", "dockerfile", "go", "gomod", "gowork", "hcl", "help", "html", "http", "javascript", "json", "lua", "make", "markdown", "python", "regex", "ruby", "rust", "toml", "vim", "yaml", "zig" },
   highlight = {
-    enable = go,
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-    },
+    enable = true,
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
   }
+}
 EOF
 
 
