@@ -1,4 +1,6 @@
 
+alt_send_esc: false
+
 font:
   normal:
     family: "MesloLGS NF"
