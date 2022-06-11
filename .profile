@@ -58,6 +58,7 @@ fi
 alias cls="clear"
 alias ll="ls -al"
 alias lf="lfub"
+alias tx="tmux -u"
 
 # GO
 gocov() {

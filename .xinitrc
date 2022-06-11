@@ -14,7 +14,8 @@ xrdb -merge "$userresources"
 xmodmap "$usermodmap"
 
 # start some nice programs
-[ $(hostname) != "dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
+
+#[ $(hostname) != "dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
 dunst &
 blueman-applet &
 #xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &

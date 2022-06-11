@@ -72,7 +72,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
   " Treesitter 
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':GOUpdate'}
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
   " Tmux vim navigator
   Plug 'christoomey/vim-tmux-navigator'
