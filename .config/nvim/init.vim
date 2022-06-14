@@ -1,6 +1,3 @@
-syntax on
-filetype off
-
 " .vimrc.plug
 call plug#begin('~/.config/nvim/plugged')
   
@@ -79,10 +76,11 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 """""""""""""""""""""""""
-set statusline+=%m
 
 filetype plugin indent on
 syntax on
+
+set statusline+=%m
 
 set mouse=a
 set number relativenumber
