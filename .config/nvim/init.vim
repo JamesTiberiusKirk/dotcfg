@@ -1,5 +1,4 @@
 syntax on
-filetype off
 
 " .vimrc.plug
 call plug#begin('~/.config/nvim/plugged')
@@ -26,7 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  "Plug 'nvim-telescope/telescope-github.nvim'
+  Plug 'nvim-telescope/telescope-github.nvim'
   
   " Window resize mode
   Plug 'https://github.com/simeji/winresizer'
@@ -195,7 +194,10 @@ EOF
 "augroup end
 
 " Telescope config
-"require('telescope').load_extension('gh')
+lua << EOF
+  require('telescope').load_extension('gh')
+EOF
+nnoremap <leader>i <cmd>lua require('telescope').extensions.gh.pull_request()<cr>
 nnoremap <leader>o <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -286,7 +288,35 @@ let g:tmux_navigator_no_mappings = 1
 "
 lua <<EOF
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "bash", "c", "cmake", "css", "dockerfile", "go", "gomod", "gowork", "hcl", "help", "html", "http", "javascript", "json", "lua", "make", "markdown", "python", "regex", "ruby", "rust", "toml", "vim", "yaml", "zig" },
+  ensure_installed = {
+    "bash",
+    "c",
+    "cmake",
+    "css",
+    "dockerfile",
+    "go",
+    "gomod",
+    "gowork",
+    "hcl",
+    "help",
+    "html",
+    "http",
+    "javascript",
+    "typescript",
+    "vue",
+    "json",
+    "lua",
+    "make",
+    "markdown",
+    "python",
+    "regex",
+    "ruby",
+    "rust",
+    "toml",
+    "vim",
+    "yaml",
+    "zig"
+  },
   highlight = {
     enable = true,
   },
