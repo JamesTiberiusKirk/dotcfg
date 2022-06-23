@@ -47,9 +47,19 @@ then
     export PATH="$PATH:$HOME/apps/monero-gui"
   #fi
 
+  export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+  export PATH="$PATH:$ANDROID_SDK_ROOT/tools/bin"
+  export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+  export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+  export CAPACITOR_ANDROID_STUDIO_PATH="/bin/android-studio"
+
 
   # General
+  #export JAVA_HOME="/usr/lib/jvm/java-11-openjdk/bin/java"
+  export JAVA_HOME=/usr/lib/jvm/default-runtime
   export PATH="$JAVA_HOME/bin:$PATH"
+
+
   export PATH="$PATH:$HOME/.local/bin/"
   export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 fi
@@ -58,6 +68,7 @@ fi
 alias cls="clear"
 alias ll="ls -al"
 alias lf="lfub"
+alias tx="tmux -u"
 
 # GO
 gocov() {

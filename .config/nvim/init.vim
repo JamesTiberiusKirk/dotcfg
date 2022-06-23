@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'APZelos/blamer.nvim'
   
   " Discord presence
-  Plug 'andweeb/presence.nvim'
+  "Plug 'andweeb/presence.nvim'
   
   " Powerline theme
   Plug 'vim-airline/vim-airline'
@@ -23,7 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
-  "Plug 'nvim-telescope/telescope-github.nvim'
+  Plug 'nvim-telescope/telescope-github.nvim'
   
   " Window resize mode
   Plug 'https://github.com/simeji/winresizer'
@@ -193,10 +193,13 @@ EOF
 "augroup end
 
 " Telescope config
-"require('telescope').load_extension('gh')
+lua << EOF
+  require('telescope').load_extension('gh')
+EOF
+nnoremap <leader>i <cmd>lua require('telescope').extensions.gh.pull_request()<cr>
 nnoremap <leader>o <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>f <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 " Git vim-gitgutter
 let g:gitgutter_sign_added = '+'
@@ -244,24 +247,24 @@ let g:terraform_registry_module_completion = 0
 
 " Discord Presence Settings
 " General options
-let g:presence_auto_update         = 1
-let g:presence_neovim_image_text   = "The One True Text Editor"
-let g:presence_main_image          = "neovim"
-let g:presence_client_id           = "793271441293967371"
-let g:presence_debounce_timeout    = 10
-let g:presence_enable_line_number  = 0
-let g:presence_blacklist           = []
-let g:presence_buttons             = 1
-let g:presence_file_assets         = {}
+"let g:presence_auto_update         = 1
+"let g:presence_neovim_image_text   = "The One True Text Editor"
+"let g:presence_main_image          = "neovim"
+"let g:presence_client_id           = "793271441293967371"
+"let g:presence_debounce_timeout    = 10
+"let g:presence_enable_line_number  = 0
+"let g:presence_blacklist           = []
+"let g:presence_buttons             = 1
+"let g:presence_file_assets         = {}
 
-" Rich Presence text options
-let g:presence_editing_text        = "Editing %s"
-let g:presence_file_explorer_text  = "Browsing %s"
-let g:presence_git_commit_text     = "Committing changes"
-let g:presence_plugin_manager_text = "Managing plugins"
-let g:presence_reading_text        = "Reading %s"
-let g:presence_workspace_text      = "Working on %s"
-let g:presence_line_number_text    = "Line %s out of %s"
+"" Rich Presence text options
+"let g:presence_editing_text        = "Editing %s"
+"let g:presence_file_explorer_text  = "Browsing %s"
+"let g:presence_git_commit_text     = "Committing changes"
+"let g:presence_plugin_manager_text = "Managing plugins"
+"let g:presence_reading_text        = "Reading %s"
+"let g:presence_workspace_text      = "Working on %s"
+"let g:presence_line_number_text    = "Line %s out of %s"
 
 " Git blamer
 let g:blamer_enabled = 1
@@ -284,7 +287,35 @@ let g:tmux_navigator_no_mappings = 1
 "
 lua <<EOF
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "bash", "c", "cmake", "css", "dockerfile", "go", "gomod", "gowork", "hcl", "help", "html", "http", "javascript", "json", "lua", "make", "markdown", "python", "regex", "ruby", "rust", "toml", "vim", "yaml", "zig" },
+  ensure_installed = {
+    "bash",
+    "c",
+    "cmake",
+    "css",
+    "dockerfile",
+    "go",
+    "gomod",
+    "gowork",
+    "hcl",
+    "help",
+    "html",
+    "http",
+    "javascript",
+    "typescript",
+    "vue",
+    "json",
+    "lua",
+    "make",
+    "markdown",
+    "python",
+    "regex",
+    "ruby",
+    "rust",
+    "toml",
+    "vim",
+    "yaml",
+    "zig"
+  },
   highlight = {
     enable = true,
   },
