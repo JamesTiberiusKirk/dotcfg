@@ -178,7 +178,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gc :GoCoverage<CR>
-nmap <silent> gcc :GoCoverageClear<CR>
 
 " Go Stuff
 let g:go_fmt_command = "goimports"

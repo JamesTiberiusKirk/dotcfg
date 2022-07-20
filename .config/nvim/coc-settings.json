@@ -1,4 +1,5 @@
 {
+  "vetur.validation.script": false,
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
