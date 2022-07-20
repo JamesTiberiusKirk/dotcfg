@@ -18,7 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'juliosueiras/vim-terraform-completion'
   
   " Comments parser
-  Plug 'folke/todo-comments.nvim'
+  "Plug 'folke/todo-comments.nvim'
   
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
@@ -59,6 +59,9 @@ call plug#begin('~/.config/nvim/plugged')
   
   " Theme
   Plug 'morhetz/gruvbox'
+  Plug 'dracula/vim', { 'as': 'dracula' }
+  Plug 'rafi/awesome-vim-colorschemes'
+
   
   " Tabs
   Plug 'ap/vim-buftabline'
@@ -94,8 +97,11 @@ set spell!
 set title
 set mouse=a
 set background=dark
-colorscheme gruvbox
-set colorcolumn=120
+"colorscheme gruvbox
+set colorcolumn=90
+
+"set background=dark
+colorscheme purify
 
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
@@ -181,9 +187,9 @@ let g:go_fmt_command = "goimports"
 let g:go_build_tags = "integration"
 
 " Todo-comments config
-lua << EOF
-  require("todo-comments").setup {}
-EOF
+"lua << EOF
+  "require("todo-comments").setup {}
+"EOF
 
 "nnoremap <silent> td :TodoTelescope<CR>
 " Run TodoTelescope at startup if tab is empty
@@ -243,6 +249,8 @@ let g:terraform_completion_keys = 1
 
 " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
 let g:terraform_registry_module_completion = 0
+
+nnoremap <leader>tff :Terraform fmt %<CR>
 
 " /Terraform
 
