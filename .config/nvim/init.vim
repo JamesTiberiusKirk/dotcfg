@@ -163,6 +163,7 @@ nmap <leader>d :b#<bar>bd#<CR>
 nnoremap <silent> <leader><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " CoC
+let g:coc_global_extensions = ['coc-tsserver']
 let g:coc_user_config = {}
 let g:coc_user_config['coc.preferences.jumpCommand'] = 'vsplit'
 nmap <leader>r <Plug>(coc-rename) 
@@ -172,6 +173,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gc :GoCoverage<CR>
+nmap <silent> gcc :GoCoverageClear<CR>
+nmap <leader>do <Plug>(coc-codeaction)
 
 " Go Stuff
 let g:go_fmt_command = "goimports"
