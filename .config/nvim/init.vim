@@ -4,9 +4,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Git Blamer
   Plug 'APZelos/blamer.nvim'
   
-  " Discord presence
-  "Plug 'andweeb/presence.nvim'
-  
   " Powerline theme
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -17,13 +14,11 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'vim-syntastic/syntastic'
   Plug 'juliosueiras/vim-terraform-completion'
   
-  " Comments parser
-  "Plug 'folke/todo-comments.nvim'
-  
   " Telescope fuzzy finder and dependency
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-github.nvim'
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
   
   " Window resize mode
   Plug 'https://github.com/simeji/winresizer'
@@ -50,12 +45,13 @@ call plug#begin('~/.config/nvim/plugged')
   
   " Git
   Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
   
   " Statusbar
   Plug 'itchyny/lightline.vim'
   
   " File finder
-  Plug 'vifm/vifm.vim'
+  "Plug 'vifm/vifm.vim'
   
   " Theme
   Plug 'morhetz/gruvbox'
@@ -159,9 +155,6 @@ map <leader>n :bprev<CR>
 " Navigating tabs (vimtabs)
 map <leader>v :tabnext<CR>
 
-" For navigating buffers (buffer selection)
-nnoremap <leader>b :buffers<CR>:buffer<Space>
-
 " Closing buffer without closing window
 nmap <leader>d :b#<bar>bd#<CR>
 
@@ -186,28 +179,19 @@ nmap <leader>do <Plug>(coc-codeaction)
 let g:go_fmt_command = "goimports"
 let g:go_build_tags = "integration"
 
-" Todo-comments config
-"lua << EOF
-  "require("todo-comments").setup {}
-"EOF
-
-"nnoremap <silent> td :TodoTelescope<CR>
-" Run TodoTelescope at startup if tab is empty
-"augroup LaunchShowContext | au!
-    "autocmd BufEnter *
-        "\ if TabIsEmpty()
-            "\ | execute 'autocmd VimEnter * TodoTelescope'
-        "\ | endif
-"augroup end
-
 " Telescope config
 lua << EOF
   require('telescope').load_extension('gh')
+  require("telescope").load_extension("file_browser")
 EOF
 nnoremap <leader>i <cmd>lua require('telescope').extensions.gh.pull_request()<cr>
 nnoremap <leader>o <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>p <cmd>lua require('telescope.builtin').git_files()<cr>
 nnoremap <leader>f <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>1 <cmd>lua require('telescope.builtin').colorscheme()<cr>
+nnoremap <silent>gs <cmd>lua require('telescope.builtin').git_status()<cr>
+nnoremap <leader>2 :Telescope file_browser<cr>
 
 " Git vim-gitgutter
 let g:gitgutter_sign_added = '+'
@@ -225,56 +209,30 @@ nnoremap <silent> <leader># :call OpenTermInFileFolder()<CR>
 
 " Terraform
 " Syntastic Config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
-" (Optional)Remove Info(Preview) window
-set completeopt-=preview
+"" (Optional)Remove Info(Preview) window
+"set completeopt-=preview
 
-" (Optional)Hide Info(Preview) window after completions
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"" (Optional)Hide Info(Preview) window after completions
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" (Optional) Enable terraform plan to be include in filter
-let g:syntastic_terraform_tffilter_plan = 1
-
-" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
-let g:terraform_completion_keys = 1
-
-" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
-let g:terraform_registry_module_completion = 0
+"" (Optional) Enable terraform plan to be include in filter
+"let g:syntastic_terraform_tffilter_plan = 1
+"" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+"let g:terraform_registry_module_completion = 0
 
 nnoremap <leader>tff :Terraform fmt %<CR>
 
 " /Terraform
-
-
-" Discord Presence Settings
-" General options
-"let g:presence_auto_update         = 1
-"let g:presence_neovim_image_text   = "The One True Text Editor"
-"let g:presence_main_image          = "neovim"
-"let g:presence_client_id           = "793271441293967371"
-"let g:presence_debounce_timeout    = 10
-"let g:presence_enable_line_number  = 0
-"let g:presence_blacklist           = []
-"let g:presence_buttons             = 1
-"let g:presence_file_assets         = {}
-
-"" Rich Presence text options
-"let g:presence_editing_text        = "Editing %s"
-"let g:presence_file_explorer_text  = "Browsing %s"
-"let g:presence_git_commit_text     = "Committing changes"
-"let g:presence_plugin_manager_text = "Managing plugins"
-"let g:presence_reading_text        = "Reading %s"
-"let g:presence_workspace_text      = "Working on %s"
-"let g:presence_line_number_text    = "Line %s out of %s"
 
 " Git blamer
 let g:blamer_enabled = 1
