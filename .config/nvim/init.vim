@@ -94,10 +94,9 @@ set title
 set mouse=a
 set background=dark
 "colorscheme gruvbox
+colorscheme space-vim-dark  
 set colorcolumn=90
 
-"set background=dark
-colorscheme purify
 
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
