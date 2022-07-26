@@ -50,9 +50,6 @@ call plug#begin('~/.config/nvim/plugged')
   " Statusbar
   Plug 'itchyny/lightline.vim'
   
-  " File finder
-  "Plug 'vifm/vifm.vim'
-  
   " Theme
   Plug 'morhetz/gruvbox'
   Plug 'dracula/vim', { 'as': 'dracula' }
@@ -93,17 +90,12 @@ set spell!
 set title
 set mouse=a
 set background=dark
-"colorscheme gruvbox
 colorscheme space-vim-dark  
 set colorcolumn=90
-
 
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
 inoremap (<cr> (<cr>)<c-o><s-o>
-
-" Autosave
-" let g:auto_save = 1
 
 augroup CursorLine
   au!
