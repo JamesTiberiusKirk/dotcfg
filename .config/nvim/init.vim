@@ -14,12 +14,15 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/simeji/winresizer'
   
   " Code completion
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
+  "Plug 'neovim/nvim-lspconfig'
+  "Plug 'hrsh7th/cmp-nvim-lsp'
+  "Plug 'hrsh7th/cmp-buffer'
+  "Plug 'hrsh7th/cmp-path'
+  "Plug 'hrsh7th/cmp-cmdline'
+  "Plug 'hrsh7th/nvim-cmp'
+
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'neoclide/jsonc.vim'
 
   " Code commenter
   Plug 'preservim/nerdcommenter'
@@ -52,10 +55,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Treesitter 
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-  " Tmux vim navigator
-  Plug 'christoomey/vim-tmux-navigator'
-
   
 call plug#end()
 
@@ -95,6 +94,12 @@ set clipboard+=unnamedplus
 
 let mapleader=" "
 
+" Pane navigation
+noremap <leader>h <C-w>h
+noremap <leader>j <C-w>j
+noremap <leader>k <C-w>k
+noremap <leader>l <C-w>l
+
 " Save binding bc its annoying to type :w with my keyboard
 map <leader>s :w<CR>
 
@@ -104,9 +109,10 @@ map <leader>s :w<CR>
 " NERD Comments settings
 let g:NERDleaderDelims = 1
 nmap <C-c> <leader>c<leader>
+vmap <C-c> <leader>c<leader>
 
 " NERD Tree Settings
-nnoremap <leader>n :NERDTreeFocus<CR>
+"nnoremap <leader>n :NERDTreeFocus<CR>
 let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
@@ -168,13 +174,6 @@ nnoremap <leader>tff :!terraform fmt %<CR>
 " Git blamer
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
-
-" tmux navigator stuff
-let g:tmux_navigator_no_mappings = 1
-noremap <leader>h :TmuxNavigateLeft<cr>
-noremap <leader>j :TmuxNavigateDown<cr>
-noremap <leader>k :TmuxNavigateUp<cr>
-noremap <leader>l :TmuxNavigateRight<cr>
 
 " Setup Treesitter and friends
 "

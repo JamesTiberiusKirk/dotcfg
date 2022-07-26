@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Terminate already running bar instances
+echo "Killing polybar"
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -x polybar >/dev/null; do sleep 1; done
+echo "Waiting...."
+while pgrep -x polybar 2 >/dev/null; do sleep 1; done
 
 
+echo "About to run it.."
 if [[ $(hostname) == "dellstar" ]];
 then 
   echo "Running polybar for XPS"
