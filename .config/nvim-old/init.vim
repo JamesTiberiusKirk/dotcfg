@@ -107,6 +107,19 @@ noremap <leader>l <C-w>l
 " Save binding bc its annoying to type :w with my keyboard
 map <leader>s :w<CR>
 
+" Navigating buffers
+map <leader>m :bnext<CR>
+map <leader>n :bprev<CR>
+
+" Navigating tabs (vimtabs)
+map <leader>v :tabnext<CR>
+
+" Closing buffer without closing window
+nmap <leader>d :b#<bar>bd#<CR>
+nmap <leader>D :b#<bar>bd!#<CR>
+
+" Make leader then Esc clear search highlights
+nnoremap <silent> <leader><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " Pugin configs
 
@@ -123,19 +136,6 @@ let g:NERDTreeWinSize=40
 nnoremap <leader>t :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 nnoremap <leader>ll :NERDTreeFind<CR>
 
-" Navigating buffers
-map <leader>m :bnext<CR>
-map <leader>n :bprev<CR>
-
-" Navigating tabs (vimtabs)
-map <leader>v :tabnext<CR>
-
-" Closing buffer without closing window
-nmap <leader>d :b#<bar>bd#<CR>
-nmap <leader>D :b#<bar>bd!#<CR>
-
-" Make leader then Esc clear search highlights
-nnoremap <silent> <leader><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " CoC
 let g:coc_global_extensions = ['coc-tsserver']
