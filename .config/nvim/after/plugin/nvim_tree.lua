@@ -1,16 +1,15 @@
--- examples for your init.lua
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
+    relativenumber = true,
+    number = true,
     adaptive_size = true,
+    centralize_selection = true,
+    width = 40,
     mappings = {
       list = {
-        { key = "u", action = "dir_up" },
+        -- { key = "u", action = "dir_up" }, -- EXAMPLE
       },
     },
   },
@@ -18,7 +17,7 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
 

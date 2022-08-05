@@ -21,7 +21,6 @@ inoremap("{<cr>", "{<cr>}<c-o><s-o>")
 inoremap("[<cr>", "[<cr>]<c-o><s-o>")
 inoremap("(<cr>", "(<cr>)<c-o><s-o>")
 
-
 -- Navigating buffers
 nnoremap("<leader>m", "<cmd>bnext<CR>")
 nnoremap("<leader>n", "<cmd>bprev<CR>")
@@ -29,4 +28,8 @@ nnoremap("<leader>n", "<cmd>bprev<CR>")
 -- Navigating tabs (vimtabs)
 nnoremap("<leader>v", "<cmd>tabnext<CR>")
 
+-- Eendulging my shitty habit
+nnoremap("<leader>s", "<cmd>w<CR>")
 
+-- Source
+nnoremap("<leader>xx", "<cmd>so<CR>")

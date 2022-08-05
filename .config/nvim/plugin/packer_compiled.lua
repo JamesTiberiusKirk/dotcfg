@@ -169,6 +169,11 @@ _G.packer_plugins = {
     path = "/Users/darthvader/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["vgit.nvim"] = {
+    loaded = true,
+    path = "/Users/darthvader/.local/share/nvim/site/pack/packer/start/vgit.nvim",
+    url = "https://github.com/tanvirtin/vgit.nvim"
+  },
   winresizer = {
     loaded = true,
     path = "/Users/darthvader/.local/share/nvim/site/pack/packer/start/winresizer",
