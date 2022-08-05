@@ -1,55 +1,50 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use('wbthomason/packer.nvim')
+  use 'wbthomason/packer.nvim'
   
   -- Theme
-  use('folke/tokyonight.nvim')
-  use{'rafi/awesome-vim-colorschemes'}
+  use 'folke/tokyonight.nvim'
+  use 'rafi/awesome-vim-colorschemes'
 
   -- dependencies
-  use('nvim-lua/plenary.nvim')
+  use 'nvim-lua/plenary.nvim'
   
-  -- nvim-go
-  use('crispgm/nvim-go')
-  
-  -- (optional) if you enable nvim-notify
-  use('rcarriga/nvim-notify')
-  
-  -- (recommend) LSP config
+  use 'crispgm/nvim-go'
+
   use {
     "williamboman/nvim-lsp-installer",
     "neovim/nvim-lspconfig",
   }
 
+  use {
+    'kdheepak/tabline.nvim',
+    require = {
+      { 'hoob3rt/lualine.nvim', opt=true },
+      {'kyazdani42/nvim-web-devicons', opt = true}
+    }
+  }
 
-  -- tabs
-  use{'kdheepak/tabline.nvim',require = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }}
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {
+      {'nvim-lua/plenary.nvim'}
+    }
+  }
 
-  -- lualine
-  --use{'nvim-lualine/lualine.nvim',requires = { 'kyazdani42/nvim-web-devicons', opt = true }}
-  
-  -- telescope 
-  use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} }}
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'rcarriga/nvim-notify'
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons'
+    }
+  }
 
-  -- treesitter
-  use {'nvim-treesitter/nvim-treesitter'}
-
-  -- nvim-go
-  use('crispgm/nvim-go')
-
-  -- (optional) if you enable nvim-notify
-  use('rcarriga/nvim-notify')
-
-  -- nim tree
-  use {'kyazdani42/nvim-tree.lua',requires = {'kyazdani42/nvim-web-devicons'}}
-
-  -- win resize mode
-  use {'simeji/winresizer'}
+  use  'simeji/winresizer'
 
   -- commenter
-  use 'JoosepAlviste/nvim-ts-context-commentstring' -- TODO: need to configure this
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
 
 
@@ -60,5 +55,11 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 end)
 
