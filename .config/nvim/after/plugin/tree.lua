@@ -1,4 +1,4 @@
--- OR setup with some options
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
@@ -9,7 +9,7 @@ require("nvim-tree").setup({
     width = 40,
     mappings = {
       list = {
-        -- { key = "u", action = "dir_up" }, -- EXAMPLE
+        { key = "?", cb = tree_cb("toggle_help") },
       },
     },
   },
@@ -19,6 +19,10 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    ignored = false,
+  },
+  git = {
+    ignore = false,
   },
 })
 
