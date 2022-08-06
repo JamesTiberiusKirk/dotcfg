@@ -52,6 +52,10 @@ bindsym $mod+ctrl+v exec "~/.scripts/system/rofi-pulse.sh sink"
 bindsym $mod+ctrl+c exec "~/.scripts/system/rofi-pulse.sh source"
 bindsym $mod+ctrl+e exec "rofi -show emoji -modi emoji"
 
+# Boomer bind
+bindsym $mod+ctrl+b exec "boomer"
+
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.

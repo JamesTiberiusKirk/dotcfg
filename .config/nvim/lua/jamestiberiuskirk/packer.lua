@@ -19,14 +19,6 @@ return require('packer').startup(function(use)
 
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
-  -- use {
-  --   'kdheepak/tabline.nvim',
-  --   require = {
-  --     { 'hoob3rt/lualine.nvim', opt=true },
-  --     {'kyazdani42/nvim-web-devicons', opt = true}
-  --   }
-  -- }
-
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
