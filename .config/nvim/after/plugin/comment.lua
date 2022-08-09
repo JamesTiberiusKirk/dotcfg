@@ -30,7 +30,10 @@ require('nvim_comment').setup({
 -- vim.api.nvim_set_keymap('v', '<C-c>', "<cmd>CommentToggle<cr><Esc>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<C-c>', "<cmd>CommentToggle<cr>", { noremap = true, silent = true });
 
-vim.cmd[[
-  nmap <C-c> :CommentToggle<cr>
-  vmap <C-c> :CommentToggle<cr>
-]]
+-- vim.cmd[[
+--   nmap <C-c> :CommentToggle<cr>
+--   vmap <C-c> :CommentToggle<cr>
+-- ]]
+
+vim.cmd("nmap <C-c> :CommentToggle<cr>")
+vim.cmd("vmap <C-c> :CommentToggle<cr>")

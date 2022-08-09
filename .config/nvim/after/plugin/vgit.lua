@@ -182,7 +182,7 @@ require('vgit').setup({
           numhl = nil,
           icon = nil,
           linehl = nil,
-          text = 'x',
+          text = '-',
         },
         GitSignsChange = {
           texthl = 'GitSignsChange',

@@ -8,6 +8,8 @@ export GOPRIVATE="github.com/xiatechs"
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+export TERM=screen-256color
+export XDG_CONFIG_HOME=$HOME/.config/
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
