@@ -10,6 +10,7 @@ require("nvim-tree").setup({
     mappings = {
       list = {
         { key = "?", cb = tree_cb("toggle_help") },
+        { key = "<C-e>", cb = "<cmd>WinResizerStartResize<CR>" },
       },
     },
   },

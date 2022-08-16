@@ -27,6 +27,7 @@ require('nvim_comment').setup({
 
 
 -- TODO: this does not work properly in visual mode. vim.cmd fix bellow
+
 -- vim.api.nvim_set_keymap('v', '<C-c>', "<cmd>CommentToggle<cr><Esc>", { noremap = true, silent = true });
 -- vim.api.nvim_set_keymap('n', '<C-c>', "<cmd>CommentToggle<cr>", { noremap = true, silent = true });
 
@@ -35,5 +36,8 @@ require('nvim_comment').setup({
 --   vmap <C-c> :CommentToggle<cr>
 -- ]]
 
-vim.cmd("nmap <C-c> :CommentToggle<cr>")
+
+local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
+nnoremap("<C-c>", "<CMD>CommentToggle<CR>")
+-- -- vim.cmd("nmap <C-c> :CommentToggle<cr>")
 vim.cmd("vmap <C-c> :CommentToggle<cr>")
