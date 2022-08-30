@@ -11,6 +11,9 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   
   use 'crispgm/nvim-go'
+  --use 'ray-x/go.nvim'
+  --use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
+
 
   use {
     "williamboman/nvim-lsp-installer",
@@ -55,5 +58,13 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim'
     }
   }
+
+  --use({
+  --  'ray-x/navigator.lua',
+  --  requires = {
+  --    { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+  --    { 'neovim/nvim-lspconfig' },
+  --  },
+  --})
 end)
 

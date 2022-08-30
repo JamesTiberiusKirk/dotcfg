@@ -9,6 +9,8 @@ require("nvim-lsp-installer").setup({
     }
 })
 
+-- require('navigator.lspclient.mapping').setup()
+
 local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
 -- nnoremap("gd","<cmd>lua vim.lsp.buf.declaration()<cr>")
 nnoremap("gd","<cmd>lua vim.lsp.buf.definition()<cr>")

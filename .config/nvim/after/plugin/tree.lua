@@ -4,7 +4,8 @@ require("nvim-tree").setup({
   view = {
     relativenumber = true,
     number = true,
-    adaptive_size = true,
+    -- adaptive_size = true,
+    adaptive_size = false,
     centralize_selection = true,
     width = 40,
     mappings = {
