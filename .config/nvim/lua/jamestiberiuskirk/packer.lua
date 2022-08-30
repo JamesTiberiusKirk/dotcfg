@@ -2,18 +2,17 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  
+
   -- Theme
   use 'folke/tokyonight.nvim'
   use 'rafi/awesome-vim-colorschemes'
 
   -- dependencies
   use 'nvim-lua/plenary.nvim'
-  
+
   use 'crispgm/nvim-go'
   --use 'ray-x/go.nvim'
   --use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
-
 
   use {
     "williamboman/nvim-lsp-installer",

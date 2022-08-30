@@ -44,5 +44,5 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
-nnoremap("<C-c>", "<cmd>lua require('ts_context_commentstring.internal').update_commentstring()<cr>")
+-- local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
+-- nnoremap("<C-c>", "<cmd>lua require('ts_context_commentstring.internal').update_commentstring()<cr>")

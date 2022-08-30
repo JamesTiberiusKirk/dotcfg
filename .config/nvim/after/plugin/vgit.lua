@@ -111,7 +111,7 @@ require('vgit').setup({
           commit_message = commit_message:sub(1, max_commit_message_length) .. '...'
         end
         return string.format(
-        ' %s, %s • %s',
+        '~ %s, %s • %s',
         author,
         string.format(
         '%s %s ago',
@@ -208,7 +208,7 @@ require('vgit').setup({
       void = '⣿',
     },
   }
-}) 
+})
 
 
 vim.o.updatetime = 300

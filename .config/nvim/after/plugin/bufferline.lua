@@ -9,7 +9,10 @@ require('bufferline').setup {
     -- NOTE: this plugin is designed with this icon in mind,
     -- and so changing this is NOT recommended, this is intended
     -- as an escape hatch for people who cannot bear it for whatever reason
-    indicator_icon = '▎',
+    indicator = {
+      style = 'icon',
+      icon = '|',
+    },
     buffer_close_icon = '',
     modified_icon = '●',
     close_icon = '',
@@ -21,8 +24,15 @@ require('bufferline').setup {
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
     -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return "("..count..")"
+    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+    diagnostics_indicator = function(_, _, diagnostics_dict, _)
+      local s = " "
+      for e, n in pairs(diagnostics_dict) do
+        local sym = e == "error" and " "
+          or (e == "warning" and " " or "" )
+        s = s .. n .. sym
+      end
+      return s
     end,
     offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "center" }},
     color_icons = true , -- whether or not to add the filetype icon highlights
