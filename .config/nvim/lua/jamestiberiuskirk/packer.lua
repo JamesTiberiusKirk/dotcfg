@@ -10,7 +10,8 @@ return require('packer').startup(function(use)
   -- dependencies
   use 'nvim-lua/plenary.nvim'
 
-  use 'crispgm/nvim-go'
+  use 'fatih/vim-go'
+  --use 'crispgm/nvim-go'
   --use 'ray-x/go.nvim'
   --use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
 

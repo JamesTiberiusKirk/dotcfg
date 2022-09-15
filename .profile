@@ -18,6 +18,7 @@ then
   export PATH=~/Applications:$PATH
   export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
   export GEM_HOME="$HOME/.gem"
+  export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
 fi 
 
 
