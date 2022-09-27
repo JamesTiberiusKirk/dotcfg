@@ -4,10 +4,9 @@ require("nvim-tree").setup({
   view = {
     relativenumber = true,
     number = true,
-    -- adaptive_size = true,
     adaptive_size = false,
     centralize_selection = true,
-    width = 40,
+    width = 60,
     mappings = {
       list = {
         { key = "?", cb = tree_cb("toggle_help") },
@@ -17,7 +16,7 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
-    highlight_opened_files = "1",
+    highlight_opened_files = "0",
   },
   filters = {
     dotfiles = false,

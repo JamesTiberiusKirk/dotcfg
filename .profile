@@ -16,9 +16,13 @@ if [[ $(uname) = "Darwin" ]];
 then
   export PATH=/opt/homebrew/bin:$PATH
   export PATH=~/Applications:$PATH
-  export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
-  export GEM_HOME="$HOME/.gem"
+  # export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH"
+  # export GEM_HOME="$HOME/.gem"
   export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
+
+  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+  source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+  chruby ruby-3.1.2
 fi 
 
 
