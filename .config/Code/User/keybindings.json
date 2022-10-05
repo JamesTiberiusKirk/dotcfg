@@ -1,0 +1,54 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+shift+alt+r",
+        "command": "typescript.restartTsServer"
+    },
+    {
+        "key": "ctrl+alt+j",
+        "command": "scrollLineDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "scrollLineDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "scrollLineUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "scrollLineUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.focusBelowGroup",
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.focusAboveGroup",
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.focusLeftGroup",
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.focusRightGroup",
+    }
+
+]
