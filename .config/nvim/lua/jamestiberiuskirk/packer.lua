@@ -53,12 +53,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
 
   use 'tpope/vim-fugitive'
-  -- use {
-  --   'tanvirtin/vgit.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim'
-  --   }
-  -- }
+  use {
+    'tanvirtin/vgit.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   --use({
   --  'ray-x/navigator.lua',
