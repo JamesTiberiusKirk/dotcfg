@@ -12,6 +12,7 @@ plugins=(
  git
  vi-mode
 )
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 source $ZSH/oh-my-zsh.sh
@@ -21,6 +22,8 @@ source $HOME/.profile
 # Vi mode
 #bindkey -v
 #export KEYTIMEOUT=1
+#
+DISABLE_AUTO_TITLE="true"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
