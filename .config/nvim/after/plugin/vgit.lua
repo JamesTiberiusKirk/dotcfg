@@ -74,11 +74,6 @@ require('vgit').setup({
     live_blame = {
       enabled = true,
       format = function(blame, git_config)
-        local config_author = git_config['user.name']
-        local author = blame.author
-        if config_author == author then
-          author = 'You'
-        end
         local time = os.difftime(os.time(), blame.author_time)
         / (60 * 60 * 24 * 30 * 12)
         local time_divisions = {

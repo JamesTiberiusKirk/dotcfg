@@ -10,6 +10,10 @@ export PATH=$PATH:$GOROOT/bin
 export TERM=screen-256color
 export XDG_CONFIG_HOME=$HOME/.config/
 
+source ~/.env
+
+export GOPRIVATE=git.systems.io/*
+
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
 then
@@ -29,7 +33,6 @@ then
 
   autoload -U compinit && compinit
 
-  export GOPRIVATE=git.systems.io/*
 fi 
 
 

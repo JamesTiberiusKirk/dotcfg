@@ -12,8 +12,13 @@ return require('packer').startup(function(use)
 
   use 'fatih/vim-go'
   --use 'crispgm/nvim-go'
-  --use 'ray-x/go.nvim'
   --use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
+  
+  use 'mfussenegger/nvim-dap'
+  use 'leoluz/nvim-dap-go'
+  use 'theHamsta/nvim-dap-virtual-text'
+  use 'rcarriga/nvim-dap-ui'
+  use 'nvim-telescope/telescope-dap.nvim'
 
   use {
     "williamboman/nvim-lsp-installer",
