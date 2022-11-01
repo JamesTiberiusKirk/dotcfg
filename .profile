@@ -16,6 +16,9 @@ export GITLAB_HOST=git.systems.io
 # PROG=grpc-client-cli
 # _CLI_ZSH_AUTOCOMPLETE_HACK=1
 # source  autocomplete/zsh_autocomplete
+source ~/.env
+
+export GOPRIVATE=git.systems.io/*
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
@@ -36,7 +39,6 @@ then
 
   autoload -U compinit && compinit
 
-  export GOPRIVATE=git.systems.io/*
 fi 
 
 
