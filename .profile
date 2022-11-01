@@ -10,6 +10,8 @@ export PATH=$PATH:$GOROOT/bin
 export TERM=screen-256color
 export XDG_CONFIG_HOME=$HOME/.config/
 
+export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
 source ~/.env
 
 export GOPRIVATE=git.systems.io/*
@@ -17,13 +19,13 @@ export GOPRIVATE=git.systems.io/*
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
 then
-  export PATH=/opt/homebrew/bin:$PATH
-  export PATH=~/Applications:$PATH
-  export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
+    export PATH=/opt/homebrew/bin:$PATH
+    export PATH=~/Applications:$PATH
+    export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
 
-  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-  source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-  chruby ruby-3.1.2
+    source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+    source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+    chruby ruby-3.1.2
 
 
   # Redbrain stuff
@@ -39,34 +41,30 @@ fi
 # Linux stuff
 if [[ $(uname) = "Linux" ]];
 then
-  export GOROOT=/usr/lib/go
+    export GOROOT=/usr/lib/go
 
-  # if x server is running
-  #if [[ $DISPLAY ]];
-  #then 
     export TERM="alacritty"
 
     # export WALL_PATH=~/Pictures/wallpapers
     export WALL_PATH=~/Pictures/vapourwaveWalls
-
+    
     # Themes
     GTK_THEME=Adapta-Nokto
     export QT_QPA_PLATFORMTHEME="qt5ct"
     export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
+    
     # For xdg-open
     alias open="xdg-open"
-
+    
     #export PATH="$PATH:$HOME/apps/clion-2020.2.4/bin"
     #export PATH="$PATH:$HOME/apps/android-studio/bin/"
     export PATH="$PATH:$HOME/apps/monero-gui"
-  #fi
-
-  export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-  export PATH="$PATH:$ANDROID_SDK_ROOT/tools/bin"
-  export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
-  export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
-  export CAPACITOR_ANDROID_STUDIO_PATH="/bin/android-studio"
+    
+    export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+    export PATH="$PATH:$ANDROID_SDK_ROOT/tools/bin"
+    export PATH="$PATH:$ANDROID_SDK_ROOT/platform-tools"
+    export PATH="$PATH:$ANDROID_SDK_ROOT/emulator"
+    export CAPACITOR_ANDROID_STUDIO_PATH="/bin/android-studio"
 
 
   # General
@@ -76,7 +74,6 @@ then
 
 
   export PATH="$PATH:$HOME/.local/bin/"
-  export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 fi
 
 # Aliases
@@ -87,12 +84,12 @@ alias tx="tmux -u"
 
 # GO
 gocov() {
-  go test -coverprofile=.cover.out $@ &&
-  go tool cover -html=.cover.out -o coverage.html &&
-  xdg-open coverage.html &&
-  sleep 1 &&
-  rm .cover.out coverage.html;
-}
+    go test -coverprofile=.cover.out $@ &&
+        go tool cover -html=.cover.out -o coverage.html &&
+        xdg-open coverage.html &&
+        sleep 1 &&
+        rm .cover.out coverage.html;
+    }
 
 
 # Git bare repo for the dotconfigs
@@ -120,25 +117,25 @@ alias gvi="git ls-files --modified | xargs nvim"
 
 # Stage all git files that can be grepped by a query
 gas() {
-  [ -z $1 ] && echo "Need parameter" && return 1
-  echo "Query: "$1
-  FILES=$(git ls-files --modified --others | grep "$1" ) 
-  echo $FILES
-  echo $FILES | xargs git add 
+    [ -z $1 ] && echo "Need parameter" && return 1
+    echo "Query: "$1
+    FILES=$(git ls-files --modified --others | grep "$1" ) 
+    echo $FILES
+    echo $FILES | xargs git add 
 }
 
 # For creating a new branch and automatically switching to it
 gnb() {
-  [ -z $1 ] && echo "Need name of branch" && return 1
-  echo "Creating new git branch and switching to it " $1
-  git branch $1
-  git checkout $1
+    [ -z $1 ] && echo "Need name of branch" && return 1
+    echo "Creating new git branch and switching to it " $1
+    git branch $1
+    git checkout $1
 }
 
 # For pushing upstream to a fresh branch 
 gpnu() {
-  echo "Pushing to new branch upstream"
-  git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+    echo "Pushing to new branch upstream"
+    git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 # Tree alias to ignore node_modules
