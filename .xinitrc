@@ -30,6 +30,3 @@ picom &
 
 #exec dwm
 exec i3
-
-Footer
-

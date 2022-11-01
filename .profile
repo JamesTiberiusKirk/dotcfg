@@ -10,6 +10,13 @@ export PATH=$PATH:$GOROOT/bin
 export TERM=screen-256color
 export XDG_CONFIG_HOME=$HOME/.config/
 
+export GITLAB_HOST=git.systems.io
+
+# Grpc client cli autocompletion
+# PROG=grpc-client-cli
+# _CLI_ZSH_AUTOCOMPLETE_HACK=1
+# source  autocomplete/zsh_autocomplete
+
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
 then
