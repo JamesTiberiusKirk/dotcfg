@@ -105,6 +105,9 @@ require('vgit').setup({
         if #commit_message > max_commit_message_length then
           commit_message = commit_message:sub(1, max_commit_message_length) .. '...'
         end
+
+        local author = blame.author
+
         return string.format(
         '~ %s, %s • %s',
         author,

@@ -2,7 +2,8 @@
 
 SUB_PROJECT=$1
 SESSION="sp"
-[[ $SUB_PROJECT ]]&& SESSION="sp-$SUB_PROJECT"
+[[ $SUB_PROJECT ]] && SESSION="sp-$SUB_PROJECT"
+[[ $SUB_PROJECT == "db" ]] && $2
 PARENT_DIR=~/redbrain/shopify-product
 FLAGS="-d "
 
@@ -16,11 +17,12 @@ case $SUB_PROJECT in
     tmux send-keys      -t $SESSION:1 C-z "./sql_"$ENVIRONMENT"_proxy.sh " Enter 
     tmux split-window   -t $SESSION:1 -v -p 85 -c $PARENT_DIR/$SUB_PROJECT "$EDITOR query.sql" 
     tmux split-window   -t $SESSION:1 -h -p 75 -c $PARENT_DIR/$SUB_PROJECT "sleep 3 && ./psql_"$ENVIRONMENT".sh"
-
     ;;
 
   *)
     echo -n "unknown preset"
+    tmux split-window   -t $SESSION:1 -h -p 25 -c $PARENT_DIR/$SUB_PROJECT 
+    tmux split-window   -t $SESSION:1 -v -p 50 -c $PARENT_DIR/$SUB_PROJECT
     ;;
 esac
 
