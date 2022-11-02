@@ -20,10 +20,6 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
   use 'nvim-telescope/telescope-dap.nvim'
 
-  use {
-    "williamboman/nvim-lsp-installer",
-    "neovim/nvim-lspconfig",
-  }
 
   use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
 
@@ -49,6 +45,11 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
 
+  use {
+    "williamboman/nvim-lsp-installer",
+    "neovim/nvim-lspconfig",
+  }
+  use 'onsails/lspkind.nvim'
 
   -- cmp
   use 'hrsh7th/cmp-nvim-lsp'
@@ -56,6 +57,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+
 
   use 'tpope/vim-fugitive'
   use {
