@@ -1,0 +1,45 @@
+#!/bin/sh
+
+SUB_PROJECT=$1
+SESSION="sp"
+[[ $SUB_PROJECT ]] && SESSION="sp-$SUB_PROJECT"
+PARENT_DIR=~/redbrain/shopify-product
+FLAGS="-d "
+
+
+case $SUB_PROJECT in
+  db)
+    ENVIRONMENT=$2
+    echo "db workspace preset"
+
+    if [[ "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]] ; then
+        echo "please provide an environment for the db"
+        echo "either dev or prod"
+        exit 1
+    fi
+
+    SESSION="$SESSION-$ENVIRONMENT"
+
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+
+    tmux send-keys      -t $SESSION:1 "./sql_"$ENVIRONMENT"_proxy.sh " Enter 
+    tmux split-window   -t $SESSION:1 -v -p 85 -c $PARENT_DIR/$SUB_PROJECT "$EDITOR query.sql" 
+    tmux split-window   -t $SESSION:1 -h -p 75 -c $PARENT_DIR/$SUB_PROJECT "sleep 3 && ./psql_"$ENVIRONMENT".sh"
+    ;;
+
+  *)
+    echo "default preset"
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+
+    tmux send-keys      -t $SESSION:1 "$EDITOR" Enter 
+    sleep 0.2
+    tmux send-keys      -t $SESSION:1 Space "p" 
+    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$SUB_PROJECT 
+    tmux split-window   -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$SUB_PROJECT
+
+    # [[ -z $TMUX ]] && tmux select-pane -t 0
+    # tmux -2 attach-session 
+    ;;
+esac
+
+[[ -z $TMUX ]] && tmux a -t $SESSION:1
