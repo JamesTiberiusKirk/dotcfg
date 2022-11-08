@@ -3,7 +3,7 @@
 SUB_PROJECT=$1
 SESSION="sp"
 [[ $SUB_PROJECT ]] && SESSION="sp-$SUB_PROJECT"
-PARENT_DIR=~/redbrain/shopify-product
+PARENT_DIR=~/redbrain/shopify-app
 FLAGS="-d "
 
 
