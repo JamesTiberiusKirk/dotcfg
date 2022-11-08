@@ -11,9 +11,7 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   use 'fatih/vim-go'
-  --use 'crispgm/nvim-go'
-  --use {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}
-  
+
   use 'mfussenegger/nvim-dap'
   use 'leoluz/nvim-dap-go'
   use 'theHamsta/nvim-dap-virtual-text'
@@ -44,7 +42,7 @@ return require('packer').startup(function(use)
   -- commenter
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
-  
+
   use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
 
   -- LSP
@@ -69,13 +67,5 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim'
     }
   }
-
-  --use({
-  --  'ray-x/navigator.lua',
-  --  requires = {
-  --    { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-  --    { 'neovim/nvim-lspconfig' },
-  --  },
-  --})
 end)
 
