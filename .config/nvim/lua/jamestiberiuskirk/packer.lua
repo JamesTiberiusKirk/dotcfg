@@ -3,6 +3,8 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'christoomey/vim-tmux-navigator'
+
   -- Theme
   use 'folke/tokyonight.nvim'
   use 'rafi/awesome-vim-colorschemes'
