@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
 
-  use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+  -- use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
 
   -- LSP
   use {
