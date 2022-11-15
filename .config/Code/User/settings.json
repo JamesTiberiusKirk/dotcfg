@@ -47,4 +47,5 @@
     ],
     "vetur.validation.script": false,
     "editor.minimap.enabled": false,
+    "window.zoomLevel": 1,
 }
