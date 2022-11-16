@@ -264,11 +264,6 @@ bindsym $mod+Shift+p move workspace to output down
 
 # Assigning windows to workspaces
 
-# Workspace 1
-# assign [class="Brave-browser"] $ws1
-
-# Workspace 2
-
 # Workspace 3
 assign [class="TelegramDesktop"] $ws10
 assign [class="Discord"] $ws10
