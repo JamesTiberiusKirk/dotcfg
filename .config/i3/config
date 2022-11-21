@@ -1,5 +1,6 @@
 
 set $mod Mod4
+set $gap_size 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -263,11 +264,6 @@ bindsym $mod+Shift+p move workspace to output down
 
 # Assigning windows to workspaces
 
-# Workspace 1
-# assign [class="Brave-browser"] $ws1
-
-# Workspace 2
-
 # Workspace 3
 assign [class="TelegramDesktop"] $ws10
 assign [class="Discord"] $ws10
@@ -276,14 +272,14 @@ assign [class="Discord"] $ws10
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
 # Gapps setup
-gaps inner 5
-gaps top 5
-gaps left 5
-gaps right 5
-gaps bottom 5
+gaps inner $gap_size
+gaps top $gap_size
+gaps left $gap_size
+gaps right $gap_size
+gaps bottom $gap_size
 
 # Fullscreen mode
-bindsym $mod+shift+ctrl+f exec "~/.scripts/i3/fullscreeen.sh"
+bindsym $mod+shift+ctrl+f exec `~/.scripts/i3/fullscreen.sh $gap_size`
 
 
 

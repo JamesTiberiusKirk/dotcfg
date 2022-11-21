@@ -1,7 +1,7 @@
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
-local protocol = require('vim.lsp.protocol')
+-- local protocol = require('vim.lsp.protocol')
 
 local on_attach = function(client, bufnr)
   -- format on save
@@ -39,4 +39,4 @@ nnoremap("gr","<cmd>lua vim.lsp.buf.reference()<cr>")
 nnoremap("<leader>g","<cmd>lua vim.lsp.buf.hover()<cr>")
 nnoremap("<leader>r","<cmd>lua vim.lsp.buf.rename()<cr>")
 nnoremap("<leader>do","<cmd>lua vim.lsp.buf.action()<cr>")
-nnoremap("err","<cmd>lua vim.diagnostic.open_float({scope='line'})<cr>")
+nnoremap("Err","<cmd>lua vim.diagnostic.open_float({scope='line'})<cr>")
