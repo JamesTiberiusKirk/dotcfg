@@ -10,17 +10,19 @@ while pgrep -x polybar 2 >/dev/null; do sleep 1; done
 
 
 echo "About to run it.."
-if [[ $(hostname) == "dellstar" ]];
-then 
+if [[ $(hostname) == "dellstar" ]]; then 
   echo "Running polybar for XPS"
   polybar -rq xps --config=~/.config/polybar/config.ini
   #polybar -rq xps --config=~/.config/polybar/config.ini
   #polybar -rq xps --config=config.ini
-else
-  echo "Running polybar"
+elif [[ $(hostname) == "legion"  ]]; then
+  echo "Running polybar for legion"
   polybar -rq mainbar &
   polybar -rq secbar &
   polybar -rq thirdbar &
+elif [[ $(hostname) == "deathstar-term"  ]]; then
+  echo "Running polybar for deathstar-term"
+  polybar -rq deathstar-term-bar &
 fi
 
 

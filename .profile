@@ -50,6 +50,7 @@ then
     export GOROOT=/usr/lib/go
 
     export TERM="alacritty"
+    export DISPLAY=:0
 
     # export WALL_PATH=~/Pictures/wallpapers
     export WALL_PATH=~/Pictures/vapourwaveWalls
