@@ -1,0 +1,36 @@
+#!/bin/sh
+
+COMPREPLY="test word"
+
+SUB_PROJECT=$1
+SESSION=""
+[[ $SUB_PROJECT ]] && SESSION="$SUB_PROJECT"
+PARENT_DIR=~/Projects
+FLAGS="-d "
+
+case $SUB_PROJECT in
+  pg)
+    echo "playground preset"
+    SESSION="playground"
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+
+    tmux send-keys      -t $SESSION:1 "$EDITOR main.go" Enter 
+    sleep 0.2
+    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$SUB_PROJECT 
+    tmux send-keys      -t $SESSION:1 "go run ./main.go" Enter 
+    ;;
+
+  *)
+    echo "default preset"
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+
+    tmux send-keys      -t $SESSION:1 "$EDITOR" Enter 
+    sleep 0.2
+    tmux send-keys      -t $SESSION:1 Space "p" 
+    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$SUB_PROJECT 
+    tmux split-window   -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$SUB_PROJECT
+
+    ;;
+esac
+
+[[ -z $TMUX ]] && tmux a -t $SESSION:1

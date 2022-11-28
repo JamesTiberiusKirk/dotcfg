@@ -1,5 +1,4 @@
 vim.cmd("let g:go_fmt_command = 'goimports'")
-vim.cmd("let g:go_build_tags = 'integration'")
 vim.cmd("au BufRead,BufNewFile *.html set filetype=gohtmltmpl")
 
 local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
