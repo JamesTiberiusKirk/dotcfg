@@ -2,8 +2,15 @@
 alt_send_esc: true
 
 font:
-  normal:
-    family: "MesloLGS NF"
+    normal:
+        family: SauceCodePro Nerd Font
+        style: Regular
+    bold:
+        family: SauceCodePro Nerd Font
+        style: Bold
+    italic:
+        family: SauceCodePro Nerd Font
+        style: Italic
 
 key_bindings:
   - { key: V,           mods: Control|Shift,                    action: Paste            }

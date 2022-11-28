@@ -12,14 +12,15 @@ export XDG_CONFIG_HOME=$HOME/.config/
 
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-export GITLAB_HOST=git.systems.io
 
 # Grpc client cli autocompletion
 # PROG=grpc-client-cli
 # _CLI_ZSH_AUTOCOMPLETE_HACK=1
 # source  autocomplete/zsh_autocomplete
+
 source ~/.env
 
+export GITLAB_HOST=git.systems.io
 export GOPRIVATE=git.systems.io/*
 
 # Mac stuff
