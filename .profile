@@ -49,6 +49,7 @@ fi
 if [[ $(uname) = "Linux" ]];
 then
     export GOROOT=/usr/lib/go
+    export PATH=~/.bin:$PATH
 
     export TERM="alacritty"
     export DISPLAY=:0
