@@ -12,9 +12,9 @@ case $SUB_PROJECT in
     ENVIRONMENT=$2
     echo "db workspace preset"
 
-    if [[ "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]] ; then
+    if [[ "$ENVIRONMENT" != "local" && "$ENVIRONMENT" != "dev" && "$ENVIRONMENT" != "prod" ]] ; then
         echo "please provide an environment for the db"
-        echo "either dev or prod"
+        echo "either dev, prod or local"
         exit 1
     fi
 
@@ -24,9 +24,8 @@ case $SUB_PROJECT in
 
     tmux send-keys      -t $SESSION:1 "./sql_"$ENVIRONMENT"_proxy.sh " Enter 
     tmux split-window   -t $SESSION:1 -v -p 85 -c $PARENT_DIR/$SUB_PROJECT "$EDITOR query.sql" 
-    tmux split-window   -t $SESSION:1 -h -p 75 -c $PARENT_DIR/$SUB_PROJECT "sleep 3 && ./psql_"$ENVIRONMENT".sh"
+    tmux split-window   -t $SESSION:1 -h -p 75 -c $PARENT_DIR/$SUB_PROJECT "sleep 5 && ./psql_"$ENVIRONMENT".sh"
     ;;
-
   *)
     echo "default preset"
     tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
