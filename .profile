@@ -124,6 +124,15 @@ alias gf="git fetch"
 # Open all modified git files in vim
 alias gvi="git ls-files --modified | xargs nvim"
 
+# Merging master to current
+gmm() {
+  ORIGINAL_BRANCH=$(git branch --show-current)
+  git checkout master
+  git pull
+  git checkout $ORIGINAL_BRANCH
+  git merge master
+}
+
 # Stage all git files that can be grepped by a query
 gas() {
     [ -z $1 ] && echo "Need parameter" && return 1
