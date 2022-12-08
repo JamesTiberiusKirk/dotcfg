@@ -7,9 +7,8 @@ export GO111MODULE=on
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-export TERM=screen-256color
+# export TERM=alacritty
 export XDG_CONFIG_HOME=$HOME/.config/
-
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
 
@@ -26,13 +25,13 @@ export GOPRIVATE=git.systems.io/*
 # Mac stuff
 if [[ $(uname) = "Darwin" ]];
 then
-    export PATH=/opt/homebrew/bin:$PATH
-    export PATH=~/Applications:$PATH
-    export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
+  export PATH=/opt/homebrew/bin:$PATH
+  export PATH=~/Applications:$PATH
+  export PATH="/opt/homebrew/opt/node@16/bin:$PATH" 
 
-    source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-    source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-    chruby ruby-3.1.2
+  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+  source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+  chruby ruby-3.1.2
 
   source "$HOME/.cargo/env"
 
@@ -52,7 +51,6 @@ then
     export GOROOT=/usr/lib/go
     export PATH=~/.bin:$PATH
 
-    export TERM="alacritty"
     export DISPLAY=:0
 
     # export WALL_PATH=~/Pictures/wallpapers
@@ -110,11 +108,7 @@ alias cfgc='git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit -m'
 alias cfgp='git --git-dir=$HOME/.cfg/ --work-tree=$HOME push'
 alias cfgs='git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
 
-# Git aliases
-alias g="git"
-alias gaa="git add --all"
-alias ga="git add "
-alias gc="git commit -m"
+# Git aliases alias g="git" alias gaa="git add --all" alias ga="git add " alias gc="git commit -m"
 alias gp="git push"
 alias gpl="git pull"
 alias gs="git status"
@@ -163,5 +157,3 @@ alias tin="tree -I 'node_modules'"
 
 # swapping vi for nvim
 alias vi="nvim"
-
-. "$HOME/.cargo/env"
