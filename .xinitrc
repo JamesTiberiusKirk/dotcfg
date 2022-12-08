@@ -18,7 +18,6 @@ xmodmap "$usermodmap"
 #[ $(hostname) != "dellstar" ] && ~/.scripts/system/nvidia-screen-tearing-fix.sh &
 dunst &
 blueman-applet &
-#xwallpaper --zoom ~/Pictures/wp1895637-vaporwave-wallpapers.png &
 ~/.scripts/system/wallpapers.sh &
 #~/.scripts/system/touchpad.sh &
 unclutter &
@@ -26,9 +25,10 @@ flameshot &
 setxkbmap gb &
 setxkbmap -layout gb &
 picom &
-# nitrogen --restore
 
-#exec dwm
+xinput set-prop 8 295 0 0  &
+xinput set-prop 8 292 -1 &
+
 exec i3
 
-# Footer
+
