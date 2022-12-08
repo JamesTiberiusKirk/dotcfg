@@ -116,6 +116,7 @@ alias gss="git submodule status"
 alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
+alias gc="git commit -m"
 # Open all modified git files in vim
 alias gvi="git ls-files --modified | xargs nvim"
 
