@@ -34,6 +34,7 @@ then
     source /opt/homebrew/opt/chruby/share/chruby/auto.sh
     chruby ruby-3.1.2
 
+  source "$HOME/.cargo/env"
 
   # Redbrain stuff
   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
@@ -163,3 +164,4 @@ alias tin="tree -I 'node_modules'"
 # swapping vi for nvim
 alias vi="nvim"
 
+. "$HOME/.cargo/env"
