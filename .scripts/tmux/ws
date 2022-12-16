@@ -9,9 +9,6 @@ if [[ $PROJECT == "new" ]]; then
     ENV=$2
     PROJECT_NAME=$3
 
-    echo $ENV
-    echo $PROJECT_NAME
-
     if [[ $ENV = "" || $PROJECT_NAME = "" ]]; then
       echo "no env or project name"
       exit 1
@@ -24,6 +21,7 @@ if [[ $PROJECT == "new" ]]; then
     
     case $ENV in
       go_docker)
+        echo Template:  $ENV
         SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
 
         mkdir $PROJECT_PATH
@@ -32,6 +30,8 @@ if [[ $PROJECT == "new" ]]; then
         cp -a -r $TMPL_DIR/go_docker/* ./ 
 
         sed -i $SED_STR  ./*
+
+        git init
         ;;
       *)
         echo "no such environment defined"
@@ -39,7 +39,6 @@ if [[ $PROJECT == "new" ]]; then
     esac
 
     PROJECT=$PROJECT_NAME
-    echo "WTF"
 fi 
 
 
@@ -47,9 +46,6 @@ SESSION=""
 [[ $PROJECT ]] && SESSION="$PROJECT"
 
 FLAGS="-d "
-
-echo project $PROJECT
-echo session $SESSION
 
 case $PROJECT in
   pg)
