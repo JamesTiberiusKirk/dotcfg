@@ -48,6 +48,7 @@ fi
 # Linux stuff
 if [[ $(uname) = "Linux" ]];
 then
+    export QT_QPA_PLATFORMTHEME=qt5ct
     export GOROOT=/usr/lib/go
     export PATH=~/.bin:$PATH
 
@@ -92,12 +93,12 @@ alias tx="tmux -u"
 
 # GO
 gocov() {
-    go test -coverprofile=.cover.out $@ &&
-        go tool cover -html=.cover.out -o coverage.html &&
-        xdg-open coverage.html &&
-        sleep 1 &&
-        rm .cover.out coverage.html;
-    }
+  go test -coverprofile=.cover.out $@ &&
+  go tool cover -html=.cover.out -o coverage.html &&
+  xdg-open coverage.html &&
+  sleep 1 &&
+  rm .cover.out coverage.html
+}
 
 
 # Git bare repo for the dotconfigs
@@ -117,6 +118,7 @@ alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
 alias gc="git commit -m"
+alias gcm="git checkout master"
 # Open all modified git files in vim
 alias gvi="git ls-files --modified | xargs nvim"
 

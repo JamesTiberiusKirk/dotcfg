@@ -45,3 +45,7 @@ vim.g.mapleader = " "
 
 vim.o.clipboard = "unnamedplus"
 
+
+vim.cmd [[
+ set spell
+]]

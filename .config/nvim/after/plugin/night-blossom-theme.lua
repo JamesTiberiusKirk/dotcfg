@@ -29,6 +29,10 @@ local Color9 = '#ffebf7'
 local Color1 = '#ffbab8'
 local Color13 = '#4d495b'
 
+-- Background color
+-- local Color8 = '#000106'
+-- local Color9 = '#000000'
+
 highlight('Keyword', nil, Color0, nil)
 highlight('String', nil, Color1, nil)
 highlight('Type', nil, Color2, nil)

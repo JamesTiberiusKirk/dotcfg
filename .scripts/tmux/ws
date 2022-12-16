@@ -1,35 +1,76 @@
 #!/bin/sh
 
-COMPREPLY="test word"
-
-SUB_PROJECT=$1
-SESSION=""
-[[ $SUB_PROJECT ]] && SESSION="$SUB_PROJECT"
+PROJECT=$1
 PARENT_DIR=~/Projects
+TMPL_DIR=~/Templates
+
+if [[ $PROJECT == "new" ]]; then
+
+    ENV=$2
+    PROJECT_NAME=$3
+
+    echo $ENV
+    echo $PROJECT_NAME
+
+    if [[ $ENV = "" || $PROJECT_NAME = "" ]]; then
+      echo "no env or project name"
+      exit 1
+    fi
+
+    PROJECT_PATH=$PARENT_DIR/$PROJECT_NAME
+
+    echo "creating new project"
+    echo $PROJECT_PATH
+    
+    case $ENV in
+      go_docker)
+        SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
+
+        mkdir $PROJECT_PATH
+        cd $PROJECT_PATH
+
+        cp -a -r $TMPL_DIR/go_docker/* ./ 
+
+        sed -i $SED_STR  ./*
+        ;;
+      *)
+        echo "no such environment defined"
+        ;;
+    esac
+
+    PROJECT=$PROJECT_NAME
+    echo "WTF"
+fi 
+
+
+SESSION=""
+[[ $PROJECT ]] && SESSION="$PROJECT"
+
 FLAGS="-d "
 
-case $SUB_PROJECT in
+echo project $PROJECT
+echo session $SESSION
+
+case $PROJECT in
   pg)
     echo "playground preset"
     SESSION="playground"
-    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
 
     tmux send-keys      -t $SESSION:1 "$EDITOR main.go" Enter 
     sleep 0.2
-    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$SUB_PROJECT 
+    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT 
     tmux send-keys      -t $SESSION:1 "go run ./main.go" Enter 
     ;;
-
   *)
     echo "default preset"
-    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT &&
+    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
 
     tmux send-keys      -t $SESSION:1 "$EDITOR" Enter 
     sleep 0.2
-    tmux send-keys      -t $SESSION:1 Space "p" 
-    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$SUB_PROJECT 
-    tmux split-window   -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$SUB_PROJECT
-
+    tmux send-keys      -t $SESSION:1 Space "t" 
+    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT 
+    tmux split-window   -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
     ;;
 esac
 
