@@ -5,7 +5,6 @@ PARENT_DIR=~/Projects
 TMPL_DIR=~/Templates
 
 if [[ $PROJECT == "new" ]]; then
-
     ENV=$2
     PROJECT_NAME=$3
 
@@ -23,14 +22,11 @@ if [[ $PROJECT == "new" ]]; then
       go_docker)
         echo Template:  $ENV
         SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
-
-        mkdir $PROJECT_PATH
+          mkdir $PROJECT_PATH
         cd $PROJECT_PATH
 
-        cp -a -r $TMPL_DIR/go_docker/* ./ 
-
-        sed -i $SED_STR  ./*
-
+        cp -a -R $TMPL_DIR/go_docker/* ./ 
+        sed -i '' $SED_STR ./*
         git init
         ;;
       *)
