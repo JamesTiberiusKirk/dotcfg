@@ -1,0 +1,16 @@
+{{ define "content" }}
+
+<h1>Login Page</h1>
+{{if .data.UrlError}}
+  <h1>ERROR</h1>
+  <h1>{{.data.UrlError}}</h1>
+{{end}}
+<form method="POST">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password">
+  <input type="submit">
+</form>
+
+{{end}}

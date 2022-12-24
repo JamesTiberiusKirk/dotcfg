@@ -1,5 +1,6 @@
 vim.cmd("let g:go_fmt_command = 'goimports'")
 vim.cmd("au BufRead,BufNewFile *.html set filetype=gohtmltmpl")
+vim.cmd("au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl")
 
 local nnoremap = require("jamestiberiuskirk.keymap").nnoremap
 nnoremap("gc","<cmd>GoCoverage<CR>")
