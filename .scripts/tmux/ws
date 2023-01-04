@@ -22,7 +22,7 @@ if [[ $PROJECT == "new" ]]; then
       go_docker)
         echo Template:  $ENV
         SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
-          mkdir $PROJECT_PATH
+        mkdir $PROJECT_PATH
         cd $PROJECT_PATH
 
         cp -a -R $TMPL_DIR/go_docker/* ./ 

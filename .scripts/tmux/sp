@@ -28,6 +28,13 @@ case $SUB_PROJECT in
     ;;
   *)
     echo "default preset"
+
+    if [[ ! -d $PARENT_DIR/$SUB_PROJECT ]]; then 
+      echo "Project does not exist"
+      exit 1
+    fi
+
+
     tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$SUB_PROJECT
 
     tmux send-keys      -t $SESSION:1 "$EDITOR" Enter 

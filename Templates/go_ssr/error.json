@@ -1,0 +1,15 @@
+{
+    "time": "2022-12-24T15:01:45.569784Z",
+    "id": "",
+    "remote_ip": "::1",
+    "host": "localhost:3000",
+    "method": "GET",
+    "uri": "/home",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+    "status": 500,
+    "error": "ViewEngine render read name:homepage, path:/Users/darthvader/Projects/go_ssr/page/homepage.gohtml, error: open /Users/darthvader/Projects/go_ssr/page/homepage.gohtml: no such file or directory",
+    "latency": 504250,
+    "latency_human": "504.25\u00b5s",
+    "bytes_in": 0,
+    "bytes_out": 36
+}

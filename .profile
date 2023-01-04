@@ -18,7 +18,7 @@ export PATH=$HOME/.emacs.d/bin:$PATH
 # _CLI_ZSH_AUTOCOMPLETE_HACK=1
 # source  autocomplete/zsh_autocomplete
 
-source ~/.env
+# source ~/.env
 
 export GITLAB_HOST=git.systems.io
 export GOPRIVATE=git.systems.io/*

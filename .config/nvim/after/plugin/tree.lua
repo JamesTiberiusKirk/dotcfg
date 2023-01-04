@@ -6,7 +6,7 @@ require("nvim-tree").setup({
     number = true,
     adaptive_size = false,
     centralize_selection = false,
-    width = 50,
+    width = 30,
     mappings = {
       list = {
         { key = "?", cb = tree_cb("toggle_help") },
