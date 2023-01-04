@@ -1,5 +1,11 @@
-require('telescope').setup{
+require("telescope").setup{
   defaults = {
+    file_ignore_patterns = {
+      "node_modules",
+      ".git",
+      "vendor",
+      "db-data"
+    },
     mappings = {
       i = {
         ["<C-h>"] = "which_key"
@@ -19,7 +25,7 @@ require('telescope').setup{
         "-E",
         "db-data",
         "-E",
-        "*vendor*",
+        "vendor*",
         "-E",
         "vendor",
         "-E",
