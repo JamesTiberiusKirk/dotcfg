@@ -272,11 +272,11 @@ assign [class="Discord"] $ws10
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
 # Gapps setup
-gaps inner $gap_size
-gaps top $gap_size
-gaps left $gap_size
-gaps right $gap_size
-gaps bottom $gap_size
+# gaps inner $gap_size
+# gaps top $gap_size
+# gaps left $gap_size
+# gaps right $gap_size
+# gaps bottom $gap_size
 
 # Fullscreen mode
 bindsym $mod+shift+ctrl+f exec `~/.scripts/i3/fullscreen.sh $gap_size`

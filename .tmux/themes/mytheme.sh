@@ -52,14 +52,14 @@ fi
 
 if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		#"tmux_session_info 148 234" \
+		"tmux_session_info 148 234" \
 		#"hostname 33 0" \
 		#"ifstat 30 255" \
 		#"ifstat_sys 30 255" \
     #"lan_ip 24 255" \
     #"lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
     #"wan_ip 24 255" \
-		"pwd 89 211" \
+		# "pwd 89 211" \
 		"vcs_branch 0 80" \
     #"vcs_compare 60 255" \
     "vcs_staged 64 255" \

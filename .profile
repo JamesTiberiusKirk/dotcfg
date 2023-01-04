@@ -11,6 +11,7 @@ export PATH=$PATH:$GOROOT/bin
 export XDG_CONFIG_HOME=$HOME/.config/
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
+export PATH=$HOME/.emacs.d/bin:$PATH
 
 # Grpc client cli autocompletion
 # PROG=grpc-client-cli
