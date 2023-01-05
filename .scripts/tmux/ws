@@ -52,7 +52,7 @@ case $PROJECT in
     tmux send-keys      -t $SESSION:1 "$EDITOR main.go" Enter 
     sleep 0.2
     tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT 
-    tmux send-keys      -t $SESSION:1 "go run ./main.go" Enter 
+    tmux send-keys      -t $SESSION:1 "reflex -d none -sr '\.go$' -- go run ./main.go" Enter 
     ;;
   *)
     echo "default preset"
