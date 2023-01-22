@@ -74,5 +74,13 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim'
     }
   }
+
+  use 'godlygeek/tabular'
+
+  use {
+    'folke/todo-comments.nvim',
+    requires = "nvim-lua/plenary.nvim",
+  }
+
 end)
 

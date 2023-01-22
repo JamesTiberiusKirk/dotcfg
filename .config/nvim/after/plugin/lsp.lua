@@ -17,7 +17,7 @@ end
 -- TypeScript
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript",  "javascriptreact", "typescriptreact", "typescript.tsx" },
+  filetypes = { "javascript", "typescript",  "javascriptreact", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" }
 }
 require("nvim-lsp-installer").setup({

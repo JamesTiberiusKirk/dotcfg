@@ -1,0 +1,15 @@
+aic94xx-firmware
+appimage-installer
+brave-bin
+google-cloud-sdk
+google-cloud-sdk-gke-gcloud-auth-plugin
+kubectl-bin
+nerd-fonts-complete
+nerd-fonts-dejavu-complete
+nerd-fonts-go-mono
+ponymix
+ttf-nerd-fonts-hack-complete-git
+uswsusp-git
+wd719x-firmware
+xinput-gui
+yay

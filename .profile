@@ -13,6 +13,8 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 
 export PATH=$HOME/.emacs.d/bin:$PATH
 
+export PATH=$PATH:~/.cargo/bin/
+
 # Grpc client cli autocompletion
 # PROG=grpc-client-cli
 # _CLI_ZSH_AUTOCOMPLETE_HACK=1
