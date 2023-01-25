@@ -16,10 +16,13 @@ end
 
 -- TypeScript
 nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
+  -- on_attach = on_attach,
   filetypes = { "javascript", "typescript",  "javascriptreact", "typescriptreact", "typescript.tsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+  -- cmd = { "typescript-language-server", "--stdio" }
+  root_dir = function() return vim.loop.cwd() end  
+
 }
+
 require("nvim-lsp-installer").setup({
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
