@@ -49,14 +49,19 @@ return require('packer').startup(function(use)
 
   -- LSP
   use {
-    "williamboman/nvim-lsp-installer",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
+  -- use {
+  --   "williamboman/nvim-lsp-installer",
+  --   "neovim/nvim-lspconfig",
+  -- }
   use 'onsails/lspkind.nvim'
 
   use {
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+  "folke/lsp-trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
   }
 
   -- cmp

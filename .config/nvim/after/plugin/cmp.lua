@@ -21,7 +21,7 @@ cmp.setup({
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, 
+        { name = 'luasnip' },
       }, {
         { name = 'buffer' },
       }),
@@ -80,8 +80,5 @@ require('lspconfig')['html'].setup {
     capabilities = capabilities
 }
 require('lspconfig')['gopls'].setup {
-    capabilities = capabilities
-}
-require('lspconfig')['sumneko_lua'].setup {
     capabilities = capabilities
 }
