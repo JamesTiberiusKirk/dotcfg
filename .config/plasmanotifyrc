@@ -1,0 +1,16 @@
+[Applications][brave-browser]
+Seen=true
+
+[Applications][discord]
+Seen=true
+
+[Applications][org.telegram.desktop]
+Seen=true
+
+[DoNotDisturb]
+Until=2023,1,22,22,13,0.541
+
+[Notifications]
+LowPriorityHistory=true
+NormalAlwaysOnTop=true
+PopupTimeout=10000
