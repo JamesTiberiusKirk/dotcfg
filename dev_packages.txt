@@ -1,0 +1,15 @@
+github-cli
+google-cloud-sdk
+google-cloud-sdk-gke-gcloud-auth-plugin
+kubectl-bin
+code
+docker
+docker-compose
+nodejs
+npm
+httpie
+kubectx
+neovim
+tig
+go
+cargo
