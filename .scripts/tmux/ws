@@ -4,6 +4,16 @@ PROJECT=$1
 PARENT_DIR=~/Projects
 TMPL_DIR=~/Templates
 
+# Need to check for existing session with that same name
+tmux has-session -t $1 2>/dev/null
+if [ $? != 1 ]; then
+  echo "Attaching to existing session"
+  tmux attach-session -t $1
+  exit 0
+fi
+
+echo "Creating new session"
+
 if [[ $PROJECT == "new" ]]; then
     ENV=$2
     PROJECT_NAME=$3

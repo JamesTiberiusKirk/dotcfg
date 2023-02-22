@@ -5,17 +5,12 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-clientId1=101b017214913a000167438392400000179290004
-clientId2=101b017214913a000167438305300000007300009
-count=2
+clientId1=10133141e5d6000167655827000000007040004
+count=1
 program1=/usr/lib/DiscoverNotifier
-program2=firefox
-restartCommand1=/usr/lib/DiscoverNotifier,-session,101b017214913a000167438392400000179290004_1674387292_125241
-restartCommand2=/usr/lib/firefox/firefox,--sm-client-id,101b017214913a000167438305300000007300009
+restartCommand1=/usr/lib/DiscoverNotifier,-session,10133141e5d6000167655827000000007040004_1676632899_608969
 restartStyleHint1=0
-restartStyleHint2=0
 userId1=darthvader
-userId2=darthvader
 
 [SubSession: 15feaffb-67c0-40e7-ac96-49e7f4b8e23e]
 count=0

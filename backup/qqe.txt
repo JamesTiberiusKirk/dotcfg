@@ -58,13 +58,11 @@ make
 mpv
 nano
 neovim
-nerd-fonts-complete
 network-manager-applet
 networkmanager
 nextcloud-client
 nodejs
 npm
-nvidia-dkms
 pacman
 patch
 pgcli

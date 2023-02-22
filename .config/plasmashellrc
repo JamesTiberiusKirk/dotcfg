@@ -1,16 +1,7 @@
-[PlasmaTransientsConfig]
-PreloadWeight=10
-
 [PlasmaViews][Panel 2][Defaults]
 thickness=54
 
-[PlasmaViews][Panel 2][Horizontal2560]
-thickness=54
-
 [PlasmaViews][Panel 23][Defaults]
-thickness=32
-
-[PlasmaViews][Panel 23][Horizontal2560]
 thickness=32
 
 [PlasmaViews][Panel 46]
@@ -28,7 +19,6 @@ thickness=58
 maxLength=726
 minLength=726
 offset=0
-thickness=58
 
 [ScreenConnectors]
 0=DP-0
