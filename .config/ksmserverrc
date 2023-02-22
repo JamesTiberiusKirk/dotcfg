@@ -5,17 +5,28 @@ update_info=ksmserver_update_loginMode_value.upd:ksmserver_update_loginMode_valu
 count=0
 
 [Session: saved at previous logout]
-clientId1=101b017214913a000167438392400000179290004
-clientId2=101b017214913a000167438305300000007300009
-count=2
+clientId1=101b017214913a000167630465800000010840004
+clientId2=101b017214913a000167630465800000010840006
+clientId3=101b017214913a000167636419100000010840008
+clientId4=101b017214913a000167667386500000010840017
+count=4
+discardCommand4[$e]=rm,$HOME/.config//session/dolphin_101b017214913a000167667386500000010840017_1676989626_480943
 program1=/usr/lib/DiscoverNotifier
-program2=firefox
-restartCommand1=/usr/lib/DiscoverNotifier,-session,101b017214913a000167438392400000179290004_1674387292_125241
-restartCommand2=/usr/lib/firefox/firefox,--sm-client-id,101b017214913a000167438305300000007300009
+program2=/usr/bin/nextcloud
+program3=/usr/bin/flameshot
+program4=/usr/bin/dolphin
+restartCommand1=/usr/lib/DiscoverNotifier,-session,101b017214913a000167630465800000010840004_1676989626_481329
+restartCommand2=/usr/bin/nextcloud,-session,101b017214913a000167630465800000010840006_1676989626_480430
+restartCommand3=/usr/bin/flameshot,-session,101b017214913a000167636419100000010840008_1676989626_480310
+restartCommand4=/usr/bin/dolphin,-session,101b017214913a000167667386500000010840017_1676989626_480943
 restartStyleHint1=0
 restartStyleHint2=0
+restartStyleHint3=0
+restartStyleHint4=0
 userId1=darthvader
 userId2=darthvader
+userId3=darthvader
+userId4=darthvader
 
 [SubSession: 15feaffb-67c0-40e7-ac96-49e7f4b8e23e]
 count=0
