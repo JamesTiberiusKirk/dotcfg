@@ -169,7 +169,7 @@ immutability=1
 plugin=org.kde.plasma.systemmonitor
 
 [Containments][23][Applets][53][Configuration]
-PreloadWeight=82
+PreloadWeight=87
 
 [Containments][23][Applets][53][Configuration][Appearance]
 chartFace=org.kde.ksysguard.piechart
@@ -314,7 +314,7 @@ immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][29][Applets][42][Configuration]
-PreloadWeight=96
+PreloadWeight=100
 
 [Containments][29][Applets][43]
 immutability=1
