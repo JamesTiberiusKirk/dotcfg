@@ -14,3 +14,5 @@ vim.keymap.set(
   "<cmd>b#<bar>bd!#<CR>",
   { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
 )
+
+-- vim.api.nvim_del_keymap("n", "gc")
