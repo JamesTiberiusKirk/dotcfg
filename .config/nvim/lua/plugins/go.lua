@@ -9,8 +9,11 @@ return {
       -- vim.cmd("au BufRead,BufNewFile *.gohtml set filetype=html")
     end,
     keys = {
-      { "gcov", "<cmd>GoCoverage<cr>", desc = "Go Coverage" },
-      { "gC", "<cmd>GoCoverageClear<cr>", desc = "Go Coverage Clear" },
+      { "gtc", "<cmd>GoCoverage<cr>", desc = "Go Coverage" },
+      { "gtC", "<cmd>GoCoverageClear<cr>", desc = "Go Coverage Clear" },
+      { "gtt", "<cmd>GoTest<cr>", desc = "Go Test" },
+      { "gtf", "<cmd>GoTestFunc<cr>", desc = "Go Test Func" },
+      { "gtF", "<cmd>GoTestFile<cr>", desc = "Go Test File" },
     },
   },
 }
