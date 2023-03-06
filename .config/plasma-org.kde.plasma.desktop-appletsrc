@@ -278,9 +278,6 @@ PreloadWeight=100
 DialogHeight=540
 DialogWidth=720
 
-[Containments][29][Applets][35][Configuration][General]
-globalMute=true
-
 [Containments][29][Applets][36]
 immutability=1
 plugin=org.kde.plasma.manage-inputmethod
