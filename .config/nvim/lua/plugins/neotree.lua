@@ -34,12 +34,16 @@ return {
     end,
     opts = {
       filesystem = {
-        bind_to_cwd = false,
-        follow_current_file = true,
-      },
-      window = {
-        mappings = {
-          ["<space>"] = "none",
+        filtered_items = {
+          bind_to_cwd = false,
+          follow_current_file = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+        window = {
+          mappings = {
+            ["<space>"] = "none",
+          },
         },
       },
     },
