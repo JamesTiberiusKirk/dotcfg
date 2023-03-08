@@ -40,6 +40,15 @@ NightTemperature=3900
 [Script-desktopchangeosd]
 TextOnly=true
 
+[Tiling]
+padding=4
+
+[Tiling][94e2b0e4-0b96-52ee-9714-c52291825d8f]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][c0e67d00-fad4-53fa-97a8-aa7c4c04c8c0]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Xwayland]
 Scale=1
 
