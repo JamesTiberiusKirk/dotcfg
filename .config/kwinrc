@@ -37,6 +37,9 @@ LongitudeFixed=-1.35
 Mode=Location
 NightTemperature=3900
 
+[Plugins]
+virtual-desktops-only-on-primaryEnabled=true
+
 [Script-desktopchangeosd]
 TextOnly=true
 
@@ -47,6 +50,9 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][c0e67d00-fad4-53fa-97a8-aa7c4c04c8c0]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][d7a8a45f-d37c-5981-bc73-af82ddacce98]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Xwayland]
