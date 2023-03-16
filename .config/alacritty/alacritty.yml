@@ -16,7 +16,8 @@ font:
         style: Regular
 
 import: 
-  - ~/.config/alacritty/themes/ayu_dark.yaml
+  # - ~/.config/alacritty/themes/ayu_dark.yaml
+  - ~/.config/alacritty/themes/gruvbox_dark.yaml
 
 
 bell:
