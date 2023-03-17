@@ -30,12 +30,13 @@ SlideDocks=true
 
 [NightColor]
 Active=true
+EveningBeginFixed=1700
 LatitudeAuto=53.5621
 LatitudeFixed=52.21
 LongitudeAuto=-0.0808
 LongitudeFixed=-1.35
-Mode=Location
-NightTemperature=3900
+Mode=Times
+NightTemperature=3600
 
 [Plugins]
 virtual-desktops-only-on-primaryEnabled=true
