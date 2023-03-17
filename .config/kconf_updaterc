@@ -6,27 +6,47 @@ done=add-hamburgermenu-to-toolbar
 mtime=1677587267
 
 [breezehighcontrasttobreezedark.upd]
+<<<<<<< HEAD
 ctime=1679078019
+=======
+ctime=1679077923
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=BreezeHighContrastToBreezeDark
 mtime=1678807403
 
 [breezetobreezeclassic.upd]
+<<<<<<< HEAD
 ctime=1679078019
+=======
+ctime=1679077923
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=BreezeToBreezeClassic
 mtime=1678807403
 
 [breezetobreezelight.upd]
+<<<<<<< HEAD
 ctime=1679078019
+=======
+ctime=1679077923
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=BreezeToBreezeLight
 mtime=1678807403
 
 [delete_cursor_old_default_size.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=DeleteCursorOldDefaultSize
 mtime=1678808214
 
 [disable_kmix.upd]
+<<<<<<< HEAD
 ctime=1679078064
+=======
+ctime=1679077931
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=PlasmaVolume_DisableKMixAutostart
 mtime=1678810675
 
@@ -36,32 +56,56 @@ done=rename-leading-padding
 mtime=1677578429
 
 [filepicker.upd]
+<<<<<<< HEAD
 ctime=1679077998
+=======
+ctime=1679077922
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=filepicker-remove-old-previews-entry
 mtime=1677932130
 
 [fonts_akregator.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=Plasma_Fonts_Akregator
 mtime=1678954346
 
 [fonts_global.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=Fonts_Global
 mtime=1678954346
 
 [fonts_global_toolbar.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=Fonts_Global_Toolbar
 mtime=1678954346
 
 [fonts_kate.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=Plasma_Fonts_Kate
 mtime=1678954346
 
 [gtkconfig.upd]
+<<<<<<< HEAD
 ctime=1679078042
+=======
+ctime=1679077926
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=gtk_theme,dont_use_gtk_css_for_window_decorations,remove_deprecated_gtk4_option
 mtime=1678809827
 
@@ -71,7 +115,11 @@ done=SideBar_StatusBar_Rename,ImageView_AlphaBackgroundMode_Update,DeleteThumbna
 mtime=1677582004
 
 [icons_remove_effects.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=IconsRemoveEffects
 mtime=1678808214
 
@@ -81,17 +129,29 @@ done=migrate_kate_sessions_applet_to_kdeplasma-addons
 mtime=1677587367
 
 [kcm_rename_plasma_desktop.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=5.24PlasmaDesktopKCMRename
 mtime=1678810253
 
 [kcminputrc_fix_botched_5_21_0.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=kcminputrc_fix_botched_5_21_0_pre,kcminputrc_fix_botched_5_21_0
 mtime=1678810253
 
 [kcminputrc_repeat.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=kcminputrc_migrate_key_repeat
 mtime=1678810253
 
@@ -101,42 +161,74 @@ done=konsole_globalaccel
 mtime=1677587889
 
 [krunnerglobalshortcuts2.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=5.22KRunnerGlobalShortcuts
 mtime=1678808214
 
 [krunnerhistory.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=5.21KRunnerHistory
 mtime=1678808214
 
 [kscreenlocker.upd]
+<<<<<<< HEAD
 ctime=1679078030
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=0.1-autolock
 mtime=1678807259
 
 [ksmserver_update_loginMode_value.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=ksmserver_update_loginMode_value_default_enum
 mtime=1678810253
 
 [kwin.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=replace-scalein-with-scale,port-minimizeanimation-effect-to-js,port-scale-effect-to-js,port-dimscreen-effect-to-js,auto-bordersize,animation-speed,desktop-grid-click-behavior,no-swap-encourage,make-translucency-effect-disabled-by-default,remove-flip-switch-effect,remove-cover-switch-effect,remove-cubeslide-effect,remove-xrender-backend,enable-scale-effect-by-default,overview-group-plugin-id,animation-speed-cleanup,replace-cascaded-zerocornered
 mtime=1678807480
 
 [kwinrules.upd]
+<<<<<<< HEAD
 ctime=1679078031
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=replace-placement-string-to-enum,use-virtual-desktop-ids
 mtime=1678807480
 
 [kxkb.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=remove-empty-lists,add-back-resetoptions
 mtime=1678810253
 
 [kxkb_variants.upd]
+<<<<<<< HEAD
 ctime=1679078062
+=======
+ctime=1679077930
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=split-variants
 mtime=1678810253
 
@@ -146,11 +238,19 @@ done=annotation-toolbar,builtin-annotations
 mtime=1677582313
 
 [plasmashell-5.27-use-panel-thickness-in-default-group.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=plasmashell-5.27-use-panel-thickness-in-default-group
 mtime=1678808214
 
 [style_widgetstyle_default_breeze.upd]
+<<<<<<< HEAD
 ctime=1679078032
+=======
+ctime=1679077927
+>>>>>>> de1fc593b7492b92000a99af9a6a616a63e6b345
 done=StyleWidgetStyleDefaultBreeze
 mtime=1678808214
