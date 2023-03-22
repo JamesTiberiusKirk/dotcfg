@@ -46,5 +46,6 @@ key_bindings:
   - { key: 0,           mods: Control|Shift,                    action: ResetFontSize    }
   - { key: Equals,      mods: Control|Shift,                    action: IncreaseFontSize }
   - { key: Minus,       mods: Control|Shift,                    action: DecreaseFontSize }
+  - { key: 3,           mods: Alt,                              chars: "\x35"}
 
 
