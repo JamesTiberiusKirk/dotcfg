@@ -13,6 +13,7 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 export PATH=$PATH:$HOME/.emacs.d/doom/bin
 
 export PATH=$PATH:~/.cargo/bin/
+export GOPRIVATE=github.com/aviva-verde
 
 # Grpc client cli autocompletion
 # PROG=grpc-client-cli
@@ -20,9 +21,6 @@ export PATH=$PATH:~/.cargo/bin/
 # source  autocomplete/zsh_autocomplete
 
 # source ~/.env
-
-export GITLAB_HOST=git.systems.io
-export GOPRIVATE=git.systems.io/*
 
 # Mac stuff
 if [[ $(uname) = "Darwin" ]]; then
