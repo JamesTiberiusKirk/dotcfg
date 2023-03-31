@@ -19,3 +19,45 @@ vim.keymap.set(
   "<cmd>b#<bar>bd!#<CR>",
   { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
 )
+
+vim.keymap.set(
+  "v",
+  "(",
+  "di()<Esc>hp",
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
+
+vim.keymap.set(
+  "v",
+  "[",
+  "di[]<Esc>hp",
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
+
+vim.keymap.set(
+  "v",
+  "{",
+  "di{}<Esc>hp",
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
+
+vim.keymap.set(
+  "v",
+  "'",
+  "di'''<Esc>hp",
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
+
+vim.keymap.set(
+  "v",
+  '"',
+  'di""""<Esc>hp',
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
+
+vim.keymap.set(
+  "v",
+  "`",
+  "di``<Esc>hp",
+  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
+)
