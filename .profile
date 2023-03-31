@@ -6,7 +6,7 @@ export GO111MODULE=on
 export GOPATH="$HOME/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
-# export TERM=alacritty
+export TERM=alacritty
 export XDG_CONFIG_HOME=$HOME/.config/
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
@@ -14,11 +14,6 @@ export PATH=$PATH:$HOME/.emacs.d/doom/bin
 
 export PATH=$PATH:~/.cargo/bin/
 export GOPRIVATE=github.com/aviva-verde
-
-# Grpc client cli autocompletion
-# PROG=grpc-client-cli
-# _CLI_ZSH_AUTOCOMPLETE_HACK=1
-# source  autocomplete/zsh_autocomplete
 
 # source ~/.env
 
@@ -75,6 +70,7 @@ alias cls="clear"
 alias ll="ls -al"
 alias lf="lfub"
 alias tx="tmux -u"
+alias txa="tmux -u a"
 
 # GO
 gocov() {

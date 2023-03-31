@@ -1,0 +1,40 @@
+#!/bin/sh
+
+PROJECT=$1
+PARENT_DIR=~/Aviva
+TMPL_DIR=~/Templates
+
+# Need to check for existing session with that same name
+tmux has-session -t $1 2>/dev/null
+if [ $? != 1 ]; then
+	echo "Attaching to existing session"
+	tmux attach-session -t $1
+	exit 0
+fi
+
+SESSION=""
+[[ $PROJECT ]] && SESSION="$PROJECT"
+
+FLAGS="-d "
+
+case $PROJECT in
+clone)
+	REPO=$(gh repo list aviva-verde -L 200 --json name -q '.[] | .name' | gum filter)
+	[[ -z $REPO ]] && echo "No repo selected" && exit
+	echo "Coning aviva-verde/$REPO"
+	gh repo clone aviva-verde/$REPO -- $PARENT_DIR/$REPO
+
+	$0 $REPO
+	;;
+*)
+	echo "default preset"
+	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
+		tmux send-keys -t $SESSION:1 "$EDITOR ." Enter
+	sleep 0.2
+	tmux send-keys -t $SESSION:1 Space "t"
+	tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
+	tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
+	;;
+esac
+
+[[ -z $TMUX ]] && tmux a -t $SESSION:1
