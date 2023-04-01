@@ -1,5 +1,4 @@
 
-alt_send_esc: true
 
 env:
   # TERM variable
@@ -9,14 +8,16 @@ env:
   # check the local terminfo database and use 'alacritty' if it is
   # available, otherwise 'xterm-256color' is used.
   TERM: xterm-256color
+
 font:
     normal:
         family: Iosevka Nerd Font
         style: Regular
 
 import: 
-  - ~/.config/alacritty/themes/ayu_dark.yaml
-  # - ~/.config/alacritty/themes/gruvbox_dark.yaml
+  # - ~/.config/alacritty/themes/ayu_dark.yaml
+  - ~/.config/alacritty/themes/gruvbox_dark.yaml
+
 
 bell:
   animation: EaseOutExpo
@@ -44,6 +45,6 @@ key_bindings:
   - { key: 0,           mods: Control|Shift,                    action: ResetFontSize    }
   - { key: Equals,      mods: Control|Shift,                    action: IncreaseFontSize }
   - { key: Minus,       mods: Control|Shift,                    action: DecreaseFontSize }
-  - { key: Key3,        mods: Alt,                              chars: "\x23"            }
+  - { key: 3,           mods: Alt,                              chars: "\x0c"}
 
 
