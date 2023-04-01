@@ -17,7 +17,7 @@ return {
         PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
-        WTF = { icon = " ", color = "warning" },
+        WTFJS = { icon = " ", color = "warning" },
       },
     },
   -- stylua: ignore
