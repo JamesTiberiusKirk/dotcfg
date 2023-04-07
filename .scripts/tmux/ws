@@ -7,46 +7,45 @@ TMPL_DIR=~/Templates
 # Need to check for existing session with that same name
 tmux has-session -t $1 2>/dev/null
 if [ $? != 1 ]; then
-  echo "Attaching to existing session"
-  tmux attach-session -t $1
-  exit 0
+	echo "Attaching to existing session"
+	tmux attach-session -t $1
+	exit 0
 fi
 
 echo "Creating new session"
 
 if [[ $PROJECT == "new" ]]; then
-    ENV=$2
-    PROJECT_NAME=$3
+	ENV=$2
+	PROJECT_NAME=$3
 
-    if [[ $ENV = "" || $PROJECT_NAME = "" ]]; then
-      echo "no env or project name"
-      exit 1
-    fi
+	if [[ $ENV = "" || $PROJECT_NAME = "" ]]; then
+		echo "no env or project name"
+		exit 1
+	fi
 
-    PROJECT_PATH=$PARENT_DIR/$PROJECT_NAME
+	PROJECT_PATH=$PARENT_DIR/$PROJECT_NAME
 
-    echo "creating new project"
-    echo $PROJECT_PATH
-    
-    case $ENV in
-      go_docker)
-        echo Template:  $ENV
-        SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
-        mkdir $PROJECT_PATH
-        cd $PROJECT_PATH
+	echo "creating new project"
+	echo $PROJECT_PATH
 
-        cp -a -R $TMPL_DIR/go_docker/* ./ 
-        sed -i '' $SED_STR ./*
-        git init
-        ;;
-      *)
-        echo "no such environment defined"
-        ;;
-    esac
+	case $ENV in
+	go_docker)
+		echo Template: $ENV
+		SED_STR='s/go_docker_template/'$PROJECT_NAME'/g'
+		mkdir $PROJECT_PATH
+		cd $PROJECT_PATH
 
-    PROJECT=$PROJECT_NAME
-fi 
+		cp -a -R $TMPL_DIR/go_docker/* ./
+		sed -i '' $SED_STR ./*
+		git init
+		;;
+	*)
+		echo "no such environment defined"
+		;;
+	esac
 
+	PROJECT=$PROJECT_NAME
+fi
 
 SESSION=""
 [[ $PROJECT ]] && SESSION="$PROJECT"
@@ -54,26 +53,29 @@ SESSION=""
 FLAGS="-d "
 
 case $PROJECT in
-  pg)
-    echo "playground preset"
-    SESSION="playground"
-    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
+pg)
+	echo "playground preset"
+	SESSION="playground"
+	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
+		tmux send-keys -t $SESSION:1 "$EDITOR main.go" Enter
+	sleep 0.2
+	tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
+	tmux send-keys -t $SESSION:1 "reflex -d none -sr '\.go$' -- go run ./main.go" Enter
+	;;
+*)
+	echo "default preset"
+	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
+		tmux send-keys -t $SESSION:1 "$EDITOR ." Enter
 
-    tmux send-keys      -t $SESSION:1 "$EDITOR main.go" Enter 
-    sleep 0.2
-    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT 
-    tmux send-keys      -t $SESSION:1 "reflex -d none -sr '\.go$' -- go run ./main.go" Enter 
-    ;;
-  *)
-    echo "default preset"
-    tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
-
-    tmux send-keys      -t $SESSION:1 "$EDITOR" Enter 
-    sleep 0.2
-    tmux send-keys      -t $SESSION:1 Space "t" 
-    tmux split-window   -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT 
-    tmux split-window   -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
-    ;;
+	if [[ $2 =~ ^[0-9]+$ ]]; then
+		sleep 0.2
+		echo $2 more panes
+		tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
+		for i in $(seq 2 $2); do
+			tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
+		done
+	fi
+	;;
 esac
 
 [[ -z $TMUX ]] && tmux a -t $SESSION:1

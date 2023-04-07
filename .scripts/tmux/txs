@@ -1,0 +1,5 @@
+#!/bin/sh
+
+SELECTION=$(tmux ls | gum filter | awk '{print $1}')
+[[ -z $SELECTION ]] && echo 'nothing seleected' && exit 0
+tmux attach-session -t $SELECTION

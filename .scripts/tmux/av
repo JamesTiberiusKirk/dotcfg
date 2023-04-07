@@ -5,17 +5,19 @@ PARENT_DIR=~/Aviva
 TMPL_DIR=~/Templates
 
 # Need to check for existing session with that same name
-tmux has-session -t $1 2>/dev/null
+tmux has-session -t av-$1 2>/dev/null
 if [ $? != 1 ]; then
 	echo "Attaching to existing session"
-	tmux attach-session -t $1
+	tmux attach-session -t av-$1
 	exit 0
 fi
 
-SESSION=""
-[[ $PROJECT ]] && SESSION="$PROJECT"
+SESSION="av"
+[[ $PROJECT ]] && SESSION="$SESSION-$PROJECT"
 
 FLAGS="-d "
+
+[[ -z $PROJECT ]] && tmux ls | grep av | gum filter | awk '{print $1}' | xargs -0 tmux attach-session -t {}
 
 case $PROJECT in
 clone)
@@ -30,10 +32,15 @@ clone)
 	echo "default preset"
 	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
 		tmux send-keys -t $SESSION:1 "$EDITOR ." Enter
-	sleep 0.2
-	tmux send-keys -t $SESSION:1 Space "t"
-	tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
-	tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
+
+	if [[ $2 =~ ^[0-9]+$ ]]; then
+		sleep 0.2
+		echo $2 more panes
+		tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
+		for i in $(seq 2 $2); do
+			tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
+		done
+	fi
 	;;
 esac
 
