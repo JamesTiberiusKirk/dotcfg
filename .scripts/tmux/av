@@ -30,6 +30,9 @@ clone)
 	;;
 *)
 	echo "default preset"
+	[[ -z $PROJECT ]] && PROJECT=$(ls ~/Aviva -d */ | cut -f1 -d'/' | gum filter)
+	[[ -z $PROJECT ]] && exit 1
+
 	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
 		tmux send-keys -t $SESSION:1 "$EDITOR ." Enter
 

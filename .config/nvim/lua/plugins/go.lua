@@ -1,5 +1,8 @@
 return {
   {
+    "joe-davidson1802/templ.vim",
+  },
+  {
     "fatih/vim-go",
     lazy = false,
     init = function()

@@ -10,7 +10,7 @@ export TERM=alacritty
 export XDG_CONFIG_HOME=$HOME/.config/
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-export PATH=$PATH:$HOME/.emacs.d/doom/bin
+export PATH=$PATH:$HOME/.emacs.d/bin
 
 export PATH=$PATH:~/.cargo/bin/
 export GOPRIVATE=github.com/aviva-verde
@@ -140,3 +140,5 @@ alias tin="tree -I 'node_modules'"
 
 # swapping vi for nvim
 alias vi="nvim"
+
+alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"

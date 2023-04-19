@@ -20,44 +20,9 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
 )
 
-vim.keymap.set(
-  "v",
-  "(",
-  "di()<Esc>hp",
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
-
-vim.keymap.set(
-  "v",
-  "[",
-  "di[]<Esc>hp",
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
-
-vim.keymap.set(
-  "v",
-  "{",
-  "di{}<Esc>hp",
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
-
-vim.keymap.set(
-  "v",
-  "'",
-  "di'''<Esc>hp",
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
-
-vim.keymap.set(
-  "v",
-  '"',
-  'di""""<Esc>hp',
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
-
-vim.keymap.set(
-  "v",
-  "`",
-  "di``<Esc>hp",
-  { noremap = true, silent = true, desc = "Force quit current buffer without closing pane" }
-)
+vim.keymap.set("v", "(", "di()<Esc>hp", { noremap = true, silent = true, desc = "Sorround with ()" })
+vim.keymap.set("v", "[", "di[]<Esc>hp", { noremap = true, silent = true, desc = "Sorround with ()" })
+vim.keymap.set("v", "{", "di{}<Esc>hp", { noremap = true, silent = true, desc = "Sorround with ()" })
+vim.keymap.set("v", "'", "di''<Esc>hp", { noremap = true, silent = true, desc = "Sorround with ()" })
+vim.keymap.set("v", '"', 'di""<Esc>hp', { noremap = true, silent = true, desc = "Sorround with ()" })
+vim.keymap.set("v", "`", "di``<Esc>hp", { noremap = true, silent = true, desc = "Sorround with ()" })
