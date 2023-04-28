@@ -29,3 +29,5 @@ DISABLE_AUTO_TITLE="true"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /Users/dumitruvulpeadmin/go/bin/xc xc
