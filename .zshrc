@@ -30,4 +30,4 @@ DISABLE_AUTO_TITLE="true"
 
 # source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /Users/dumitruvulpeadmin/go/bin/xc xc
+complete -o nospace -C $HOME/go/bin/xc xc

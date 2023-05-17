@@ -17,7 +17,6 @@ export GOPRIVATE=github.com/aviva-verde
 
 # source ~/.env
 
-# Mac stuff
 if [[ $(uname) = "Darwin" ]]; then
 	export PATH=/opt/homebrew/bin:$PATH
 	export PATH=~/Applications:$PATH
@@ -27,8 +26,6 @@ if [[ $(uname) = "Darwin" ]]; then
 	source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
 fi
-
-# Linux stuff
 if [[ $(uname) = "Linux" ]]; then
 	export QT_QPA_PLATFORMTHEME=qt5ct
 	export GOROOT=/usr/lib/go
@@ -101,6 +98,13 @@ alias gc="git commit -m"
 alias gcm="git checkout master"
 # Open all modified git files in vim
 alias gvi="git ls-files --modified | xargs nvim"
+
+# Squash all in the current branch
+gqb() {
+	current_branch=$(git branch --show-current)
+	commit=$(git merge-base main $current_branch)
+	git reset $commit
+}
 
 # Merging master to current
 gmm() {
