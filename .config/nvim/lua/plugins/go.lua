@@ -17,6 +17,10 @@ return {
       { "gtt", "<cmd>GoTest<cr>", desc = "Go Test" },
       { "gtf", "<cmd>GoTestFunc<cr>", desc = "Go Test Func" },
       { "gtF", "<cmd>GoTestFile<cr>", desc = "Go Test File" },
+      { "gat", "<cmd>GoAddTags<cr>", desc = "Add Go Tags (json)" },
+      { "sgd", "<cmd>split<cr><cmd>GoAddTags<cr>", desc = "Add Go Tags (json)" },
+      { "vgd", "<cmd>split<cr><cmd>GoAddTags<cr>", desc = "Add Go Tags (json)" },
+      -- { "gaT", "<cmd>GoAddTags  lua vim.ui.input('custom tag') <cr>", desc = "Add Go Tags (custom)" },
     },
   },
 }

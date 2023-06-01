@@ -73,5 +73,10 @@ return {
         },
       },
     },
+    keys = {
+      { "sgd", "<cmd>split<cr>gd<cr>", desc = "Goto definition in split" },
+      { "vgd", "<cmd>vsplit<cr>gd<cr>", desc = "Goto definition in vertical split" },
+      -- { "gaT", "<cmd>GoAddTags  lua vim.ui.input('custom tag') <cr>", desc = "Add Go Tags (custom)" },
+    },
   },
 }

@@ -15,6 +15,8 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:~/.cargo/bin/
 export GOPRIVATE=github.com/aviva-verde
 
+source ~/.buffalo_autocompletion.sh
+
 # source ~/.env
 
 if [[ $(uname) = "Darwin" ]]; then

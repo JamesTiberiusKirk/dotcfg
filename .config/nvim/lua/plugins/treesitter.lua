@@ -1,4 +1,7 @@
 return {
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+  },
   -- add more treesitter parsers
   {
     "nvim-treesitter/nvim-treesitter",
