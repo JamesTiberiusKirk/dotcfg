@@ -71,15 +71,6 @@ alias lf="lfub"
 alias tx="tmux -u"
 alias txa="tmux -u a"
 
-# GO
-gocov() {
-	go test -coverprofile=.cover.out $@ &&
-		go tool cover -html=.cover.out -o coverage.html &&
-		xdg-open coverage.html &&
-		sleep 1 &&
-		rm .cover.out coverage.html
-}
-
 # Git bare repo for the dotconfigs
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias cfgau='git --git-dir=$HOME/.cfg/ --work-tree=$HOME add -u'
@@ -97,24 +88,35 @@ alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
 alias gc="git commit -m"
-alias gcm="git checkout master"
 # Open all modified git files in vim
 alias gvi="git ls-files --modified | xargs nvim"
 
+# checkout to the current master branch
+gcustom() {
+	git checkout $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')
+}
+
 # Squash all in the current branch
 gqb() {
+	commit_msg=$1
+	master_branch=$(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')
 	current_branch=$(git branch --show-current)
-	commit=$(git merge-base main $current_branch)
+	commit=$(git merge-base $master_branch $current_branch)
 	git reset $commit
+	git add --all
+
+	[[ -z $1 ]] && echo "All done, create a commit and push with --force now" && kill -INT $$
+	git commit -m $commit_msg
+	git push --force
 }
 
 # Merging master to current
 gmm() {
 	ORIGINAL_BRANCH=$(git branch --show-current)
-	git checkout master
+	git checkout main
 	git pull
 	git checkout $ORIGINAL_BRANCH
-	git merge master
+	git merge main
 }
 
 # Stage all git files that can be grepped by a query

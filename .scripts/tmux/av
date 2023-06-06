@@ -5,7 +5,7 @@ PARENT_DIR=~/Aviva
 TMPL_DIR=~/Templates
 
 # Need to check for existing session with that same name
-tmux has-session -t av-$1 2>/dev/null
+tmux has-session -t av-$PROJECT 2>/dev/null
 if [ $? != 1 ]; then
 	echo "Attaching to existing session"
 	tmux attach-session -t av-$1
