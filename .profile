@@ -1,4 +1,5 @@
 # Universal stuff
+export GPG_TTY=$(tty)
 export PATH="$HOME/go/bin:$PATH"
 export EDITOR="nvim"
 
@@ -88,13 +89,9 @@ alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
 alias gc="git commit -m"
-# Open all modified git files in vim
+alias gcs="git commit -S -s -m"
+# Open all modified git fil -ses in vim
 alias gvi="git ls-files --modified | xargs nvim"
-
-# checkout to the current master branch
-gcustom() {
-	git checkout $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')
-}
 
 # Squash all in the current branch
 gqb() {
