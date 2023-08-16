@@ -7,11 +7,13 @@ return {
         update_interval = 1000,
         set_dark_mode = function()
           vim.api.nvim_set_option("background", "dark")
-          vim.cmd("colorscheme tokyonight-storm")
+          -- vim.cmd("colorscheme tokyonight-storm")
+          vim.cmd("colorscheme gruvbox")
         end,
         set_light_mode = function()
           vim.api.nvim_set_option("background", "light")
-          vim.cmd("colorscheme NeoSolarized")
+          -- vim.cmd("colorscheme NeoSolarized")
+          vim.cmd("colorscheme gruvbox")
         end,
       })
       auto_dark_mode.init()
