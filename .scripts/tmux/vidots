@@ -1,0 +1,41 @@
+#!/bin/sh
+
+PROJECT=dots
+PARENT_DIR=~/Projects
+TMPL_DIR=~/Templates
+
+WINDOW=1
+case $1 in
+h | home)
+	WINDOW=1
+	;;
+nvim | vi | v)
+	WINDOW=2
+	;;
+s | scripts)
+	WINDOW=3
+	;;
+w | wezterm)
+	WINDOW=4
+	;;
+*)
+	WINDOW=1
+	;;
+esac
+
+# Need to check for existing session with that same name
+tmux has-session -t $PROJECT 2>/dev/null
+if [ $? != 1 ]; then
+	echo "Attaching to existing session"
+	tmux attach-session -t $PROJECT:$WINDOW
+	exit 0
+fi
+
+echo "Creating new session"
+
+tmux new-session -d -s $PROJECT -n home -c ~/ &&
+	tmux new-window -t $PROJECT -n nvim -c ~/.config/nvim/ \; send-keys "$EDITOR ." Enter &&
+	tmux new-window -t $PROJECT -n scripts -c ~/.scripts/ \; send-keys "$EDITOR ." Enter &&
+	tmux new-window -t $PROJECT -n wezterm -c ~/.wezterm/ \; send-keys "$EDITOR ." Enter
+
+[[ -z $TMUX ]] && tmux a -t $PROIJECT:$WINDOW
