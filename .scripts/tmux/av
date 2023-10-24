@@ -4,6 +4,14 @@ PROJECT=$1
 PARENT_DIR=~/Aviva
 TMPL_DIR=~/Templates
 
+case $PROJECT in
+search | s)
+	echo "Searching aviva-verde githib org with: " ${@:2}
+	gh search code --owner aviva-verde ${@:2}
+    exit 0
+	;;
+esac
+
 # Need to check for existing session with that same name
 tmux has-session -t av-$PROJECT 2>/dev/null
 if [ $? != 1 ]; then
@@ -27,10 +35,6 @@ clone | c)
 	gh repo clone aviva-verde/$REPO -- $PARENT_DIR/$REPO
 
 	$0 $REPO
-	;;
-search | s)
-	echo "Searching aviva-verde githib org with: " ${@:2}
-	gh search code --owner aviva-verde ${@:2}
 	;;
 *)
 	echo "default preset"
