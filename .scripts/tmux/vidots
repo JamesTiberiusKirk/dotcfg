@@ -34,8 +34,9 @@ fi
 echo "Creating new session"
 
 tmux new-session -d -s $PROJECT -n home -c ~/ &&
-	tmux new-window -t $PROJECT -n nvim -c ~/.config/nvim/ \; send-keys "$EDITOR ." Enter &&
-	tmux new-window -t $PROJECT -n scripts -c ~/.scripts/ \; send-keys "$EDITOR ." Enter &&
-	tmux new-window -t $PROJECT -n wezterm -c ~/.wezterm/ \; send-keys "$EDITOR ." Enter
+	tmux new-window -t $PROJECT -n nvim -c ~/.config/nvim/ \; send-keys "$EDITOR" Enter &&
+	tmux new-window -t $PROJECT -n scripts -c ~/.scripts/ \; send-keys "$EDITOR" Enter &&
+	tmux new-window -t $PROJECT -n wezterm -c ~/.wezterm/ \; send-keys "$EDITOR" Enter &&
+	tmux new-window -t $PROJECT -n tmux -c ~/.tmux/ \; send-keys "$EDITOR" Enter
 
 [[ -z $TMUX ]] && tmux a -t $PROIJECT:$WINDOW

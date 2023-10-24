@@ -9,7 +9,7 @@ return {
         "shfmt",
         "flake8",
         "gopls",
-        "prisma-language-server",
+        "js-debug-adapter",
       },
     },
   },

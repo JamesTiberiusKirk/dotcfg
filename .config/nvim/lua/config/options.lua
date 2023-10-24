@@ -12,7 +12,7 @@ vim.cmd([[
 
 vim.cmd([[
   command ToggleRelative lua ToggleRelative()
-  " command ToggleTabWidth lua ToggleTabWidth()
+  command ToggleTabWidth lua ToggleTabWidth()
 ]])
 
 function ToggleRelative()
@@ -23,18 +23,34 @@ function ToggleRelative()
   end
 end
 
--- function ToggleTabWidth()
---   local current_tab_width = vim.api.nvim_buf_get_option(0, "tabstop")
---
---   if current_tab_width == 2 then
---     vim.api.nvim_buf_set_option(0, "tabstop", 4)
---     vim.api.nvim_buf_set_option(0, "shiftwidth", 4)
---     vim.api.nvim_command('echo "Tab width set to 4"')
---   elseif current_tab_width == 4 then
---     vim.api.nvim_buf_set_option(0, "tabstop", 2)
---     vim.api.nvim_buf_set_option(0, "shiftwidth", 2)
---     vim.api.nvim_command('echo "Tab width set to 2"')
---   else
---     vim.api.nvim_command('echoerr "Invalid tab width"')
---   end
--- end
+-- Disable autoformat for lua files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "html" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
+-- Disable autoformat for lua files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lua" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
+function ToggleTabWidth()
+  local current_tab_width = vim.api.nvim_buf_get_option(0, "tabstop")
+
+  if current_tab_width == 2 then
+    vim.api.nvim_buf_set_option(0, "tabstop", 4)
+    vim.api.nvim_buf_set_option(0, "shiftwidth", 4)
+    vim.api.nvim_command('echo "Tab width set to 4"')
+  elseif current_tab_width == 4 then
+    vim.api.nvim_buf_set_option(0, "tabstop", 2)
+    vim.api.nvim_buf_set_option(0, "shiftwidth", 2)
+    vim.api.nvim_command('echo "Tab width set to 2"')
+  else
+    vim.api.nvim_command('echoerr "Invalid tab width"')
+  end
+end
