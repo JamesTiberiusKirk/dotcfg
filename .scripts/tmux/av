@@ -4,55 +4,55 @@ PROJECT=$1
 PARENT_DIR=~/Aviva
 TMPL_DIR=~/Templates
 
+# if  [ -z $PROJECT ]; then 
+#     PROJECT=$(gum file --directory --file=false | xargs -0 basename)
+#     exit
+# fi
+
 case $PROJECT in
 search | s)
 	echo "Searching aviva-verde githib org with: " ${@:2}
 	gh search code --owner aviva-verde ${@:2}
     exit 0
 	;;
+clone | c)
+	PROJECT=$(gh repo list aviva-verde -L 200 --json name -q '.[] | .name' | gum filter)
+	[[ -z $PROJECT ]] && echo "No repo selected" && exit
+	echo "Coning aviva-verde/$PROJECT"
+	gh repo clone aviva-verde/$PROJECT -- $PARENT_DIR/$PROJECT
+
+	$0 $PROJECT
+	;;
 esac
 
 # Need to check for existing session with that same name
-tmux has-session -t av-$PROJECT 2>/dev/null
+tmux has-session -t='av-$PROJECT' 2>/dev/null
 if [ $? != 1 ]; then
 	echo "Attaching to existing session"
 	tmux attach-session -t av-$1
 	exit 0
 fi
 
+
 SESSION="av"
 [[ $PROJECT ]] && SESSION="$SESSION-$PROJECT"
 
 FLAGS="-d "
 
-[[ -z $PROJECT ]] && tmux ls | grep av | gum filter | awk '{print $1}' | xargs -0 tmux attach-session -t {}
+echo "default preset"
+[[ -z $PROJECT ]] && PROJECT=$(ls ~/Aviva | cut -f1 -d'/' | gum filter)
+[[ -z $PROJECT ]] && exit 1
 
-case $PROJECT in
-clone | c)
-	REPO=$(gh repo list aviva-verde -L 200 --json name -q '.[] | .name' | gum filter)
-	[[ -z $REPO ]] && echo "No repo selected" && exit
-	echo "Coning aviva-verde/$REPO"
-	gh repo clone aviva-verde/$REPO -- $PARENT_DIR/$REPO
+tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
+    tmux send-keys -t $SESSION:1 "$EDITOR" Enter
 
-	$0 $REPO
-	;;
-*)
-	echo "default preset"
-	[[ -z $PROJECT ]] && PROJECT=$(ls ~/Aviva -d */ | cut -f1 -d'/' | gum filter)
-	[[ -z $PROJECT ]] && exit 1
-
-	tmux new-session $FLAGS -s $SESSION -c $PARENT_DIR/$PROJECT &&
-		tmux send-keys -t $SESSION:1 "$EDITOR" Enter
-
-	if [[ $2 =~ ^[0-9]+$ ]]; then
-		sleep 0.2
-		echo $2 more panes
-		tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
-		for i in $(seq 2 $2); do
-			tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
-		done
-	fi
-	;;
-esac
+if [[ $2 =~ ^[0-9]+$ ]]; then
+    sleep 0.2
+    echo $2 more panes
+    tmux split-window -t $SESSION:1 -h -p 30 -c $PARENT_DIR/$PROJECT
+    for i in $(seq 2 $2); do
+        tmux split-window -t $SESSION:1 -v -p 60 -c $PARENT_DIR/$PROJECT
+    done
+fi
 
 [[ -z $TMUX ]] && tmux a -t $SESSION:1

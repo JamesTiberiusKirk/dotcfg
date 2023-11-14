@@ -102,7 +102,7 @@ gqb() {
 	git reset $commit
 	git add --all
 
-	[[ -z $1 ]] && echo "All done, create a commit and push with --force now" && kill -INT $$
+	[[ -z $commit_msg ]] && echo "\n\n\n\nAll done, create a commit and push with --force now" && kill -INT $$
 	git commit -m $commit_msg
 	git push --force
 }
