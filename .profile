@@ -147,3 +147,19 @@ alias tin="tree -I 'node_modules'"
 alias vi="nvim"
 
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
+
+alias nvim-clean="NVIM_APPNAME=nvim-clean nvim"
+
+function nvims() {
+	items=("default" "nvim-clean")
+	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+	if [[ -z $config ]]; then
+		echo "Nothing selected"
+		return 0
+	elif [[ $config == "default" ]]; then
+		config=""
+	fi
+	NVIM_APPNAME=$config nvim $@
+}
+
+bindkey -s ^a "nvims\n"
