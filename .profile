@@ -141,10 +141,10 @@ gpnu() {
 #  Tree Ignore Node
 alias tin="tree -I 'node_modules'"
 
-# swapping vi for nvim
-alias vi="nvim"
-
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
+
+# swapping vi for nvim
+alias vi="NVIM_APPNAME=nvim-k nvim"
 
 alias nvim-clean="NVIM_APPNAME=nvim-clean nvim"
 alias nvim-k="NVIM_APPNAME=nvim-k nvim"
