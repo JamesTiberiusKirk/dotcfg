@@ -2,9 +2,31 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-context",
   },
+  {
+    "vrischmann/tree-sitter-templ",
+    init = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+      })
+    end,
+  },
   -- add more treesitter parsers
   {
+    dependencies = {
+      "vrischmann/tree-sitter-templ",
+    },
     "nvim-treesitter/nvim-treesitter",
+    init = function()
+      require("nvim-treesitter.configs").setup({
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+      })
+    end,
     opts = {
       ensure_installed = {
         "bash",
@@ -27,6 +49,7 @@ return {
         "gowork",
         "hcl",
         "http",
+        "templ",
       },
       highlight = {
         enable = true,
