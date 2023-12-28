@@ -36,8 +36,6 @@ vim.wo.relativenumber = true
 
 
 
-
-
 -- Usefull for debugging the lsp
 -- vim.cmd([[
 --   let g:go_debug=['lsp']

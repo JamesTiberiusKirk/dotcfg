@@ -1,7 +1,8 @@
 # Universal stuff
 export GPG_TTY=$(tty)
 export PATH="$HOME/go/bin:$PATH"
-export EDITOR="nvim"
+# SEE bottom of the file
+export EDITOR="NVIM_APPNAME=nvim-k nvim"
 
 export GO111MODULE=on
 export GOPATH="$HOME/go"

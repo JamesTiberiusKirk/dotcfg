@@ -43,6 +43,11 @@ vim.keymap.set("v", "`", "di``<Esc>hp", { noremap = true, silent = true, desc = 
 
 
 
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true, desc = "Indent" })
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true, desc = "De-Indent" })
+
+
+
 -- Clear highlighting
 vim.keymap.set("n", "<leader><ESC>", "<cmd>noh<cr>", { noremap = true, silent = true, desc = "Sorround with ()" })
 
