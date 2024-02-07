@@ -11,18 +11,18 @@ TMPL_DIR=~/Templates
 
 case $PROJECT in
 search | s)
-	echo "Searching aviva-verde githib org with: " ${@:2}
-	gh search code --owner aviva-verde ${@:2}
+    echo "Searching aviva-verde githib org with: " ${@:2}
+    gh search code --owner aviva-verde ${@:2}
     exit 0
-	;;
+    ;;
 clone | c)
-	PROJECT=$(gh repo list aviva-verde -L 200 --json name -q '.[] | .name' | gum filter)
-	[[ -z $PROJECT ]] && echo "No repo selected" && exit
-	echo "Coning aviva-verde/$PROJECT"
-	gh repo clone aviva-verde/$PROJECT -- $PARENT_DIR/$PROJECT
+    PROJECT=$(gh repo list aviva-verde -L 200 --json name -q '.[] | .name' | gum filter)
+    [[ -z $PROJECT ]] && echo "No repo selected" && exit
+    echo "Coning aviva-verde/$PROJECT"
+    gh repo clone aviva-verde/$PROJECT -- $PARENT_DIR/$PROJECT
 
-	$0 $PROJECT
-	;;
+    $0 $PROJECT
+    ;;
 esac
 
 # Need to check for existing session with that same name

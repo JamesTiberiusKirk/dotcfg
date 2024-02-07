@@ -23,6 +23,7 @@ if [[ $(uname) = "Darwin" ]]; then
 	export PATH=/opt/homebrew/bin:$PATH
 	export PATH=~/Applications:$PATH
 	export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+	export PATH="$HOME/.docker/bin:$PATH"
 
 	source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 	source /opt/homebrew/opt/chruby/share/chruby/auto.sh
@@ -88,7 +89,7 @@ alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
 alias gc="git commit -m"
-alias gcs="git commit -S -s -m"
+alias gcs="git commit --no-verify -S -s -m"
 # Open all modified git fil -ses in vim
 alias gvi="git ls-files --modified | xargs nvim"
 
@@ -135,7 +136,7 @@ gnb() {
 # For pushing upstream to a fresh branch
 gpnu() {
 	echo "Pushing to new branch upstream"
-	git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+	git push --no-verify  --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 # Tree alias to ignore node_modules
@@ -145,13 +146,15 @@ alias tin="tree -I 'node_modules'"
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
 
 # swapping vi for nvim
-alias vi="NVIM_APPNAME=nvim-k nvim"
+alias vi="NVIM_APPNAME=nvim nvim"
 
 alias nvim-clean="NVIM_APPNAME=nvim-clean nvim"
-alias nvim-k="NVIM_APPNAME=nvim-k nvim"
+alias nvim-k="NVIM_APPNAME=nvim nvim"
+alias nvim-l="NVIM_APPNAME=nvim-l nvim"
+alias nvim-test="NVIM_APPNAME=nvim-test nvim"
 
 function nvims() {
-	items=("default" "nvim-clean" "nvim-k")
+	items=("default" "nvim-clean" "nvim-k" "nvim-l" "nvim-test")
 	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
 	if [[ -z $config ]]; then
 		echo "Nothing selected"
