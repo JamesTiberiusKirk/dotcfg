@@ -1,3 +1,6 @@
+-- Disabling for now because kickstart comes with a builtin config for dap under kickstart/plugins/debug.lua
+return {}
+
 return {
   {
     "rcarriga/nvim-dap-ui",
