@@ -156,7 +156,7 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      -- vim.cmd.colorscheme 'onedark'
     end,
   },
 
@@ -167,7 +167,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        -- theme = 'onedark',
         component_separators = '|',
         section_separators = '',
       },
@@ -211,7 +211,7 @@ require('lazy').setup({
           highlight = highlight
         },
         exclude = {
-          -- filetypes = { "templ" }
+          filetypes = { "templ" }
         }
       }
 
@@ -234,6 +234,10 @@ require('lazy').setup({
 
   {
     "f-person/git-blame.nvim",
+    config = function ()
+      vim.g.gitblame_date_format = '%c'
+      vim.g.gitblame_message_template = '\t\t\t\t\t<summary> • <date> • <author>'
+    end,
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart

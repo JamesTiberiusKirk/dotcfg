@@ -1,5 +1,7 @@
 -- Disabling for now because kickstart comes with a builtin config for dap under kickstart/plugins/debug.lua
-return {}
+if true then
+  return {}
+end
 
 return {
   {
