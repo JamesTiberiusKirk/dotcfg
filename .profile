@@ -2,7 +2,7 @@
 export GPG_TTY=$(tty)
 export PATH="$HOME/go/bin:$PATH"
 # SEE bottom of the file
-export EDITOR="NVIM_APPNAME=nvim-k nvim"
+export EDITOR="nvim"
 
 export GO111MODULE=on
 export GOPATH="$HOME/go"

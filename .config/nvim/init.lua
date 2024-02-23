@@ -167,7 +167,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        -- theme = 'onedark',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -236,7 +236,7 @@ require('lazy').setup({
     "f-person/git-blame.nvim",
     config = function ()
       vim.g.gitblame_date_format = '%c'
-      vim.g.gitblame_message_template = '\t\t\t\t\t<summary> • <date> • <author>'
+      vim.g.gitblame_message_template = '\t\t<summary> • <date> • <author>'
     end,
   },
 
