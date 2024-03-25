@@ -35,6 +35,7 @@
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "spaceduck": { "branch": "main", "commit": "350491f19343b24fa85809242089caa02d4dadce" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
+  "telescope-live-grep-args.nvim": { "branch": "master", "commit": "731a046da7dd3adff9de871a42f9b7fb85f60f47" },
   "telescope.nvim": { "branch": "master", "commit": "a5b69afa484038f1c4793e979d023edb478ebc0c" },
   "todo-comments.nvim": { "branch": "main", "commit": "833d8dd8b07eeda37a09e99460f72a02616935cb" },
   "toggleterm.nvim": { "branch": "main", "commit": "193786e0371e3286d3bc9aa0079da1cd41beaa62" },

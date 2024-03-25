@@ -3,6 +3,7 @@ return {
   cmd = "Telescope",
   version = false, -- telescope did only one release, so use HEAD for now
   dependencies = {
+    {"nvim-telescope/telescope-live-grep-args.nvim"},
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
@@ -31,7 +32,14 @@ return {
     { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
     { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-    { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    -- { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
+    {
+      "<leader>sg",
+      function ()
+        require('telescope').extensions.live_grep_args.live_grep_args()
+      end,
+      desc = "Grep with rg params",
+    },
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Help Pages" },
     { "<leader>sH", "<cmd>Telescope highlights<cr>", desc = "Search Highlight Groups" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },

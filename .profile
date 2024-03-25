@@ -28,6 +28,11 @@ if [[ $(uname) = "Darwin" ]]; then
 	source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 	source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
+
+	kill_port (){
+		kill -9 $(lsof -ti:$1)
+	}
+
 fi
 if [[ $(uname) = "Linux" ]]; then
 	export QT_QPA_PLATFORMTHEME=qt5ct
@@ -81,7 +86,7 @@ alias cfgp='git --git-dir=$HOME/.cfg/ --work-tree=$HOME push'
 alias cfgs='git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
 
 # Git aliases alias g="git" alias gaa="git add --all" alias ga="git add " alias gc="git commit -m"
-alias gp="git push"
+alias gp="git push --no-verify"
 alias gpl="git pull"
 alias gs="git status"
 alias gss="git submodule status"
@@ -92,6 +97,7 @@ alias gc="git commit -m"
 alias gcs="git commit --no-verify -S -s -m"
 # Open all modified git fil -ses in vim
 alias gvi="git ls-files --modified | xargs nvim"
+alias lg="lazygit"
 
 # Squash all in the current branch
 gqb() {
