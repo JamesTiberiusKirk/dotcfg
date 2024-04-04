@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 
 require('custom.config.options')
 require('custom.config.keymaps')
+require('custom.config.commands')
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
