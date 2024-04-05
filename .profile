@@ -1,6 +1,7 @@
 # Universal stuff
 export GPG_TTY=$(tty)
 export PATH="$HOME/go/bin:$PATH"
+# SEE bottom of the file
 export EDITOR="nvim"
 
 export GO111MODULE=on
@@ -16,17 +17,21 @@ export PATH=$PATH:$HOME/.emacs.d/bin
 export PATH=$PATH:~/.cargo/bin/
 export GOPRIVATE=github.com/aviva-verde
 
-source ~/.buffalo_autocompletion.sh
-
 # source ~/.env
 
 if [[ $(uname) = "Darwin" ]]; then
 	export PATH=/opt/homebrew/bin:$PATH
 	export PATH=~/Applications:$PATH
 	export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+	export PATH="$HOME/.docker/bin:$PATH"
 
 	source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 	source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+
+
+	kill_port (){
+		kill -9 $(lsof -ti:$1)
+	}
 
 fi
 if [[ $(uname) = "Linux" ]]; then
@@ -81,7 +86,7 @@ alias cfgp='git --git-dir=$HOME/.cfg/ --work-tree=$HOME push'
 alias cfgs='git --git-dir=$HOME/.cfg/ --work-tree=$HOME status'
 
 # Git aliases alias g="git" alias gaa="git add --all" alias ga="git add " alias gc="git commit -m"
-alias gp="git push"
+alias gp="git push --no-verify"
 alias gpl="git pull"
 alias gs="git status"
 alias gss="git submodule status"
@@ -89,9 +94,10 @@ alias gsa="git submodule add"
 alias gd="git diff"
 alias gf="git fetch"
 alias gc="git commit -m"
-alias gcs="git commit -S -s -m"
+alias gcs="git commit --no-verify -S -s -m"
 # Open all modified git fil -ses in vim
 alias gvi="git ls-files --modified | xargs nvim"
+alias lg="lazygit"
 
 # Squash all in the current branch
 gqb() {
@@ -102,7 +108,7 @@ gqb() {
 	git reset $commit
 	git add --all
 
-	[[ -z $1 ]] && echo "All done, create a commit and push with --force now" && kill -INT $$
+	[[ -z $commit_msg ]] && echo "\n\n\n\nAll done, create a commit and push with --force now" && kill -INT $$
 	git commit -m $commit_msg
 	git push --force
 }
@@ -136,14 +142,33 @@ gnb() {
 # For pushing upstream to a fresh branch
 gpnu() {
 	echo "Pushing to new branch upstream"
-	git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
+	git push --no-verify  --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 # Tree alias to ignore node_modules
 #  Tree Ignore Node
 alias tin="tree -I 'node_modules'"
 
+alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
+
 # swapping vi for nvim
 alias vi="nvim"
 
-alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
+alias nvim-clean="NVIM_APPNAME=nvim-clean nvim"
+alias nvim-k="NVIM_APPNAME=nvim nvim"
+alias nvim-l="NVIM_APPNAME=nvim-l nvim"
+alias nvim-test="NVIM_APPNAME=nvim-test nvim"
+
+function nvims() {
+	items=("default" "nvim-clean" "nvim-k" "nvim-l" "nvim-test")
+	config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+	if [[ -z $config ]]; then
+		echo "Nothing selected"
+		return 0
+	elif [[ $config == "default" ]]; then
+		config=""
+	fi
+	NVIM_APPNAME=$config nvim $@
+}
+
+bindkey -s ^a "nvims\n"
