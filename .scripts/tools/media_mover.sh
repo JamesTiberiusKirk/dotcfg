@@ -1,26 +1,32 @@
-#!/bin/sh
+#!/bin/bash
+# For the server
 
-DL_FOLDER=$1
-MEDIA=$2
+DL_FOLDER=/mnt/18tb/downloads/complete
+MEDIA=/mnt/18tb/Media
 
-# ANIME=/Anime
-# ANIME_SHOWS=/Anime_Shows
-# CARTOONS=/Cartoons
-# MOVIES=/Movies
-# MUSIC=/Music
-# TV=/tv_shows
+ANIME=/Anime
+ANIME_SHOWS=/Anime_Shows
+CARTOONS=/Cartoons
+MOVIES=/Movies
+MUSIC=/Music
+TV=/tv_shows
 
-cd $DL_FOLDER
-FILES=$(ls -Q . | gum choose --height=50 --no-limit)
-SORTE=$(echo "$FILES" | sed "s/ *\(.*\) *$/'\1'/")
-echo "$SORTE"
-# TYPE=$(gum choose $ANIME $ANIME_SHOWS $CARTOONS $MOVIES $MUSIC $TV)
+cd "$DL_FOLDER"
+ESCAPED_FILES=$(ls --quoting-style=escape .)
+SELECTED_FILES=$(gum choose --height=50 --no-limit <<<"$ESCAPED_FILES")
+TYPE=$(gum choose "$ANIME" "$ANIME_SHOWS" "$CARTOONS" "$MOVIES" "$MUSIC" "$TV")
+DEST_DIR="$MEDIA$TYPE/"
 
-echo "$MEDIA/" $FILES
-# mv $FILES "$MEDIA/"
-
-FILES=""
-for file in *; do
-    FILES="$FILES '${file//\'/\'}'"
+# Loop through each selected file/folder and move it to the chosen directory
+IFS=$'\n'
+for ESCAPED_FILE in $SELECTED_FILES; do
+    FILE="${ESCAPED_FILE//\\/}"  # Remove extra backslashes
+    FILE="$DL_FOLDER/$FILE"
+    if [ -d "$FILE" ]; then
+        echo "Moving directory $FILE to $DEST_DIR"
+        mv "$FILE" "$DEST_DIR"
+    else
+        echo "Moving file $FILE to $DEST_DIR"
+        mv "$FILE" "$DEST_DIR"
+    fi
 done
-FILES=$(echo "$FILES" | gum choose --height=50 --no-limit)
