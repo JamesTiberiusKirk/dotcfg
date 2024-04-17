@@ -186,43 +186,28 @@ function remove_lines()
     local current_line = vim.fn.line(".")
     table.insert(line_numbers, current_line)
   else
-    -- Visual mode, remove selected lines
-    local start_line = vim.fn.getpos("'<")[2]
-    local end_line = vim.fn.getpos("'>")[2]
-
     local cursor = vim.api.nvim_win_get_cursor(0)
     local cline, ccol = cursor[1], cursor[2]
     local vline, vcol = vim.fn.line('v'), vim.fn.col('v')
 
-    local sline, scol
-    local eline, ecol
+    local sline
+    local eline
     if cline == vline then
       if ccol <= vcol then
-        sline, scol = cline, ccol
-        eline, ecol = vline, vcol
-        scol = scol + 1
+        sline = cline
+        eline = vline
       else
-        sline, scol = vline, vcol
-        eline, ecol = cline, ccol
-        ecol = ecol + 1
+        sline = vline
+        eline = cline
       end
     elseif cline < vline then
-      sline, scol = cline, ccol
-      eline, ecol = vline, vcol
-      scol = scol + 1
+      sline = cline
+      eline = vline
     else
-      sline, scol = vline, vcol
-      eline, ecol = cline, ccol
-      ecol = ecol + 1
+      sline = vline
+      eline = cline
     end
 
-    if mode == "V" or mode == "CTRL-V" or mode == "\22" then
-      scol = 1
-      ecol = nil
-    end
-
-    print(sline, eline)
-    -- Handle cases where end line is before start line
     local min_line = math.min(sline, eline)
     local max_line = math.max(sline, eline)
     for line = min_line, max_line do
