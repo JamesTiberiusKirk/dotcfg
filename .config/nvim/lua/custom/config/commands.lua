@@ -157,31 +157,82 @@ local function delete_from_qf_list(line_numbers)
   vim.api.nvim_win_set_cursor(currentWindow, {current_line, 0})
 end
 
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
 -- Function to remove the current line or selected lines
 function remove_lines()
-  local mode = vim.fn.mode()
+  -- Check if visual selection is active
+  -- local is_visual = vim.fn.getpos("'<") ~= vim.fn.getpos("'>")
+  -- print(dump(vim.fn.getpos("'<")), dump( vim.fn.getpos("'>")))
+
+  local mode = vim.api.nvim_get_mode()
+  -- print(dump(mode))
+
   local line_numbers = {}
 
-  if mode == "n" then
+  if mode.mode == "n" then
     -- Normal mode, remove current line
     local current_line = vim.fn.line(".")
     table.insert(line_numbers, current_line)
-  elseif mode:sub(1, 1) == "v" then
+  else
     -- Visual mode, remove selected lines
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-    -- Print start and end line for debugging
-    print("Start line:", start_line)
-    print("End line:", end_line)
+    local start_line = vim.fn.getpos("'<")[2]
+    local end_line = vim.fn.getpos("'>")[2]
+
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local cline, ccol = cursor[1], cursor[2]
+    local vline, vcol = vim.fn.line('v'), vim.fn.col('v')
+
+    local sline, scol
+    local eline, ecol
+    if cline == vline then
+      if ccol <= vcol then
+        sline, scol = cline, ccol
+        eline, ecol = vline, vcol
+        scol = scol + 1
+      else
+        sline, scol = vline, vcol
+        eline, ecol = cline, ccol
+        ecol = ecol + 1
+      end
+    elseif cline < vline then
+      sline, scol = cline, ccol
+      eline, ecol = vline, vcol
+      scol = scol + 1
+    else
+      sline, scol = vline, vcol
+      eline, ecol = cline, ccol
+      ecol = ecol + 1
+    end
+
+    if mode == "V" or mode == "CTRL-V" or mode == "\22" then
+      scol = 1
+      ecol = nil
+    end
+
+    print(sline, eline)
     -- Handle cases where end line is before start line
-    local min_line = math.min(start_line, end_line)
-    local max_line = math.max(start_line, end_line)
+    local min_line = math.min(sline, eline)
+    local max_line = math.max(sline, eline)
     for line = min_line, max_line do
       table.insert(line_numbers, line)
     end
   end
 
   delete_from_qf_list(line_numbers)
+
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
 end
 
 -- Create an autogroup for the quickfix keymaps
@@ -200,7 +251,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
     vim.api.nvim_set_keymap('n', 'dd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
     -- vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
     -- NOTE: this is the only way i got it to work lol 
-    vim.api.nvim_set_keymap('v', 'd', ':<C-u>lua remove_lines()<CR>', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('v', 'd', ':<C-u>lua remove_lines()<CR>', { noremap = true, silent = true })
   end
 })
