@@ -126,3 +126,81 @@ function GoHeapYourself()
     copen
   ]]
 end
+
+
+-- Define a function to delete the line the cursor is on from the quickfix list
+local function delete_from_qf_list(line_numbers)
+  local quickfixList = vim.fn.getqflist()
+  local currentWindow = vim.api.nvim_get_current_win()
+  local current_line = vim.fn.line(".")
+
+  if #quickfixList > 0 then
+    -- Iterate over line numbers in reverse order to avoid skipping elements
+    for i = #quickfixList, 1, -1 do
+      for _, num in ipairs(line_numbers) do
+        if i == num then
+          -- Remove the line from the quickfix list
+          table.remove(quickfixList, i)
+          -- Adjust the current line if necessary
+          if current_line > i then
+            current_line = current_line - 1
+          end
+        end
+      end
+    end
+  end
+
+  -- Update the quickfix list
+  vim.fn.setqflist(quickfixList)
+
+  -- Set the cursor position to the updated current line
+  vim.api.nvim_win_set_cursor(currentWindow, {current_line, 0})
+end
+
+-- Function to remove the current line or selected lines
+function remove_lines()
+  local mode = vim.fn.mode()
+  local line_numbers = {}
+
+  if mode == "n" then
+    -- Normal mode, remove current line
+    local current_line = vim.fn.line(".")
+    table.insert(line_numbers, current_line)
+  elseif mode:sub(1, 1) == "v" then
+    -- Visual mode, remove selected lines
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+    -- Print start and end line for debugging
+    print("Start line:", start_line)
+    print("End line:", end_line)
+    -- Handle cases where end line is before start line
+    local min_line = math.min(start_line, end_line)
+    local max_line = math.max(start_line, end_line)
+    for line = min_line, max_line do
+      table.insert(line_numbers, line)
+    end
+  end
+
+  delete_from_qf_list(line_numbers)
+end
+
+-- Create an autogroup for the quickfix keymaps
+local qf_keymaps_group = vim.api.nvim_create_augroup("QfKeymaps", { clear = true })
+
+-- Add autocommands to the group
+vim.api.nvim_create_autocmd("FileType", {
+  group = qf_keymaps_group,
+  pattern = "qf",
+  callback = function()
+    -- vim.keymap.set("n", "dd", remove_lines, { buffer = true, desc = "Remove line from quickfix" })
+    -- vim.keymap.set("v", "d", remove_lines, { buffer = true, desc = "Remove line from quickfix" })
+
+    -- vim.keymap.nnoremap { 'dd', remove_lines, { silent = true, buffer = true, nowait = true } }
+    -- vim.keymap.vnoremap { 'd', remove_lines, { silent = true, buffer = true, nowait = true } }
+
+    vim.api.nvim_set_keymap('n', 'dd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
+    -- NOTE: this is the only way i got it to work lol 
+    vim.api.nvim_set_keymap('v', 'd', ':<C-u>lua remove_lines()<CR>', { noremap = true, silent = true })
+  end
+})
