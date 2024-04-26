@@ -45,9 +45,9 @@ return {
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Key Maps" },
     { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
     { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
-    { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
-    { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
-    { "<leader>uC", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme with preview" },
+    { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Telescope options" },
+    { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Telescope resume" },
+    { "<leader>uC", "<cmd>Telescope colorscheme<cr>", desc = "Telescope colorscheme with preview" },
     {
       "<leader>ss",
       function()
@@ -110,10 +110,10 @@ return {
             ["<a-t>"] = open_selected_with_trouble,
             ["<a-i>"] = find_files_no_ignore,
             ["<a-h>"] = find_files_with_hidden,
-            ["<C-Down>"] = actions.cycle_history_next,
-            ["<C-Up>"] = actions.cycle_history_prev,
             ["<C-f>"] = actions.preview_scrolling_down,
             ["<C-b>"] = actions.preview_scrolling_up,
+            ["<C-Down>"] = actions.cycle_history_next,
+            ["<C-Up>"] = actions.cycle_history_prev,
           },
           n = {
             ["q"] = actions.close,

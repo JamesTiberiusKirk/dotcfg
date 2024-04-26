@@ -51,5 +51,6 @@ vim.cmd([[
   set shiftwidth=4
   set expandtab
   set conceallevel=0
+  set spell
 ]])
 

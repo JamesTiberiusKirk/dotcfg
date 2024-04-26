@@ -220,24 +220,28 @@ function remove_lines()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", true)
 end
 
--- Create an autogroup for the quickfix keymaps
-local qf_keymaps_group = vim.api.nvim_create_augroup("QfKeymaps", { clear = true })
 
--- Add autocommands to the group
-vim.api.nvim_create_autocmd("FileType", {
-  group = qf_keymaps_group,
-  pattern = "qf",
-  callback = function()
-    -- vim.keymap.set("n", "dd", remove_lines, { buffer = true, desc = "Remove line from quickfix" })
-    -- vim.keymap.set("v", "d", remove_lines, { buffer = true, desc = "Remove line from quickfix" })
 
-    -- vim.keymap.nnoremap { 'dd', remove_lines, { silent = true, buffer = true, nowait = true } }
-    -- vim.keymap.vnoremap { 'd', remove_lines, { silent = true, buffer = true, nowait = true } }
+-- -- Create an autogroup for the quickfix keymaps
+-- local qf_keymaps_group = vim.api.nvim_create_augroup("QfKeymaps", { clear = true })
+--
+-- -- Add autocommands to the group
+-- vim.api.nvim_create_autocmd("BufEnter", {
+--   group = qf_keymaps_group,
+--   pattern = "*",
+--   callback = function()
+--     local bufnr = vim.fn.bufnr("%")
+--     if vim.fn.getbufvar(bufnr, "&buftype") == "quickfix" then
+--       vim.api.nvim_set_keymap('n', 'dd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
+--       vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
+--     end
+--   end
+-- })
 
-    vim.api.nvim_set_keymap('n', 'dd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
-    -- vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('v', 'd', '<cmd>lua remove_lines()<CR>', { noremap = true, silent = true })
-    -- NOTE: this is the only way i got it to work lol 
-    -- vim.api.nvim_set_keymap('v', 'd', ':<C-u>lua remove_lines()<CR>', { noremap = true, silent = true })
-  end
-})
+vim.cmd[[ 
+augroup QflKeys
+  autocmd!
+  autocmd FileType qf noremap <buffer> dd <cmd>lua remove_lines()<CR>
+  autocmd FileType qf xnoremap <buffer> d <cmd>lua remove_lines()<CR>
+augroup END
+]]

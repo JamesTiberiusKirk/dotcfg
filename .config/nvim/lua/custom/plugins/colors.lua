@@ -1,4 +1,3 @@
-
 return {
   {
     "f-person/auto-dark-mode.nvim",
@@ -11,11 +10,13 @@ return {
           -- vim.cmd("colorscheme tokyonight-storm")
           -- vim.cmd("colorscheme onedark")
           vim.cmd("colorscheme gruvbox")
+          -- vim.cmd("colorscheme evening")
         end,
         set_light_mode = function()
           vim.api.nvim_set_option("background", "light")
           -- vim.cmd("colorscheme NeoSolarized")
           vim.cmd("colorscheme gruvbox")
+          -- vim.cmd("colorscheme peachpuff")
         end,
       })
       auto_dark_mode.init()
