@@ -60,6 +60,12 @@ require('lazy').setup({
     -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = {
+      -- {
+      --     "zbirenbaum/copilot-cmp",
+      --     config = function()
+      --         require("copilot_cmp").setup()
+      --     end,
+      -- },
       -- Snippet Engine & its associated nvim-cmp source
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
@@ -725,6 +731,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    -- { name = "copilot", group_index = 2 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'buffer' },

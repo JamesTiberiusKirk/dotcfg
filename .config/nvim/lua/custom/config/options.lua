@@ -30,7 +30,7 @@ vim.wo.signcolumn = 'yes'
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+-- vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.wo.relativenumber = true
 
@@ -52,5 +52,8 @@ vim.cmd([[
   set expandtab
   set conceallevel=0
   set spell
+
+  autocmd FileType neoterm setlocal spell nospell
 ]])
+
 
