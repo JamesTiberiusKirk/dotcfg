@@ -151,8 +151,8 @@ gpnu() {
 alias tin="tree -I 'node_modules'"
 
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
-alias gh_prod_pr="gh pr create -B production --head staging"
-alias gh_staging_pr="gh pr create -B staging --head $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')"
+alias gh_prod_pr="gh pr create -B production --head staging -t 'staging -> production'"
+alias gh_staging_pr="gh pr create -B staging --head $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$') -t '$(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$') -> staging'"
 
 
 # swapping vi for nvim
