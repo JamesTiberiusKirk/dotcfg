@@ -116,10 +116,11 @@ gqb() {
 # Merging master to current
 gmm() {
 	ORIGINAL_BRANCH=$(git branch --show-current)
-	git checkout main
+	MASTER_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')
+	git checkout $MASTER_BRANCH
 	git pull
 	git checkout $ORIGINAL_BRANCH
-	git merge main
+	git merge $MASTER_BRANCH
 }
 
 # Stage all git files that can be grepped by a query
@@ -150,6 +151,9 @@ gpnu() {
 alias tin="tree -I 'node_modules'"
 
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
+alias gh_prod_pr="gh pr create -B production --head staging"
+alias gh_staging_pr="gh pr create -B staging --head $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')"
+
 
 # swapping vi for nvim
 alias vi="nvim"
