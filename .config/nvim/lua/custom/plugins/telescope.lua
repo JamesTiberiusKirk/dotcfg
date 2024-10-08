@@ -3,6 +3,12 @@ return {
   cmd = "Telescope",
   version = false, -- telescope did only one release, so use HEAD for now
   dependencies = {
+    {
+      "benfowler/telescope-luasnip.nvim",
+      config = function ()
+        require('telescope').load_extension('luasnip')
+      end
+    },
     {"nvim-telescope/telescope-live-grep-args.nvim"},
     {
       "nvim-telescope/telescope-fzf-native.nvim",
@@ -12,6 +18,16 @@ return {
         require("telescope").load_extension("fzf")
       end,
     },
+    {
+      "aaronhallaert/advanced-git-search.nvim",
+      cmd = { "AdvancedGitSearch" },
+      config = function()
+        require("telescope").load_extension "advanced_git_search"
+      end,
+    },
+    "tpope/vim-fugitive",
+    -- to open commits in browser with fugitive
+    "tpope/vim-rhubarb",
   },
   keys = {
     { "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History" },

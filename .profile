@@ -24,6 +24,7 @@ if [[ $(uname) = "Darwin" ]]; then
 	export PATH=~/Applications:$PATH
 	export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 	export PATH="$HOME/.docker/bin:$PATH"
+	export PATH="/opt/homebrew/opt/ffmpeg@4/bin/:$PATH"
 
 	source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 	source /opt/homebrew/opt/chruby/share/chruby/auto.sh
@@ -32,7 +33,6 @@ if [[ $(uname) = "Darwin" ]]; then
 	kill_port (){
 		kill -9 $(lsof -ti:$1)
 	}
-
 fi
 if [[ $(uname) = "Linux" ]]; then
 	export QT_QPA_PLATFORMTHEME=qt5ct
@@ -152,7 +152,12 @@ alias tin="tree -I 'node_modules'"
 
 alias ghpr_authors="gh pr view $1 --json commits --jq '.commits[].authors[].login ' | sort -u"
 alias gh_prod_pr="gh pr create -B production --head staging -t 'staging -> production'"
-alias gh_staging_pr="gh pr create -B staging --head $(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$') -t '$(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$') -> staging'"
+
+function gh_staging_pr {
+	HEAD=$(git symbolic-ref refs/remotes/origin/HEAD | grep -o '[^/]*$')
+	[ -z $HEAD ] && echo "No head found" && return 1
+	gh pr create -B staging --head $HEAD -t "${HEAD} -> staging"
+}
 
 
 # swapping vi for nvim

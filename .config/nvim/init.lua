@@ -46,6 +46,7 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      "davidosomething/format-ts-errors.nvim",
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -54,8 +55,48 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
-  },
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.tsserver.setup({
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function(
+            _,
+            result,
+            ctx,
+            config
+          )
+            if result.diagnostics == nil then
+              return
+            end
 
+            -- ignore some tsserver diagnostics
+            local idx = 1
+            while idx <= #result.diagnostics do
+              local entry = result.diagnostics[idx]
+
+              local formatter = require('format-ts-errors')[entry.code]
+              entry.message = formatter and formatter(entry.message) or entry.message
+
+              -- codes: https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+              if entry.code == 80001 then
+                -- { message = "File is a CommonJS module; it may be converted to an ES module.", }
+                table.remove(result.diagnostics, idx)
+              else
+                idx = idx + 1
+              end
+            end
+
+            vim.lsp.diagnostic.on_publish_diagnostics(
+              _,
+              result,
+              ctx,
+              config
+            )
+          end,
+        },
+      })
+    end,
+  },
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -507,6 +548,8 @@ local on_attach = function(_, bufnr)
   -- nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  --
+  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -560,7 +603,7 @@ local servers = {
   -- html = { filetypes = { 'html', 'twig', 'hbs', 'templ' }},
   -- htmx = { filetypes = {'html', 'templ' }},
   -- templ = { filetypes = { 'templ' }},
-  -- tsserver = {},
+  tsserver = {},
   -- tailwindcss = {
   --   filetypes = { "templ", "astro", "javascript", "typescript", "react", "js", "ts", "tsx", "jsx" },
   --   tailwindcss = {

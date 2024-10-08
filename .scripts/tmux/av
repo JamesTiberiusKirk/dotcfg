@@ -4,10 +4,9 @@ PROJECT=$1
 PARENT_DIR=~/Aviva
 TMPL_DIR=~/Templates
 
-# if  [ -z $PROJECT ]; then 
-#     PROJECT=$(gum file --directory --file=false | xargs -0 basename)
-#     exit
-# fi
+if [[ -z $PROJECT ]]; then
+    PROJECT=$(ls $PARENT_DIR | gum filter)
+fi
 
 case $PROJECT in
 search | s)
@@ -23,14 +22,17 @@ clone | c)
 
     $0 $PROJECT
     ;;
+list | l)
+    PROJECT=$(tmux list-sessions -F "#{session_name}" | grep "av-" | gum filter)
+    ;;
 esac
 
 # Need to check for existing session with that same name
 tmux has-session -t='av-$PROJECT' 2>/dev/null
 if [ $? != 1 ]; then
-	echo "Attaching to existing session"
-	tmux attach-session -t av-$1
-	exit 0
+    echo "Attaching to existing session"
+    tmux attach-session -t av-$1
+    exit 0
 fi
 
 

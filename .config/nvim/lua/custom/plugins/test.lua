@@ -13,7 +13,8 @@ return {
         ]])
     end,
     keys = {
-      { "<leader>t", "<cmd>TestNearest<cr>", desc = "Test nearest function" },
+      { "<leader>tl", "<cmd>Tclear <cr>", desc = "Clear terminal" },
+      { "<leader>t", "<cmd>TestNearest -v <cr>", desc = "Test nearest function" },
       -- {
       --   "<leader>t",
       --   function()
@@ -22,7 +23,7 @@ return {
       --   end,
       --   desc = "Test nearest function",
       -- },
-      { "<leader>T", "<cmd>TestFile<cr>", desc = "Test entire file" },
+      { "<leader>T", "<cmd>TestFile -v <cr>", desc = "Test entire file" },
       -- {
       --   "<leader>T",
       --   function()
