@@ -1,10 +1,11 @@
 vim.cmd([[
   command ToggleRelative lua ToggleRelative()
   command ToggleTabWidth lua ToggleTabWidth()
-  command GGL lua GenerateGithubLink()
+  " command GGL lua GenerateGithubLink()
   command GGLC lua GenerateGithubLinkCommit()
   command GoHeapYourself lua GoHeapYourself()
 ]])
+
 
 function ToggleRelative()
   if vim.wo.relativenumber then
@@ -67,6 +68,7 @@ function GenerateGithubLink()
 
 
 
+
   -- Construct the GitHub link
   local github_link = github_remote_url .. "/blob/" .. current_branch .. "/" .. file_name .. "#L" .. line_number
 
@@ -79,45 +81,82 @@ end
 
 
 
-function GenerateGithubLinkCommit()
+local function GenerateGithubLink()
+  -- Check if we're in a Git repository
+  if vim.fn.system("git rev-parse --is-inside-work-tree"):match("true") == nil then
+    vim.notify("Not in a Git repository", vim.log.levels.ERROR)
+    return
+  end
+
   -- Get the Git root directory
   local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-
-  -- Ensure the Git root directory ends with a slash
-  if not string.match(git_root, "/$") then
-    git_root = git_root .. "/"
-  end
+  git_root = git_root:gsub("/$", "") .. "/"
 
   -- Get the GitHub repository URL
   local github_remote_url = vim.fn.systemlist("git config --get remote.origin.url")[1]
+  if not github_remote_url then
+    vim.notify("No remote 'origin' found", vim.log.levels.ERROR)
+    return
+  end
 
-  -- Remove the ".git" extension from the URL
-  github_remote_url = string.gsub(github_remote_url, "%.git$", "")
+  -- Parse and format the GitHub URL
+  local repo_path = github_remote_url:match("github%.com[:/](.+)%.git$")
+  if not repo_path then
+    vim.notify("Invalid GitHub URL", vim.log.levels.ERROR)
+    return
+  end
+  github_remote_url = "https://github.com/" .. repo_path
 
-  -- Convert the Git URL to a GitHub URL
-  github_remote_url = string.gsub(github_remote_url, "git@github.com:", "https://github.com/")
-  github_remote_url = string.gsub(github_remote_url, "git://github.com/", "https://github.com/")
+  -- Get the current branch name
+  local current_branch = vim.fn.systemlist("git rev-parse --abbrev-ref HEAD")[1]
 
-  -- Get the file name of the currently open buffer
-  local file_name = vim.fn.expand("%")
+  -- Get the file name relative to the Git root
+  local file_name = vim.fn.expand("%:p"):gsub("^" .. vim.pesc(git_root), "")
 
-  -- Get the line number of the current cursor position
-  local line_number = vim.fn.line(".")
-
-
-  -- Get the commit ID of the currently viewed state
-  local commit_id = vim.fn.systemlist("git rev-parse HEAD")[1]
+  -- Get the line numbers
+  local start_line, end_line
+  local mode = vim.fn.mode()
+  if mode == 'n' then
+    -- Normal mode: use current line
+    start_line = vim.fn.line(".")
+    end_line = start_line
+  elseif mode == 'v' or mode == 'V' or mode == '\22' then
+    -- Visual mode: use selected lines
+    start_line = vim.fn.line("v")
+    end_line = vim.fn.line(".")
+    -- Ensure start_line is always the smaller number
+    if start_line > end_line then
+      start_line, end_line = end_line, start_line
+    end
+  else
+    vim.notify("Unsupported mode for GitHub link generation", vim.log.levels.ERROR)
+    return
+  end
 
   -- Construct the GitHub link
-  local github_link = github_remote_url .. "/blob/" .. commit_id .. "/" .. file_name .. "#L" .. line_number
+  local github_link
+  if start_line == end_line then
+    github_link = string.format("%s/blob/%s/%s#L%d", 
+      github_remote_url, current_branch, file_name, start_line)
+  else
+    github_link = string.format("%s/blob/%s/%s#L%d:L%d", 
+      github_remote_url, current_branch, file_name, start_line, end_line)
+  end
 
-  print("Yanking:\n", github_link)
+  -- Copy to clipboards and notify user
   vim.fn.setreg("+", github_link)
   vim.fn.setreg("*", github_link)
+  vim.notify("GitHub link copied to clipboard:\n" .. github_link, vim.log.levels.INFO)
 
   return github_link
 end
 
+vim.api.nvim_create_user_command('GGL', function(opts)
+  if opts.range ~= 0 then
+    vim.cmd('normal! gv')  -- Reselect the last visual selection
+  end
+  GenerateGithubLink()
+end, {range = true})
 
 function GoHeapYourself()
   print("Running \"go build -gcflags '-m -l' .\"")
