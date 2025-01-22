@@ -37,6 +37,13 @@ return {
     { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (root dir)" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
+    {
+        "<leader>fF",
+        function()
+            require("telescope.builtin").find_files({ hidden = true })
+        end,
+        desc = "Find hidden files"
+    },
     -- git
     { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "commits" },
     { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "status" },
@@ -48,7 +55,6 @@ return {
     { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
     { "<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Document diagnostics" },
     { "<leader>sD", "<cmd>Telescope diagnostics<cr>", desc = "Workspace diagnostics" },
-    -- { "<leader>sg", "<cmd>Telescope live_grep<cr>", desc = "Grep (root dir)" },
     {
       "<leader>sg",
       function ()

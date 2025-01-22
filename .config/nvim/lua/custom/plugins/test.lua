@@ -23,7 +23,7 @@ return {
       --   end,
       --   desc = "Test nearest function",
       -- },
-      { "<leader>T", "<cmd>TestFile -v <cr>", desc = "Test entire file" },
+      { "<leader>T", "<cmd>TestFile<cr>", desc = "Test entire file" },
       -- {
       --   "<leader>T",
       --   function()

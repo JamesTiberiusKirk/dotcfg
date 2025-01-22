@@ -181,3 +181,10 @@ function nvims() {
 }
 
 bindkey -s ^a "nvims\n"
+
+
+alias av="workspacer -W=av"
+alias ws="workspacer -W=ws"
+
+
+
